@@ -1,15 +1,29 @@
 import React from 'react';
 import Genres from './genres';
-import { CopyIcon } from '../../assets/elements/icons.jsx';
+import {InstagramIcon, WhatsAppIcon, VKIcon} from '../../assets/elements/icons';
 
+/**
+ * A content of home page. Contains Collage and Info.
+ * @component
+ */
 export default class Home extends React.Component {
-    Collage = () =>  (
+    /**
+     * Creates a Collage component. Collages consists of
+     * 2 images. Images in this element must take turns
+     * and create the illusion of a slide show.
+     * @component
+     */
+    Collage = () => (
         <div className="collage">
             <img className="collage__img" alt="" src=""/>
             <img className="collage__img" alt="" src=""/>
         </div>
     );
 
+    /**
+     * A part of Info element. Contains photographer's description.
+     * @component
+     */
     InfoMessage = () => (
         <div className="info__message">
             <h3 className="info__message_title">Обо мне</h3>
@@ -44,11 +58,16 @@ export default class Home extends React.Component {
         </div>
     );
 
+    /**
+     * A part of Info element. Contains photographer's avatar image,
+     * name, and contacts.
+     * @component
+     */
     InfoCard = () => (
         <div className="info__card" itemScope itemType="http://schema.org/Organization">
             <link itemProp="url" href="https://myinspire-ph.ru/"/>
             <div className="info__card_avatar">
-                <img itemProp="image" alt="Мельникова Татьяна" src="/assets/ava.png" />
+                <img itemProp="image" alt="Мельникова Татьяна" src="/assets/ava.png"/>
             </div>
             <div className="info__card_message">
                 <h2 itemProp="name" className="info__card_title">Мельникова Татьяна</h2>
@@ -56,13 +75,13 @@ export default class Home extends React.Component {
                 <p className="info__card_extra">Индивидуальные фотосессии и love-story.</p>
                 <div className="info__card_social">
                     <a itemProp="sameAs" href="https://www.instagram.com/myinspire_ph/" target="_blank">
-                        <CopyIcon height="38" width="38"/>
+                        <InstagramIcon height="38" width="38"/>
                     </a>
                     <a itemProp="sameAs" href="https://vk.com/inspiredbyspb/" target="_blank">
-                        <CopyIcon height="38" width="38"/>
+                        <VKIcon height="38" width="38"/>
                     </a>
                     <a itemProp="sameAs" href="https://wa.me/79995154217" target="_blank">
-                        <CopyIcon height="38" width="38"/>
+                        <WhatsAppIcon height="38" width="38"/>
                     </a>
                 </div>
             </div>

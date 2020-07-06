@@ -1,7 +1,8 @@
 const TerserPlugin = require('terser-webpack-plugin');
+const isDev = true;
 
 module.exports = {
-    mode: 'development',
+    mode: isDev ? 'development' : 'production',
     devtool: 'source-map',
     entry: {
         './home/script': './home/script.jsx',
@@ -29,10 +30,11 @@ module.exports = {
         ],
     },
     optimization: {
-        minimize: true,
+        minimize: !isDev,
         minimizer: [new TerserPlugin({
             test: /.js$/i,
             extractComments: false,
+            sourceMap: true,
             terserOptions: {
                 output: {
                     comments: false,

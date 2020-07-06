@@ -39,8 +39,6 @@
     }
 </script>
 
-<!--<script src="/assets/base.js"></script>-->
-
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153171785-1"></script>
 <script>
