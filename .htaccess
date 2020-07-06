@@ -1,0 +1,11 @@
+ErrorDocument 404 /404/
+
+RewriteEngine on
+
+# Getting rid of slashes
+RewriteCond    %{HTTP_HOST} !^. [NC]
+RewriteRule    ^(.+[^/])/$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Getting rid of index.php
+RewriteCond    %{THE_REQUEST} ^.*/index.php
+RewriteRule    ^(.*)$ / [R=301,L]

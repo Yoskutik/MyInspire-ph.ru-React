@@ -1,0 +1,72 @@
+@import '../../assets/base';
+
+.intro {
+  text-indent: 2em;
+  padding: 10px;
+  margin: 20px auto;
+  text-align: justify;
+  max-width: 75%;
+}
+
+
+.stylists {
+  margin: 20px auto;
+  max-width: 75%;
+
+  &__item {
+    display: flex;
+    padding: 10px 20px;
+    border-bottom: 1px solid $border_color;
+
+    &:first-child {
+      border-top: 1px solid $border_color;
+    }
+
+    &_column {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      font-size: 0.9rem;
+    }
+
+    &_title {
+      margin: 0 0 8px 0;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+
+    &_subtitle {
+      margin: 0 0 8px 0;
+      font-size: 0.8rem;
+      font-weight: normal;
+    }
+
+    &_price:after {
+      content: ' ₽';
+    }
+  }
+
+  &__caption {
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .intro {
+    margin: 20px;
+    max-width: initial;
+  }
+  .stylists {
+    margin: 20px;
+    max-width: initial;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .stylists__item {
+    flex-wrap: wrap;
+  }
+}

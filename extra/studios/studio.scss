@@ -1,0 +1,246 @@
+@import '../../assets/base';
+
+.filters {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+
+  &__cost-n-darkness {
+    display: flex;
+    margin-right: 20px;
+  }
+
+  &__cost {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid $border_color;
+    border-radius: 10px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    span {
+      display: block;
+      width: 10px;
+      height: 4px;
+      margin-bottom: 4px;
+      background: darken($border_color, 10%);
+      border-radius: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &.__asc {
+      span:first-child {
+        width: 5px;
+      }
+      span:last-child {
+        width: 15px;
+      }
+    }
+
+    &.__desc {
+      span:first-child {
+        width: 15px;
+      }
+      span:last-child {
+        width: 5px;
+      }
+    }
+
+    &.active {
+      background: lighten($border_color, 5%);
+    }
+
+    &:hover {
+      background: lighten($border_color, 10%);
+    }
+  }
+
+  &__filter {
+    display: flex;
+
+    span {
+      padding: 5px 10px;
+      cursor: pointer;
+      border: 1px solid $border_color;
+
+      &.active {
+        text-decoration: underline;
+        background: lighten($border_color, 5%);
+      }
+
+      &:hover {
+        background: lighten($border_color, 10%);
+      }
+
+      &:active {
+        background: $border_color;
+      }
+
+      &:first-child {
+        border-right: none;
+        border-radius: 10px 0 0 10px;
+      }
+
+      &:last-child {
+        border-left: none;
+        border-radius: 0 10px 10px 0;
+      }
+    }
+  }
+}
+
+.list__item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid $border_color;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &_title {
+    font-size: 1.5rem;
+    margin: 0 0 1.4rem;
+  }
+
+  &_extra {
+    display: flex;
+  }
+
+  &_images {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 2rem;
+  }
+
+  &_main-image {
+    width: 520px;
+    margin-right: 0.5rem;
+
+    &.single {
+      width: calc(620px + 0.5rem);
+      margin-right: 0;
+    }
+  }
+
+  &_extra-images {
+    font-size: 0;
+    width: 100px;
+  }
+
+  &_small-image {
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+    border: 2px solid #fff;
+    cursor: pointer;
+
+    &:hover, &.active {
+      border: 2px solid $border_color;
+      box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &_hall {
+    margin: 0 0 0.9rem;
+    font-size: 1.4rem;
+  }
+
+  &_price {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+
+    &:after {
+      content: " ₽";
+    }
+  }
+
+  &_description {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  &_contacts p {
+    margin: 0.3rem 0 0 0;
+  }
+}
+
+h2, h3 {
+  font-weight: normal;
+}
+
+a {
+  color: $main_color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .list__item {
+    &_title {
+      padding: 0 20px;
+    }
+
+    &_extra {
+      flex-wrap: wrap;
+    }
+
+    &_images {
+      margin: 0 auto 20px;
+    }
+
+    &_info {
+      width: calc(620px + 0.5rem);
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .body {
+    max-width: 100%;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+    padding: 0 20px;
+    margin-top: 1rem;
+
+    &__cost-n-darkness {
+      margin: 0 0 0.8rem 0;
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    &__cost {
+      margin-right: 0.8rem;
+    }
+  }
+
+  .list__item {
+    &_images, &_info {
+      margin: 0 20px;
+      width: 100%;
+    }
+
+    &_images {
+      margin-bottom: 20px;
+    }
+
+    &_main-image {
+      width: 81%;
+    }
+
+    &_extra-images {
+      width: 19%;
+    }
+  }
+}
