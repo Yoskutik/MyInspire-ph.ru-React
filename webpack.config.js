@@ -6,6 +6,8 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         './home/script': './home/script.jsx',
+        './prices/script': './prices/script.jsx',
+        './contacts/script': './contacts/script.jsx',
     },
     output: {
         path: __dirname,
@@ -43,6 +45,6 @@ module.exports = {
         })],
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.jsx', '.js'],
     }
 };

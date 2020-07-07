@@ -10,8 +10,10 @@ export default class Loader extends React.Component {
      * Hides loader by fading out.
      */
     static hideLoader = () => {
-        let loader = document.querySelector('.loader');
-        loader.style.opacity = '0';
+        setTimeout(() => {
+            let loader = document.querySelector('.loader');
+            loader.style.opacity = '0';
+        });
     };
 
     /**

@@ -10,7 +10,7 @@ import $ from 'jquery';
  */
 export default class Header extends React.Component {
     /**
-     * Creates a navigation link
+     * Creates navigation links
      * @param {{title: String, href: String}} props
      */
     HeaderLink = props => (

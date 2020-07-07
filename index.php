@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+<head itemscope itemtype="http://schema.org/WPHeader">
     <meta name="robots" content="all">
     <?php include 'assets/elements/head.php' ?>
     <title itemprop="headline">Фотограф в Санкт-Петербурге. Мельникова Татьяна.</title>

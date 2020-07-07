@@ -10,14 +10,10 @@
         времени">
     <meta itemprop="keywords" name="keywords" content="Фотограф Санкт-Петербург цены,
         Мельникова Татьяна цены, Фотограф СПб цены, Фотограф цены">
-    <link rel="stylesheet" href="/prices/prices.css">
-    <script src="/prices/prices.js"></script>
+    <link rel="stylesheet" href="/prices/styles/prices.css">
+    <script src="/prices/script.bundle.js"></script>
 </head>
 <body>
-<?php include('../assets/elements/header.php') ?>
-<div class="body">
-    <?php include 'prices.php' ?>
-</div>
-<?php include '../assets/elements/footer.php' ?>
+<div id="body"></div>
 </body>
 </html>
