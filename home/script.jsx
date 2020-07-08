@@ -40,9 +40,6 @@ $(window).ready(() => {
 });
 
 $(window).on('images-loaded', () => {
-    console.timeEnd('Loaded');
-    Loader.hideLoader();
-
     let currentImage = 0;
     let images = $('.collage__img');
 

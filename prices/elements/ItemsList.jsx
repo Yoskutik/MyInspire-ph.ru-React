@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import listItems from './listItems.json';
 
 export default class ItemsList extends React.Component {
     ListItem = props => {
@@ -51,28 +52,9 @@ export default class ItemsList extends React.Component {
     render() {
         return (
             <div className="list container" itemScope itemType="http://schema.org/ItemList" onClick={this.onListClick}>
-                <this.ListItem title="Экспресс-фотопрогулка" price="3000" description={[
-                    '35 минут съёмки',
-                    '20-25 фотографий в обработке ',
-                    'Помощь в создании образа для съёмки',
-                    'Предоставляю свою базу визажистов и локаций для съёмки',
-                ]}/>
-                <this.ListItem title="Стандарт фотопрогулка" price="5500" description={[
-                    '70 минут съёмки',
-                    '30-50 фотографий в обработке ',
-                    'Помощь в создании образа для съёмки',
-                    'Предоставляю свою базу визажистов и локаций для съёмки',
-                ]}/>
-                <this.ListItem title="Студийная съёмка" price="5000" description={[
-                    '55 минут съёмки',
-                    '30 фотографий в обработке ',
-                    'Помощь в создании образа для съёмки',
-                    'Предоставляю свою базу визажистов и локаций для съёмки',
-                ]} additional='Услуги визажиста и аренда студии в стоимость съёмки не входят и оплачиваются отдельно'/>
-                <this.ListItem title="Дополнительное время" price="" isExtra={true} description={[
-                    '30 минут - 1500 ₽ + 15 фото в обработке',
-                    '1 час - 2500 ₽ + 25 фото в обработке',
-                ]} additional='Дополнительное время не распространяется на экспресс-фотопрогулку.'/>
+                {listItems.map((item, i) =>
+                    <this.ListItem key={i} {...item}/>
+                )}
             </div>
         )
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import genres from './genres.json';
 
 /**
  * A section of home page which goes after Collage. Contains information
@@ -6,33 +7,6 @@ import React from 'react';
  * @component
  */
 export default class Genres extends React.Component {
-    constructor(props) {
-        super(props);
-        this.genresDescriptions = {
-            first: [
-                `съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да 
-                выпей чаю съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских 
-                булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю`,
-                `съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да 
-                выпей чаю съешь ещё этих мягких французских булок, да выпей чаю`,
-            ],
-            second: [
-                `съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да 
-                выпей чаю съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских 
-                булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю`,
-                `съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да 
-                выпей чаю съешь ещё этих мягких французских булок, да выпей чаю`,
-            ],
-            third: [
-                `съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да 
-                выпей чаю съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских 
-                булок, да выпей чаю съешь ещё этих мягких французских булок, да выпей чаю`,
-                `съешь ещё этих мягких французских булок, да выпей чаю съешь ещё этих мягких французских булок, да 
-                выпей чаю съешь ещё этих мягких французских булок, да выпей чаю`,
-            ],
-        };
-    }
-
     /**
      * Creates a sample of genres. Each sample must have an image and
      * a description.
@@ -48,7 +22,9 @@ export default class Genres extends React.Component {
                 <img alt="" src={props.imgSrc}/>
             </div>
             <div className="genres__container_info">
-                {props.parargaphs.map((p, i) => <p key={i}>{p}</p>)}
+                {props.parargaphs.map((p, i) =>
+                    <p key={i}>{p}</p>
+                )}
             </div>
         </div>
     );
@@ -56,9 +32,9 @@ export default class Genres extends React.Component {
     render() {
         return (
             <div className="genres">
-                <this.GenresContainer imgSrc="/home/photos/vertical/3.png" parargaphs={this.genresDescriptions.first}/>
-                <this.GenresContainer imgSrc="/home/photos/vertical/3.png" parargaphs={this.genresDescriptions.second}/>
-                <this.GenresContainer imgSrc="/home/photos/vertical/3.png" parargaphs={this.genresDescriptions.third}/>
+                {genres.map((genre, i) =>
+                    <this.GenresContainer key={i} {...genre}/>
+                )}
             </div>
         );
     }

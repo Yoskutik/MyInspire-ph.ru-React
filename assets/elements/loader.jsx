@@ -6,6 +6,12 @@ import React from 'react';
  * @component
  */
 export default class Loader extends React.Component {
+    constructor(props) {
+        super(props);
+        this.ref = React.createRef();
+    }
+
+
     /**
      * Hides loader by fading out.
      */
@@ -25,9 +31,16 @@ export default class Loader extends React.Component {
         document.querySelector('.loader').remove();
     };
 
+    componentDidMount() {
+        window.addEventListener('load', () => {
+            console.timeEnd('Loaded');
+            this.ref.current.style.opacity = '0';
+        });
+    }
+
     render() {
         return (
-            <div className="loader" onTransitionEnd={this.onTransitionEnd}>
+            <div className="loader" onTransitionEnd={this.onTransitionEnd} ref={this.ref}>
                 <div className="loader__spinner" role="status"/>
             </div>
         )

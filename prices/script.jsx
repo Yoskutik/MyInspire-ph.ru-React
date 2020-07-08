@@ -16,7 +16,4 @@ $(window).ready(() => {
         PAGE,
         $('#body')[0]
     );
-
-    console.timeEnd('Loaded');
-    Loader.hideLoader();
 });

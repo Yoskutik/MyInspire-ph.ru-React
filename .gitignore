@@ -2,3 +2,6 @@
 /api/linkCounter.json
 /awstats/
 /node_modules/
+
+*.bundle.js
+*.bundle.js.map

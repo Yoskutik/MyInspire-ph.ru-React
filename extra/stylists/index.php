@@ -4,13 +4,10 @@
     <meta name="robots" content="none">
     <?php include '../../assets/elements/head.php' ?>
     <title>Стилисты и визажисты</title>
-    <link rel="stylesheet" href="stylist.css">
+    <link rel="stylesheet" href="styles/stylist.css">
+    <script src="script.bundle.js"></script>
 </head>
 <body>
-<?php include('../../assets/elements/header.php') ?>
-<div class="body container">
-    <?php include 'stylists.php' ?>
-</div>
-<?php include '../../assets/elements/footer.php' ?>
+<div id="body"></div>
 </body>
 </html>

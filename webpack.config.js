@@ -8,6 +8,10 @@ module.exports = {
         './home/script': './home/script.jsx',
         './prices/script': './prices/script.jsx',
         './contacts/script': './contacts/script.jsx',
+        './extra/script': './extra/script.jsx',
+        './extra/locations/script': './extra/locations/script.jsx',
+        './extra/poses/script': './extra/poses/script.jsx',
+        './extra/stylists/script': './extra/stylists/script.jsx',
     },
     output: {
         path: __dirname,
