@@ -12,6 +12,7 @@ module.exports = {
         './extra/locations/script': './extra/locations/script.jsx',
         './extra/poses/script': './extra/poses/script.jsx',
         './extra/stylists/script': './extra/stylists/script.jsx',
+        './extra/studios/script': './extra/studios/script.jsx',
     },
     output: {
         path: __dirname,

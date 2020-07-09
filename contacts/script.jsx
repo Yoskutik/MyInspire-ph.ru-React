@@ -1,19 +1,14 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
-import Loader from "../assets/elements/loader";
 import Body from "../assets/elements/body";
 import Contacts from "./elements/contacts";
 
 $(window).ready(() => {
-    const PAGE = (
+    ReactDom.render(
         <Body>
             <Contacts/>
-        </Body>
-    );
-
-    ReactDom.render(
-        PAGE,
+        </Body>,
         $('#body')[0]
     );
 
@@ -23,7 +18,4 @@ $(window).ready(() => {
             $('.contacts__error-message').hide();
         }
     });
-
-    console.timeEnd('Loaded');
-    Loader.hideLoader();
 });

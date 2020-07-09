@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Body from "../../assets/elements/body";
-import Locations from "./elements/locations";
+import Studios from "./elements/studios";
 
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
         <Body>
-            <Locations/>
+            <Studios/>
         </Body>,
-        document.querySelector('#body')
-    );
+        document.querySelector("#body")
+    )
 });

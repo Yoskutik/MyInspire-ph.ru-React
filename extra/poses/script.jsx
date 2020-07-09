@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import Body from "../../assets/elements/body";
 
-$(window).ready(() => {
+document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
         <Body>
             <div className="body container">
                 <div className="pose">
-                    <img className="pose__img" src="0.jpg" alt="Позы для позирования стоя"/>
+                    <img className="pose__img" src="photos/0.jpg" alt="Позы для позирования стоя"/>
                     <h3 className="pose__title">Позирование стоя</h3>
                     <p className="pose__text">
                         Взаимодействуйте с окружением, не бойтесь опираться, трогать
@@ -18,7 +17,7 @@ $(window).ready(() => {
                     </p>
                 </div>
                 <div className="pose">
-                    <img className="pose__img" src="1.jpg" alt="Позы для позирования на стуле"/>
+                    <img className="pose__img" src="photos/1.jpg" alt="Позы для позирования на стуле"/>
                         <h3 className="pose__title">Позирование на стуле</h3>
                         <p className="pose__text">
                             Расслабьтесь (нам конечно могут понадобиться статичные позы, но
@@ -29,7 +28,7 @@ $(window).ready(() => {
                         </p>
                 </div>
                 <div className="pose">
-                    <img className="pose__img" src="2.jpg" alt="Позы для позирования на полу"/>
+                    <img className="pose__img" src="photos/2.jpg" alt="Позы для позирования на полу"/>
                         <h3 className="pose__title">Позирование на полу</h3>
                         <p className="pose__text">
                             Не бойтесь сгибать колени, хвататься за них руками, облокачивайтесь
@@ -37,7 +36,7 @@ $(window).ready(() => {
                         </p>
                 </div>
                 <div className="pose">
-                    <img className="pose__img" src="3.jpg" alt="Позы для портретного позирования"/>
+                    <img className="pose__img" src="photos/3.jpg" alt="Позы для портретного позирования"/>
                         <h3 className="pose__title">Портретное позирование</h3>
                         <p className="pose__text">
                             Не бойтесь взаимодействовать с руками и в одеждой. Давить улыбку
@@ -46,6 +45,6 @@ $(window).ready(() => {
                 </div>
             </div>
         </Body>,
-        $('#body')[0]
+        document.querySelector('#body')
     );
 });

@@ -1,0 +1,287 @@
+[
+  {
+    "studio": "Art-place Faktura",
+    "title": "Амстердам",
+    "href": "https://vk.com/market-133756115?w=product-133756115_1765584",
+    "prices": [1200],
+    "description": "Зал студия 80 м<sup>2</sup>, с декоративной кухней и действующим душем, а также красивый балкончик с красивым видом на Неву.",
+    "furniture": true,
+    "darkness": false,
+    "photos": [
+      "artplace_amst_0.jpg",
+      "artplace_amst_1.jpg",
+      "artplace_amst_2.jpg",
+      "artplace_amst_3.jpg"
+    ]
+  },
+  {
+    "studio": "Art-place Faktura",
+    "title": "Лифт/Мансарда",
+    "href": "https://vk.com/market-133756115?w=product-133756115_2791641_9f16ea70fe8bc0dd79",
+    "prices": [1300],
+    "description": "Большой интерьерный зал с кроватью и кирпичными стенами.",
+    "furniture": true,
+    "darkness": true,
+    "photos": [
+      "artplace_mans_0.jpg",
+      "artplace_mans_1.jpg"
+    ]
+  },
+  {
+    "studio": "Art-place Faktura",
+    "title": "Манхэттен",
+    "href": "https://vk.com/market-133756115?w=product-133756115_1692010",
+    "prices": [
+      1500,
+      1700
+    ],
+    "description": "120 метров пространства, спальня с камином, действующая кухня, зона спортзала.",
+    "furniture": true,
+    "darkness": true,
+    "photos": [
+      "artplace_manh_0.jpg",
+      "artplace_manh_1.jpg",
+      "artplace_manh_2.jpg"
+    ]
+  },
+  {
+    "studio": "Art-place Faktura",
+    "title": "Новый",
+    "href": "https://vk.com/market-133756115?w=product-133756115_2716816",
+    "prices": [2000],
+    "description": "Площадь 130 м<sup>2</sup>. Зона гостиной с камином, гардеробная, спальная зона на втором этаже, и конечно же самая бомба этого зала - зона с небольшим бассейном и огромными панорамным окнами с видом на финский залив. Мечта! Все кто видит зал, хотят остаться здесь жить.",
+    "furniture": true,
+    "darkness": true,
+    "photos": [
+      "artplace_new_0.jpg",
+      "artplace_new_1.jpg",
+      "artplace_new_2.jpg",
+      "artplace_new_3.jpg"
+    ]
+  },
+  {
+    "studio": "ArtPro",
+    "title": "№1",
+    "href": "https://vk.com/market-139157544?w=product-139157544_1171806%2Fquery",
+    "prices": [
+      900,
+      1000
+    ],
+    "description": "Зал 70 м<sup>2</sup>. Циклорама. Гримерка за час входит в стоимость. Бесплатно предоставляются тканевые и бумажные фоны.",
+    "furniture": false,
+    "darkness": false,
+    "photos": [
+      "artpro_0.jpg",
+      "artpro_1.jpg"
+    ]
+  },
+  {
+    "studio": "BEDFORD STUDIO",
+    "title": "Studio B",
+    "href": "https://vk.com/market-80652199?section=album_2&w=product-80652199_2068613%2Fquery",
+    "prices": [1000],
+    "description": "Красивый и лаконичный зал 30 м<sup>2</sup> с эркером и выходом на балкон! Легкий и непринужденный интерьер с лепниной и паркетом ХХ века!<br> Окна зала выходят на солнечную сторону!",
+    "furniture": true,
+    "darkness": false,
+    "photos": [
+      "bedford_b_0.jpg",
+      "bedford_b_1.jpg",
+      "bedford_b_2.jpg"
+    ]
+  },
+  {
+    "studio": "BEDFORD STUDIO",
+    "title": "Studio C",
+    "href": "https://vk.com/market-80652199?section=album_2&w=product-80652199_1704192%2Fquery",
+    "prices": [1400],
+    "description": "Большой и очень светлый зал 85 м<sup>2</sup> с белой 7-метровой циклорамой! <br> Невероятная лепнина с позолотой, роскошные и высокие потолки, и огромное количество естественного света!",
+    "furniture": true,
+    "darkness": false,
+    "photos": [
+      "bedford_c_0.jpg",
+      "bedford_c_1.jpg",
+      "bedford_c_2.jpg"
+    ]
+  },
+  {
+    "studio": "Grace studio",
+    "title": "Большой",
+    "href": "https://vk.com/market-156958510?w=product-156958510_2389260_8170a5a4424577fd92",
+    "prices": [1000],
+    "description": "Зал с белой циклорамой в ширину и глубину 5 метров. <br> В этом зале импульсный и постоянный свет, бумажные цветные фоны и фильтры.<br> Прямые лучи с 9 до 16 часов.",
+    "furniture": false,
+    "darkness": false,
+    "photos": [
+      "grace_big_0.jpg",
+      "grace_big_1.jpg"
+    ]
+  },
+  {
+    "studio": "Grace studio",
+    "title": "Маленький",
+    "href": "https://vk.com/market-156958510?w=product-156958510_2389254_1c698c3efb2db05850",
+    "prices": [800],
+    "description": "Это небольшой зал 5.2х6.3 метра с деревянным полом и белыми стенами. Прямые лучи как и всегда с 9 до 16 часов.<br>Черный и серый фон.",
+    "furniture": false,
+    "darkness": false,
+    "photos": [
+      "grace_small_0.jpg"
+    ]
+  },
+  {
+    "studio": "Liberty Studio",
+    "title": "BELLA",
+    "href": "https://vk.com/market-142411368?w=product-142411368_934724",
+    "prices": [
+      1100,
+      1300
+    ],
+    "description": "Светлый и очень просторный зал с красивым реквизитом",
+    "furniture": false,
+    "darkness": false,
+    "photos": [
+      "liberty_bella_0.jpg",
+      "liberty_bella_1.jpg"
+    ]
+  },
+  {
+    "studio": "Liberty Studio",
+    "title": "KARL",
+    "href": "https://vk.com/market-142411368?w=product-142411368_1021179",
+    "prices": [
+      800,
+      1000
+    ],
+    "description": "Очень просторный и стильный зал с красивым реквизитом",
+    "furniture": true,
+    "darkness": true,
+    "photos": [
+      "liberty_karl_0.jpg"
+    ]
+  },
+  {
+    "studio": "Pavilion",
+    "title": "Industry Hall",
+    "href": "https://vk.com/market-55344392?w=product-55344392_1873943",
+    "prices": [
+      1300,
+      1400
+    ],
+    "description": "100 м<sup>2</sup><br> Три больших окна. Солнечная сторона. Подиум.",
+    "furniture": true,
+    "darkness": true,
+    "photos": [
+      "pavilion_0.jpg",
+      "pavilion_1.jpg",
+      "pavilion_2.jpg"
+    ]
+  },
+  {
+    "studio": "Skypoint",
+    "title": "Balcony Room",
+    "href": "http://skypointstudio.ru/balconyroom",
+    "prices": [1300],
+    "description": "Балкон с видом на Неву и мосты. Деревянный пол, лестница и кровать. Зал 50 м<sup>2</sup>",
+    "furniture": true,
+    "darkness": false,
+    "photos": [
+      "skypoint_balk_0.jpg",
+      "skypoint_balk_1.jpg",
+      "skypoint_balk_2.jpg",
+      "skypoint_balk_3.jpg"
+    ],
+    "address": {
+      "location": "м. Чернышевская, наб. р. Фонтанки, д. 2",
+      "href": "place/набережная+реки+Фонтанки,+2,+Санкт-Петербург,+191187/@59.9472435,30.3347822,16.25z"
+    },
+    "contacts": {
+      "phone": "+7(981)688-90-88"
+    }
+  },
+  {
+    "studio": "Skypoint",
+    "title": "Нижний",
+    "href": "http://skypointstudio.ru/lower",
+    "prices": [1400],
+    "description": "Очень светлый просторный зал с различными текстурами и преметами интерьера.",
+    "furniture": true,
+    "darkness": true,
+    "photos": [
+      "skypoint_lower_0.jpg",
+      "skypoint_lower_1.jpg",
+      "skypoint_lower_2.jpg"
+    ],
+    "address": {
+      "location": "м. Спортивная, ул. Зверинская, д. 33",
+      "href": "place/Зверинская+ул.,+33,+Санкт-Петербург,+197198/@59.9519977,30.2938668,15z"
+    },
+    "contacts": {
+      "phone": "+7(950)023-33-31"
+    }
+  },
+  {
+    "studio": "Skypoint",
+    "title": "Первый этаж",
+    "href": "http://skypointstudio.ru/1etazh",
+    "prices": [1400],
+    "description": "Просторный светлый зал с большим количеством окон и естественным освещением. Окна выходят на питерские виды.",
+    "furniture": true,
+    "darkness": false,
+    "photos": [
+      "skypoint_first_0.jpg",
+      "skypoint_first_1.jpg",
+      "skypoint_first_2.jpg"
+    ],
+    "address": {
+      "location": "м. Адмиралтейская, наб. р. Мойки, д. 30, кв. 82",
+      "href": "place/наб.+реки+Мойки,+30,+Санкт-Петербург,+191186/@59.9394256,30.3130716,15.25z"
+    },
+    "contacts": {
+      "phone": "+7(931)593-30-82"
+    }
+  },
+  {
+    "studio": "Studio 212",
+    "title": "96 ST.",
+    "href": "https://st212.com/studio/8",
+    "prices": [1390],
+    "description": "Подвесная система бумажных фонов, две текстурные стены.",
+    "furniture": false,
+    "darkness": false,
+    "photos": [
+      "212_96_0.jpeg",
+      "212_96_1.jpeg",
+      "212_96_2.jpeg"
+    ]
+  },
+  {
+    "studio": "Как дома",
+    "title": "Как дома",
+    "href": "https://www.instagram.com/studiokakdoma/",
+    "prices": [2000],
+    "description": "Уютное светлое фотопространство",
+    "furniture": true,
+    "darkness": true,
+    "photos": [
+      "kak_doma_0.jpg",
+      "kak_doma_1.jpg",
+      "kak_doma_2.jpg",
+      "kak_doma_3.jpg"
+    ]
+  },
+  {
+    "studio": "Пространство на Неве",
+    "title": "Пространство на Неве",
+    "href": "https://www.instagram.com/prostranstvo_na_neve/",
+    "prices": [2000],
+    "description": "Студия, состаящая из 2 комнат. Каждая из которых являет собой отдельное пространство для съёмок. Одна комната представляет собой минималистичную кухню с балкончиком, выходящим на набережную Невы. Вторая представляет собой уютную гостинную комнату со стильной мебелью.",
+    "furniture": true,
+    "darkness": false,
+    "photos": [
+      "neva_space_0.jpg",
+      "neva_space_1.jpg",
+      "neva_space_2.jpg",
+      "neva_space_3.jpg"
+    ]
+  }
+]

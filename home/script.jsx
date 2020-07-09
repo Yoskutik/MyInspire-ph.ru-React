@@ -2,18 +2,13 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Body from "../assets/elements/body";
 import Home from "./elements/home";
-import Loader from "../assets/elements/loader";
 import $ from 'jquery';
 
 $(window).ready(() => {
-    const PAGE = (
+    ReactDom.render(
         <Body>
             <Home/>
-        </Body>
-    );
-
-    ReactDom.render(
-        PAGE,
+        </Body>,
         $('#body')[0]
     );
 
