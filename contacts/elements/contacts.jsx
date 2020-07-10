@@ -3,6 +3,12 @@ import ContactsCard from "./contactsCard";
 import Feedback from "./feedback";
 import Toast from "../../assets/elements/toast";
 
+/**
+ * The main component of the contacts page. Contains short intro, an
+ * information about contacts and a feedback form. This page assumes
+ * the presence of the toasts.
+ * @component
+ */
 export default class Contacts extends React.Component {
     constructor(props) {
         super(props);
@@ -12,6 +18,10 @@ export default class Contacts extends React.Component {
         };
     }
 
+    /**
+     * An intro of the page.
+     * @constructor
+     */
     Intro = () => (
         <div className="intro container">
             <div className="intro__container">
@@ -31,6 +41,11 @@ export default class Contacts extends React.Component {
         </div>
     );
 
+    /**
+     * A function to make a toast. Must be passed to child components.
+     * @param title - the title of the toast
+     * @param text - the main body of the toast
+     */
     toast = (title, text) => {
         let tmp = this.toastsList.slice();
         tmp.push(<Toast title={title} text={text} key={Math.random()}/>);

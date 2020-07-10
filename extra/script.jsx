@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import Body from "../assets/elements/body";
 
-$(window).ready(() => {
+document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
         <Body>
             <div className="body">
@@ -17,6 +16,6 @@ $(window).ready(() => {
                 </div>
             </div>
         </Body>,
-        $('#body')[0]
+        document.querySelector('#body')
     );
 });

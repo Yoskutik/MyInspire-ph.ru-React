@@ -1,21 +1,28 @@
 import React from 'react';
 import $ from "jquery";
 
+/**
+ * A feedback form. Uses backend API from '/api/sendMail.php'.
+ * Uses toast function from parent component.
+ * @component
+ */
 export default class Feedback extends React.Component {
     constructor() {
         super();
-
         this.onSubmit = this.onSubmit.bind(this);
-        this.onInputFocus = this.onInputFocus.bind(this);
-
         this.lastSendAt = 0;
-
         this.refName = React.createRef();
         this.refEmail = React.createRef();
         this.refSubject = React.createRef();
         this.refBody = React.createRef();
     }
 
+    /**
+     * Checks validity of all inputs and then submits the email.
+     * Also implements a check for frequent sending of messages.
+     * @param {Event} evt
+     * @callback
+     */
     onSubmit = evt => {
         evt.preventDefault();
 
@@ -60,10 +67,6 @@ export default class Feedback extends React.Component {
                 this.props.toast('Электронная почта', 'При отправке сообщения возникли ошибки');
             }
         })
-    };
-
-    onInputFocus = () => {
-
     };
 
     render() {

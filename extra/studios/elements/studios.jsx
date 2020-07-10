@@ -3,6 +3,10 @@ import halls from './halls.json';
 import Filters from "./filters";
 import Hall from "./hall";
 
+/**
+ * The main component for the extra/studios page.
+ * @component
+ */
 export default class Studios extends React.Component {
     constructor() {
         super();
@@ -17,12 +21,28 @@ export default class Studios extends React.Component {
         );
     }
 
+    /**
+     * By setting new state, the sorting is applying.
+     * @param {Object} filters - see <Studios.Sort> props.
+     */
     updateFilters = filters => {
         this.setState(
             Object.assign({}, this.state, filters),
         )
     };
 
+    /**
+     * Implements sorting.
+     * @param props
+     * @param {Object} props
+     * @param {boolean} props.furniture - can be null, true or false. Filters
+     * elements based on the actual content of furniture.
+     * @param {boolean} props.darkness - can be null, true or false. Filters
+     * elements based on the actual brightness of the hall.
+     * @param {boolean} props.sort - flag indicating whether to sort.
+     * @param {String} props.by - a type of sorting. Can be "ASC" or "DESC".
+     * @component
+     */
     Sort = props => {
         let hallsList = this.hallsList.slice();
         if (props.furniture !== null) {

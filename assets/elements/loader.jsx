@@ -11,17 +11,6 @@ export default class Loader extends React.Component {
         this.ref = React.createRef();
     }
 
-
-    /**
-     * Hides loader by fading out.
-     */
-    static hideLoader = () => {
-        setTimeout(() => {
-            let loader = document.querySelector('.loader');
-            loader.style.opacity = '0';
-        });
-    };
-
     /**
      * A transition end handler. Needed for Loader.hideLoader().
      * Removes the loader after fading out.
@@ -31,6 +20,10 @@ export default class Loader extends React.Component {
         document.querySelector('.loader').remove();
     };
 
+    /**
+     * Creates a callback, that removes loader after window
+     * is loaded.
+     */
     componentDidMount() {
         window.addEventListener('load', () => {
             console.timeEnd('Loaded');

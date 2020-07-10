@@ -2,6 +2,11 @@ import React from 'react';
 import {CopyIcon, InstagramIcon, PinterestIcon, VKIcon} from '../../assets/elements/icons';
 import {copyToClipboard} from "../../assets/utils";
 
+/**
+ * A component that contains all the contacts. Assuming the using
+ * of toasts by calling parent's function.
+ * @component
+ */
 export default class ContactsCard extends React.Component {
     constructor(props) {
         super(props);
@@ -9,6 +14,10 @@ export default class ContactsCard extends React.Component {
         this.onCopyEmailClick = this.onCopyEmailClick.bind(this);
     }
 
+    /**
+     * The information about contacts.
+     * @component
+     */
     Contacts = () => (
         <div className="contacts__contacts">
             <p className="contacts__contacts_item">
@@ -28,12 +37,21 @@ export default class ContactsCard extends React.Component {
         </div>
     );
 
+    /**
+     * The information about the address. Not sure, but I guess it's
+     * good for the SEO.
+     * @component
+     */
     Address = () => (
         <div className="contacts__address" itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
             <h2 className="contacts__address_city locality" itemProp="addressLocality">г. Санкт-Петербург</h2>
         </div>
     );
 
+    /**
+     * A social links list.
+     * @component
+     */
     Social = () => (
         <div className="contacts__social">
             <h3 className="contacts__social_title">Социальные сети:</h3>
@@ -51,11 +69,19 @@ export default class ContactsCard extends React.Component {
         </div>
     );
 
+    /**
+     * Copies the email and toasts about it
+     * @callback
+     */
     onCopyEmailClick = () => {
         copyToClipboard('tatiana.mix.1910@gmail.com');
         this.props.toast('Электронная почта', 'Адресс электронной почты был скопирован')
     };
 
+    /**
+     * Copies the phone number and toasts about it
+     * @callback
+     */
     onCopyTelClick = () => {
         copyToClipboard('+7(999)515-42-17');
         this.props.toast('Номер телефона', 'Номер телефона был скопирован');

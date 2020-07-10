@@ -1,7 +1,21 @@
 import React from 'react';
 import locations from './locations.json';
 
+/**
+ * The main component for the extra/locations page.
+ * @component
+ */
 export default class Locations extends React.Component {
+    /**
+     *
+     * @param {Object} props
+     * @param {String} props.title - the title of the location.
+     * @param {{location: String, href: String}} props.address - the name of the location and
+     * the link from Google Maps to it (without extra "https://www.google.com/maps/").
+     * @param {Array<String>} props.description - a list of paragraphs in the description.
+     * @param {Array<String>} props.photos - a list of photos names of this location.
+     * @component
+     */
     Location = (props) => {
         let address = props.address.href
             ? <a href={`https://www.google.com/maps/${props.address.href}`} target="_blank">{props.address.location}</a>
@@ -24,6 +38,12 @@ export default class Locations extends React.Component {
         )
     };
 
+    /**
+     * When the small image is clicked, it should become active, and the big
+     * picture should become this small picture.
+     * @param {Event} evt
+     * @callback
+     */
     onSmallImageClick = evt => {
         let el = evt.target;
         let item = el.closest('.locations__item');

@@ -2,10 +2,27 @@ import React from 'react';
 import $ from 'jquery';
 import listItems from './listItems.json';
 
+/**
+ * A list of services. Contains several items.
+ * @component
+ */
 export default class ItemsList extends React.Component {
+    /**
+     * Represents an item in the services' list. Each item has its name,
+     * description (or additional information), and a price.
+     * @param {Object} props
+     * @param {String} props.title - a name of service.
+     * @param {Number} props.price - a price.
+     * @param {Array<String>} props.description - a list of descriptive
+     * phrases of the service.
+     * @param {boolean} props.isExtra - "extra" item means that this
+     * service is not a type of photo session.
+     * @param {String} props.additional - an additional information, that
+     * will be written in the <small> tag.
+     */
     ListItem = props => {
         let description = [];
-        if (props.isExtra) {
+        if (!props.isExtra) {
             description.push(
                 <span key={Math.random()}>В стоимость входит: <br key={Math.random()}/><br key={Math.random()}/></span>
             );
@@ -36,6 +53,11 @@ export default class ItemsList extends React.Component {
         );
     };
 
+    /**
+     * Each item in the list must have a dropdown description.
+     * @param {Event} evt
+     * @callback
+     */
     onListClick = evt => {
         let item = $(evt.target).closest('.list__item');
 

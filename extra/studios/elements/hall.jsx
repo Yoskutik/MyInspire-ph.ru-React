@@ -1,12 +1,19 @@
 import React from 'react';
 import studios from "./studios.json";
 
+/**
+ * A hall - an item from the list. Each hall contains images - main and/or
+ * extra images, and additional information.
+ * @component
+ */
 export default class Hall extends React.Component {
-    constructor() {
-        super();
-        this.onSmallImageClick = this.onSmallImageClick.bind(this);
-    }
-
+    /**
+     * Creates a component for the images. If there's only one image - makes
+     * it big. In the other case creates a column of small extra images.
+     * @param {Object} props
+     * @param {Array<String>} props.photos - the list of photos of the hall.
+     * @component
+     */
     Images = props => {
         let extraImages = props.photos.length > 1
             ? (<div className="list__item_extra-images">
@@ -24,6 +31,21 @@ export default class Hall extends React.Component {
         )
     };
 
+    /**
+     * An information component. Contains information about price, hall's title and its
+     * studio title as links to their website, description, and address (the title and
+     * the link from Google Maps).
+     * @param {Object} props
+     * @param {String} props.title - the title of the hall.
+     * @param {String} props.href - a link of the hall's website.
+     * @param {Array<String>} props.prices - a list of prices of the hall. The price
+     * can vary from day to day. E.g. one price on weekdays, other on weekends.
+     * @param {{location: String, href: String}} props.address - the title of the
+     * location and the link from Google Maps.
+     * @param {{phone: String}} props.contacts - information about contacts. For now
+     * it only phone information.
+     * @component
+     */
     Info = props => {
         let priceFormatter = new Intl.NumberFormat('ru-RU');
         return (
@@ -52,6 +74,13 @@ export default class Hall extends React.Component {
         );
     };
 
+    /**
+     * Each time small image clicked it should be switched in the active
+     * mode, while other active photo is switched to a passive mode.
+     * "Active" means that big image shows the image from small active one.
+     * @param {Event} evt
+     * @callback
+     */
     onSmallImageClick = evt => {
         let el = evt.target;
         let item = el.closest('.list__item');
