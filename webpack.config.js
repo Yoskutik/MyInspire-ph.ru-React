@@ -6,6 +6,7 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         './home/script': './home/script.jsx',
+        './portfolio/script': './portfolio/script.jsx',
         './prices/script': './prices/script.jsx',
         './contacts/script': './contacts/script.jsx',
         './extra/script': './extra/script.jsx',

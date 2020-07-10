@@ -242,6 +242,18 @@ button {
       transform-origin: 0 ($loader_size / 2 + $loader_border_width + 5px);
     }
   }
+
+  &.dark-loader {
+    background: darken($dark_color, 5%);
+
+    .loader__spinner {
+      border-color: $white_color;
+
+      &:before, &:after {
+        background: darken($dark_color, 5%);
+      }
+    }
+  }
 }
 
 .container {

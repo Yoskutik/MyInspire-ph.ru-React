@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Daria",
+    "src": "photos/0.png",
+    "gallery": {
+      "href": "photos/daria",
+      "amount": 15
+    }
+  },
+  {
+    "title": "Dasha",
+    "src": "photos/1.png",
+    "gallery": {
+      "href": "photos/dasha",
+      "amount": 11
+    }
+  },
+  {
+    "title": "Julia",
+    "src": "photos/2.png",
+    "gallery": {
+      "href": "photos/julia",
+      "amount": 10
+    }
+  },
+  {
+    "title": "Kristina",
+    "src": "photos/3.png",
+    "gallery": {
+      "href": "photos/kristina",
+      "amount": 6
+    }
+  },
+  {
+    "title": "Mark",
+    "src": "photos/4.png",
+    "gallery": {
+      "href": "photos/mark",
+      "amount": 6
+    }
+  }
+]
