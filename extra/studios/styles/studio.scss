@@ -1,4 +1,8 @@
-@import '../../../assets/base.css';
+@import '../../../assets/base';
+
+.body {
+  width: 100%;
+}
 
 .filters {
   display: flex;

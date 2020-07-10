@@ -93,6 +93,9 @@ export default class Hall extends React.Component {
 
     render() {
         let studio = studios[this.props.studio];
+        if (!studio) {
+            console.warn(`The studio of ${this.props.title} hasn't been found.`)
+        }
         let address = this.props.address || studio.address;
         let contacts = this.props.contacts || studio.contacts;
         return (

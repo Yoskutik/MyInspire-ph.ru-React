@@ -24,13 +24,13 @@ export default class Prices extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="body">
                 <h1 className="super-hidden">Цены и услуги</h1>
                 <ItemsList/>
                 {conditions.map((cond, i) => {
                     return <this.Conditions {...cond} key={i}/>
                 })}
-            </>
+            </div>
         )
     }
 }

@@ -22,7 +22,7 @@ export default class Genres extends React.Component {
                 <img alt="" src={props.imgSrc}/>
             </div>
             <div className="genres__container_info">
-                {props.parargaphs.map((p, i) =>
+                {props.paragraphs.map((p, i) =>
                     <p key={i}>{p}</p>
                 )}
             </div>
