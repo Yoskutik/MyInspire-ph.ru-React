@@ -46,6 +46,11 @@
       border-radius: 50%;
       transform: rotate(45deg);
       transition-duration: 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      color: $border_color;
     }
 
     &.opened &_cross {

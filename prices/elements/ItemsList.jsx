@@ -46,7 +46,7 @@ export default class ItemsList extends React.Component {
                             itemType="http://schema.org/Offer">
                         <span itemProp="price">{props.price}</span>
                     </strong>
-                    <img alt="Подробнее" className="list__item_cross" src="/assets/icons/x.png"/>
+                    <span className="list__item_cross">&times;</span>
                 </div>
                 <p className="list__item_info" itemProp="description">{description}</p>
             </div>
