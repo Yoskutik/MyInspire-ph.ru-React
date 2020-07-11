@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactsCard from "./contactsCard";
 import Feedback from "./feedback";
-import Toast from "../../assets/elements/toast";
+import Toast from "@elements/toast";
 
 /**
  * The main component of the contacts page. Contains short intro, an

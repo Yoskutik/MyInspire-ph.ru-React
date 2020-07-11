@@ -2,7 +2,6 @@
   "name": "myinspire-ph.ru-react",
   "version": "1.0.0",
   "description": "This is a repository of one very good photographer's [website](https://myinspire-ph.ru)",
-  "main": "webpack.config.js",
   "scripts": {
     "watch": "webpack --watch --env.MODE=development",
     "build": "webpack --env.MODE=production",

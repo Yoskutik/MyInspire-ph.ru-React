@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Body from "@elements/body";
 import Stylists from "./elements/stylists";
-import Body from "../../assets/elements/body";
 
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(

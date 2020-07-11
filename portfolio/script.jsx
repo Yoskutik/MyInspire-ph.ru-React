@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Portfolio from "./elements/portfolio";
-import Body from "../assets/elements/body";
+import Body from "@elements/body";
 
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(

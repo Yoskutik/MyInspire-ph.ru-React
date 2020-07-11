@@ -1,3 +1,4 @@
+const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = env => {
@@ -56,6 +57,10 @@ module.exports = env => {
         },
         resolve: {
             extensions: ['.jsx', '.js'],
+            alias: {
+                '@elements': path.resolve(__dirname, 'assets/elements'),
+                '@': __dirname,
+            }
         }
     }
 };

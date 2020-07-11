@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
-import Body from "../assets/elements/body";
+import Body from "@elements/body";
 import Contacts from "./elements/contacts";
 
 $(window).ready(() => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {CopyIcon, InstagramIcon, PinterestIcon, VKIcon} from '../../assets/elements/icons';
+import {CopyIcon, InstagramIcon, PinterestIcon, VKIcon} from '@elements/icons';
 import {copyToClipboard} from "../../assets/utils";
 
 /**

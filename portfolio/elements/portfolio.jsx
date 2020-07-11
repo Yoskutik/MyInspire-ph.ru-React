@@ -1,6 +1,6 @@
 import React from 'react';
+import Loader from "@elements/loader";
 import thumbnails from './thumbnails.json';
-import Loader from "../../assets/elements/loader";
 
 /**
  * Main component for portfolio page. The page contains several

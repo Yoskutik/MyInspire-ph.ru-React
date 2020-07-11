@@ -8,8 +8,8 @@ The frontend is written using _bootstrap_ and _jQuery_. Styles are written with 
 
 
 Vanilla JavaScript  
-React.js
-Webpack
+React.js  
+Webpack  
 Vanilla PHP  
 SCSS  
 Schema.org  

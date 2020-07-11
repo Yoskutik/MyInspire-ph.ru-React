@@ -1,6 +1,6 @@
 import React from 'react';
 import Genres from './genres';
-import {InstagramIcon, WhatsAppIcon, VKIcon} from '../../assets/elements/icons';
+import {InstagramIcon, WhatsAppIcon, VKIcon} from '@elements/icons';
 
 /**
  * A content of home page. Contains Collage and Info.
