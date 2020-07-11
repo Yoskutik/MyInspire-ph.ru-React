@@ -2,6 +2,7 @@
 /api/linkCounter.json
 /awstats/
 /node_modules/
+/assets/chunks/
 
 *.bundle.js
 *.bundle.js.map

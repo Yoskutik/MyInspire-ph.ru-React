@@ -7,7 +7,9 @@ The backend is written with vanilla PHP. There are much backend API, because the
 The frontend is written using _bootstrap_ and _jQuery_. Styles are written with SCSS.  
 
 
-Vanilla JS  
+Vanilla JavaScript  
+React.js
+Webpack
 Vanilla PHP  
 SCSS  
 Schema.org  

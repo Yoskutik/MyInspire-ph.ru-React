@@ -1,5 +1,4 @@
 import React from 'react';
-import ImageGallery from 'react-image-gallery';
 import thumbnails from './thumbnails.json';
 import Loader from "../../assets/elements/loader";
 
@@ -11,22 +10,24 @@ import Loader from "../../assets/elements/loader";
 export default class Portfolio extends React.Component {
     constructor(props) {
         super(props);
-        this.galleries = thumbnails.map((thumbnail, i) => {
-            let items = [];
-            for (let i = 0; i < thumbnail.gallery.amount; i++) {
-                items.push({
-                    original: `${thumbnail.gallery.href}/${i}.png`,
-                    thumbnail: `${thumbnail.gallery.href}/${i}m.png`,
-                })
-            }
-            return (
-                <div className="gallery">
-                    <ImageGallery key={i} items={items} thumbnailPosition="left" showPlayButton={false}
-                                  onImageLoad={this.onGalleryLoad.bind(this, thumbnail.gallery.amount)}/>
-                    <button className="gallery__close" onClick={this.onCloseClick.bind(this)}>&times;</button>
-                    <Loader isMain={false} isDark={true}/>
-                </div>
-            )
+        import('react-image-gallery').then(({default: ImageGallery}) => {
+            this.galleries = thumbnails.map((thumbnail, i) => {
+                let items = [];
+                for (let i = 0; i < thumbnail.gallery.amount; i++) {
+                    items.push({
+                        original: `${thumbnail.gallery.href}/${i}.png`,
+                        thumbnail: `${thumbnail.gallery.href}/${i}m.png`,
+                    })
+                }
+                return (
+                    <div className="gallery">
+                        <ImageGallery key={i} items={items} thumbnailPosition="left" showPlayButton={false}
+                                      onImageLoad={this.onGalleryLoad.bind(this, thumbnail.gallery.amount)}/>
+                        <button className="gallery__close" onClick={this.onCloseClick.bind(this)}>&times;</button>
+                        <Loader isMain={false} isDark={true}/>
+                    </div>
+                )
+            });
         });
         this.state = {
             gallery: null
