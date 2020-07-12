@@ -1,7 +1,7 @@
 import React from 'react';
+import Filters from './filters';
+import Hall from './hall';
 import halls from './halls.json';
-import Filters from "./filters";
-import Hall from "./hall";
 
 /**
  * The main component for the extra/studios page.
@@ -16,9 +16,7 @@ export default class Studios extends React.Component {
             sort: false,
             by: 'ASC',
         };
-        this.hallsList = halls.map((hall, i) =>
-            <Hall key={i} {...hall}/>
-        );
+        this.hallsList = halls.map(hall => <Hall key={Math.random()} {...hall} />);
     }
 
     /**
@@ -26,9 +24,10 @@ export default class Studios extends React.Component {
      * @param {Object} filters - see <Studios.Sort> props.
      */
     updateFilters = filters => {
+        const { state } = this;
         this.setState(
-            Object.assign({}, this.state, filters),
-        )
+            { ...state, ...filters },
+        );
     };
 
     /**
@@ -46,10 +45,10 @@ export default class Studios extends React.Component {
     Sort = props => {
         let hallsList = this.hallsList.slice();
         if (props.furniture !== null) {
-            hallsList = hallsList.filter(hall => hall.props.furniture === props.furniture)
+            hallsList = hallsList.filter(hall => hall.props.furniture === props.furniture);
         }
         if (props.darkness !== null) {
-            hallsList = hallsList.filter(hall => hall.props.darkness === props.darkness)
+            hallsList = hallsList.filter(hall => hall.props.darkness === props.darkness);
         }
         if (props.sort) {
             if (props.by === 'ASC') {
@@ -64,7 +63,7 @@ export default class Studios extends React.Component {
     render() {
         return (
             <div className="body container">
-                <Filters updateFilters={this.updateFilters}/>
+                <Filters updateFilters={this.updateFilters} />
                 <div className="list">
                     <this.Sort {...this.state}>
                         {this.state.hallsList}

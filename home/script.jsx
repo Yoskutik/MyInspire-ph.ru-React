@@ -1,21 +1,21 @@
+import $ from 'jquery';
 import React from 'react';
 import ReactDom from 'react-dom';
-import Body from "@elements/body";
-import Home from "./elements/home";
-import $ from 'jquery';
+import Body from '@elements/body';
+import Home from './elements/home';
 
 $(window).ready(() => {
     ReactDom.render(
         <Body>
-            <Home/>
+            <Home />
         </Body>,
-        $('#body')[0]
+        $('#body')[0],
     );
 
-    let images = $('.collage__img');
+    const images = $('.collage__img');
 
     let loadedImages = 0;
-    let onImageLoaded = function() {
+    const onImageLoaded = function () {
         this.removeEventListener('load', onImageLoaded);
         if (++loadedImages === 2) {
             $(window).trigger('images-loaded');
@@ -36,24 +36,25 @@ $(window).ready(() => {
 
 $(window).on('images-loaded', () => {
     let currentImage = 0;
-    let images = $('.collage__img');
+    const images = $('.collage__img');
 
-    let startSwitchingImages = () => {
-        return setInterval(() => images.eq(++currentImage % 2).css({opacity: 0}), 6000);
-    };
+    const startSwitchingImages = () => setInterval(
+        () => images.eq(++currentImage % 2).css({ opacity: 0 }),
+        6000,
+    );
 
     images.on('transitionend', function () {
-        let el = $(this);
+        const el = $(this);
         if (el.css('opacity') === '0') {
             $('.collage').prepend(el);
             el.css({
                 'transition-duration': '0s',
-                'opacity': '1',
+                opacity: '1',
             });
             setTimeout(() => el.css('transition-duration', '3.5s'));
         }
     });
-    images.css({'opacity': 1});
+    images.css({ opacity: 1 });
 
     let imagesSwitcherId = startSwitchingImages();
     $(window)

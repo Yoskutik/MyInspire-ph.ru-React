@@ -8,5 +8,6 @@ const copyToClipboard = str => {
 };
 
 export {
+    // eslint-disable-next-line import/prefer-default-export
     copyToClipboard,
-}
+};

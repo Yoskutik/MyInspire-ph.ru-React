@@ -1,7 +1,7 @@
 import React from 'react';
-import ContactsCard from "./contactsCard";
-import Feedback from "./feedback";
-import Toast from "@elements/toast";
+import Toast from '@elements/toast';
+import ContactsCard from './contactsCard';
+import Feedback from './feedback';
 
 /**
  * The main component of the contacts page. Contains short intro, an
@@ -47,24 +47,24 @@ export default class Contacts extends React.Component {
      * @param text - the main body of the toast
      */
     toast = (title, text) => {
-        let tmp = this.toastsList.slice();
-        tmp.push(<Toast title={title} text={text} key={Math.random()}/>);
+        const tmp = this.toastsList.slice();
+        tmp.push(<Toast title={title} text={text} key={Math.random()} />);
         this.toastsList = tmp;
-        this.setState({toastsList: this.toastsList});
+        this.setState({ toastsList: this.toastsList });
     };
 
     render() {
-        return(
+        return (
             <div className="body">
-                <this.Intro/>
+                <this.Intro />
                 <div className="contacts container">
                     <div className="contacts__container">
-                        <ContactsCard toast={this.toast}/>
-                        <Feedback toast={this.toast}/>
+                        <ContactsCard toast={this.toast} />
+                        <Feedback toast={this.toast} />
                     </div>
                 </div>
                 {this.state.toastsList}
             </div>
-        )
+        );
     }
 }

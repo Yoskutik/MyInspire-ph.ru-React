@@ -2,7 +2,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = env => {
-    const isDev = env.MODE === 'development';
+    const isDev = env && env.MODE ? env.MODE === 'development' : true;
 
     return {
         mode: isDev ? 'development' : 'production',
@@ -27,40 +27,42 @@ module.exports = env => {
         module: {
             rules: [
                 {
-                    test: /\.jsx?$/,
+                    test: /\.jsx?$/i,
                     exclude: /node_modules/,
                     use: {
-                        loader: "babel-loader",
+                        loader: 'babel-loader',
                         options: {
                             presets: ['@babel/preset-env', '@babel/react'],
                             plugins: [
                                 '@babel/plugin-proposal-class-properties',
                                 '@babel/plugin-syntax-dynamic-import',
                                 '@babel/plugin-transform-runtime',
-                            ]
-                        }
-                    }
+                            ],
+                        },
+                    },
                 },
             ],
         },
         optimization: {
             minimize: !isDev,
-            minimizer: [new TerserPlugin({
-                test: /.js$/i,
-                extractComments: false,
-                terserOptions: {
-                    output: {
-                        comments: false,
+            minimizer: [
+                new TerserPlugin({
+                    test: /.js$/i,
+                    extractComments: false,
+                    terserOptions: {
+                        output: {
+                            comments: false,
+                        },
                     },
-                },
-            })],
+                }),
+            ],
         },
         resolve: {
             extensions: ['.jsx', '.js'],
             alias: {
                 '@elements': path.resolve(__dirname, 'assets/elements'),
                 '@': __dirname,
-            }
-        }
-    }
+            },
+        },
+    };
 };

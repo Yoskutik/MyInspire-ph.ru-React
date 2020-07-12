@@ -1,5 +1,6 @@
+import $ from 'jquery';
+import PropTypes from 'prop-types';
 import React from 'react';
-import $ from "jquery";
 
 /**
  * A feedback form. Uses backend API from '/api/sendMail.php'.
@@ -59,46 +60,61 @@ export default class Feedback extends React.Component {
                 subject: this.refSubject.current.value,
                 body: this.refBody.current.value,
             },
-            success: data => {
+            success: () => {
                 this.props.toast('Электронная почта', 'Сообщение успешно доставленно');
                 this.lastSendAt = Date.now();
             },
             error: () => {
                 this.props.toast('Электронная почта', 'При отправке сообщения возникли ошибки');
-            }
-        })
+            },
+        });
     };
 
     render() {
         return (
             <div className="contacts__column">
                 <h3 className="contacts__column_title">Прямая связь</h3>
-                <form className="contacts__message" autoComplete="off" role="form">
+                <form className="contacts__message" autoComplete="off">
                     <div className="contacts__message_field">
                         <label className="contacts__message_label">
-                            <input className="contacts__message_input" type="text" placeholder="Ваше имя:" required
-                                   ref={this.refName}/>
+                            <input className="contacts__message_input"
+                                   type="text"
+                                   placeholder="Ваше имя:"
+                                   required
+                                   ref={this.refName} />
                         </label>
                     </div>
                     <div className="contacts__message_field">
                         <label className="contacts__message_label">
-                            <input className="contacts__message_input" type="email" placeholder="E-mail:" required
-                                   ref={this.refEmail}/>
+                            <input className="contacts__message_input"
+                                   type="email"
+                                   placeholder="E-mail:"
+                                   required
+                                   ref={this.refEmail} />
                         </label>
                     </div>
                     <div className="contacts__message_field">
                         <label className="contacts__message_label">
-                            <input className="contacts__message_input" type="text" placeholder="Тема:" required
-                                   ref={this.refSubject}/>
+                            <input className="contacts__message_input"
+                                   type="text"
+                                   placeholder="Тема:"
+                                   required
+                                   ref={this.refSubject} />
                         </label>
                     </div>
                     <div className="contacts__message_field">
                         <label className="contacts__message_label">
-                            <textarea className="contacts__message_input" rows="6" placeholder="Сообщение:" required
-                                      ref={this.refBody}/>
+                            <textarea className="contacts__message_input"
+                                      rows="6"
+                                      placeholder="Сообщение:"
+                                      required
+                                      ref={this.refBody} />
                         </label>
                     </div>
-                    <input type="submit" value="Отправить" className="contacts__message_submit" onClick={this.onSubmit}/>
+                    <input type="submit"
+                           value="Отправить"
+                           className="contacts__message_submit"
+                           onClick={this.onSubmit} />
                 </form>
                 <p className="contacts__error-message required">* Заполните, пожалуйста, все поля</p>
                 <p className="contacts__error-message mail">* Поле почты заполненно неверно</p>
@@ -106,3 +122,7 @@ export default class Feedback extends React.Component {
         );
     }
 }
+
+Feedback.propTypes = {
+    toast: PropTypes.func.isRequired,
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemsList from "./ItemsList";
+import ItemsList from './ItemsList';
 import conditions from './conditions.json';
 
 /**
@@ -18,7 +18,11 @@ export default class Prices extends React.Component {
     Conditions = props => (
         <div className="conditions container">
             <h3 className="conditions__title">{props.title}</h3>
-            {props.paragraphs.map((p, i) => <p className="conditions__text" key={i}>{p}</p>)}
+            {props.paragraphs.map(p => (
+                <p className="conditions__text" key={Math.random()}>
+                    {p}
+                </p>
+            ))}
         </div>
     );
 
@@ -26,11 +30,9 @@ export default class Prices extends React.Component {
         return (
             <div className="body">
                 <h1 className="super-hidden">Цены и услуги</h1>
-                <ItemsList/>
-                {conditions.map((cond, i) => {
-                    return <this.Conditions {...cond} key={i}/>
-                })}
+                <ItemsList />
+                {conditions.map(cond => <this.Conditions {...cond} key={Math.random()} />)}
             </div>
-        )
+        );
     }
 }

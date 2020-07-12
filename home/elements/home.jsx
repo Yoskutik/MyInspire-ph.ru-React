@@ -1,6 +1,6 @@
 import React from 'react';
+import { InstagramIcon, WhatsAppIcon, VKIcon } from '@elements/icons';
 import Genres from './genres';
-import {InstagramIcon, WhatsAppIcon, VKIcon} from '@elements/icons';
 
 /**
  * A content of home page. Contains Collage and Info.
@@ -15,8 +15,8 @@ export default class Home extends React.Component {
      */
     Collage = () => (
         <div className="collage">
-            <img className="collage__img" alt="" src=""/>
-            <img className="collage__img" alt="" src=""/>
+            <img className="collage__img" alt="" src="" />
+            <img className="collage__img" alt="" src="" />
         </div>
     );
 
@@ -53,7 +53,10 @@ export default class Home extends React.Component {
             </p>
             <p>
                 Со всеми моими работами в высоком разрешении можно ознакомиться
-                по <a href="/portfolio">ссылке</a>.
+                по
+                {' '}
+                <a href="/portfolio">ссылке</a>
+                .
             </p>
         </div>
     );
@@ -65,23 +68,26 @@ export default class Home extends React.Component {
      */
     InfoCard = () => (
         <div className="info__card" itemScope itemType="http://schema.org/Organization">
-            <link itemProp="url" href="https://myinspire-ph.ru/"/>
+            <link itemProp="url" href="https://myinspire-ph.ru/" />
             <div className="info__card_avatar">
-                <img itemProp="image" alt="Мельникова Татьяна" src="/assets/ava.png"/>
+                <img itemProp="image" alt="Мельникова Татьяна" src="/assets/ava.png" />
             </div>
             <div className="info__card_message">
                 <h2 itemProp="name" className="info__card_title">Мельникова Татьяна</h2>
                 <h1 itemProp="jobTitle" className="info__card_subtitle">Фотограф в Санкт-Петербурге</h1>
                 <p className="info__card_extra">Индивидуальные фотосессии и love-story.</p>
                 <div className="info__card_social">
-                    <a itemProp="sameAs" href="https://www.instagram.com/myinspire_ph/" target="_blank">
-                        <InstagramIcon height="38" width="38"/>
+                    <a itemProp="sameAs"
+                       href="https://www.instagram.com/myinspire_ph/"
+                       target="_blank"
+                       rel="noreferrer">
+                        <InstagramIcon height="38" width="38" />
                     </a>
-                    <a itemProp="sameAs" href="https://vk.com/inspiredbyspb/" target="_blank">
-                        <VKIcon height="38" width="38"/>
+                    <a itemProp="sameAs" href="https://vk.com/inspiredbyspb/" target="_blank" rel="noreferrer">
+                        <VKIcon height="38" width="38" />
                     </a>
-                    <a itemProp="sameAs" href="https://wa.me/79995154217" target="_blank">
-                        <WhatsAppIcon height="38" width="38"/>
+                    <a itemProp="sameAs" href="https://wa.me/79995154217" target="_blank" rel="noreferrer">
+                        <WhatsAppIcon height="38" width="38" />
                     </a>
                 </div>
             </div>
@@ -91,16 +97,16 @@ export default class Home extends React.Component {
     render() {
         return (
             <div className="body">
-                <this.Collage/>
+                <this.Collage />
 
                 <div className="info">
                     <div className="info__container container">
-                        <this.InfoMessage/>
-                        <this.InfoCard/>
+                        <this.InfoMessage />
+                        <this.InfoCard />
                     </div>
                 </div>
 
-                <Genres/>
+                <Genres />
             </div>
         );
     }

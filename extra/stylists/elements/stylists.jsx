@@ -35,11 +35,19 @@ export default class Stylists extends React.Component {
                 <h3 className="stylists__item_subtitle">{props.type}</h3>
             </div>
             <div className="stylists__item_column">
-                <span>Цена: <span className="stylists__item_price">{props.price}</span></span>
+                <span>
+                    Цена:
+                    <span className="stylists__item_price">{props.price}</span>
+                </span>
                 <span>
                     Контакты:
-                    <a className="stylists__item_instagram" href={`https://www.instagram.com/${props.username}/`}
-                       target="_blank">@{props.username}</a>
+                    <a className="stylists__item_instagram"
+                       href={`https://www.instagram.com/${props.username}/`}
+                       target="_blank"
+                       rel="noreferrer">
+                        @
+                        {props.username}
+                    </a>
                 </span>
             </div>
         </div>
@@ -51,7 +59,8 @@ export default class Stylists extends React.Component {
      */
     Caption = () => (
         <p className="stylists__caption">
-            * Услуги стилистов и визажистов бронируются и оплачиваются Вами отдельно. <br/>
+            * Услуги стилистов и визажистов бронируются и оплачиваются Вами отдельно.
+            <br />
             ** Гримерка для сборов оплачивается отдельно. Обычно в студиях её цена варьируется от 200 до 300 ₽ за час.
         </p>
     );
@@ -59,12 +68,10 @@ export default class Stylists extends React.Component {
     render() {
         return (
             <div className="body container">
-                <this.Intro/>
+                <this.Intro />
                 <div className="stylists">
-                    {stylists.map((stylist, i) =>
-                        <this.Stylist key={i} {...stylist}/>
-                    )}
-                    <this.Caption/>
+                    {stylists.map(stylist => <this.Stylist key={Math.random()} {...stylist} />)}
+                    <this.Caption />
                 </div>
             </div>
         );

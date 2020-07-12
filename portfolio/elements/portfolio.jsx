@@ -1,5 +1,5 @@
 import React from 'react';
-import Loader from "@elements/loader";
+import Loader from '@elements/loader';
 import thumbnails from './thumbnails.json';
 
 /**
@@ -10,27 +10,32 @@ import thumbnails from './thumbnails.json';
 export default class Portfolio extends React.Component {
     constructor(props) {
         super(props);
-        import('react-image-gallery').then(({default: ImageGallery}) => {
-            this.galleries = thumbnails.map((thumbnail, i) => {
-                let items = [];
+        import('react-image-gallery').then(({ default: ImageGallery }) => {
+            this.galleries = thumbnails.map(thumbnail => {
+                const items = [];
                 for (let i = 0; i < thumbnail.gallery.amount; i++) {
                     items.push({
                         original: `${thumbnail.gallery.href}/${i}.png`,
                         thumbnail: `${thumbnail.gallery.href}/${i}m.png`,
-                    })
+                    });
                 }
                 return (
                     <div className="gallery">
-                        <ImageGallery key={i} items={items} thumbnailPosition="left" showPlayButton={false}
-                                      onImageLoad={this.onGalleryLoad.bind(this, thumbnail.gallery.amount)}/>
-                        <button className="gallery__close" onClick={this.onCloseClick.bind(this)}>&times;</button>
-                        <Loader isMain={false} isDark={true}/>
+                        <ImageGallery key={Math.random()}
+                                      items={items}
+                                      thumbnailPosition="left"
+                                      showPlayButton={false}
+                                      onImageLoad={this.onGalleryLoad.bind(this, thumbnail.gallery.amount)} />
+                        <button className="gallery__close" onClick={this.onCloseClick.bind(this)} type="button">
+                            &times;
+                        </button>
+                        <Loader isMain={false} isDark />
                     </div>
-                )
+                );
             });
         });
         this.state = {
-            gallery: null
+            gallery: null,
         };
         this.imagesLoaded = 0;
     }
@@ -45,7 +50,7 @@ export default class Portfolio extends React.Component {
     Thumbnail = props => (
         <div className="item" onClick={this.onThumbnailClick.bind(this, props.index)}>
             <div className="item__photo">
-                <img alt={props.title} src={props.src}/>
+                <img alt={props.title} src={props.src} />
                 <div className="item__title">{props.title}</div>
             </div>
         </div>
@@ -61,7 +66,8 @@ export default class Portfolio extends React.Component {
         if (this.state === null) {
             return null;
         }
-        return this.state.gallery;
+        const { gallery } = this.state;
+        return gallery;
     };
 
     /**
@@ -85,8 +91,8 @@ export default class Portfolio extends React.Component {
      * @callback
      */
     onThumbnailClick = index => {
-        this.setState({gallery: this.galleries[index]});
-        let onEscPressed = evt => {
+        this.setState({ gallery: this.galleries[index] });
+        const onEscPressed = evt => {
             if (evt.key !== 'Escape') return;
             this.onCloseClick();
             document.removeEventListener('keyup', onEscPressed);
@@ -99,18 +105,18 @@ export default class Portfolio extends React.Component {
      * @callback
      */
     onCloseClick = () => {
-        this.setState({gallery: null});
+        this.setState({ gallery: null });
     };
 
     render() {
         return (
             <div className="body container">
                 <div className="portfolio">
-                    {thumbnails.map((thumbnail, i) =>
-                        <this.Thumbnail key={i} {...thumbnail} index={i}/>
-                    )}
+                    {thumbnails.map((thumbnail, i) => (
+                        <this.Thumbnail key={Math.random()} {...thumbnail} index={i} />
+                    ))}
                 </div>
-                <this.CurrentGallery/>
+                <this.CurrentGallery />
             </div>
         );
     }

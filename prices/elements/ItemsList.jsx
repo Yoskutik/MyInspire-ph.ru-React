@@ -1,5 +1,5 @@
-import React from 'react';
 import $ from 'jquery';
+import React from 'react';
 import listItems from './listItems.json';
 
 /**
@@ -21,34 +21,47 @@ export default class ItemsList extends React.Component {
      * will be written in the <small> tag.
      */
     ListItem = props => {
-        let description = [];
+        const description = [];
         if (!props.isExtra) {
             description.push(
-                <span key={Math.random()}>В стоимость входит: <br key={Math.random()}/><br key={Math.random()}/></span>
+                <span key={Math.random()}>
+                    В стоимость входит:
+                    <br key={Math.random()} />
+                    <br key={Math.random()} />
+                </span>,
             );
         }
-        for (let i = 0, j = 0; i < props.description.length; i++) {
+        for (let i = 0; i < props.description.length; i++) {
             description.push(<span key={Math.random()}>{props.description[i]}</span>);
-            description.push(<br key={i}/>);
+            description.push(<br key={i} />);
         }
         if (props.additional) {
             description.push(
-                <small key={Math.random()}>* {props.additional}</small>
-            )
+                <small key={Math.random()}>
+                    *
+                    {props.additional}
+                </small>,
+            );
         } else {
             description.pop();
         }
         return (
             <div className="list__item" itemProp="itemListElement" itemScope itemType="http://schema.org/Product">
                 <div className="list__item_header">
-                    <h2 className="list__item_title" itemProp="name">{props.title}</h2>
-                    <strong className={"list__item_price" + (props.price ? '': ' empty')} itemProp="offers" itemScope
+                    <h2 className="list__item_title" itemProp="name">
+                        {props.title}
+                    </h2>
+                    <strong className={`list__item_price${props.price ? '' : ' empty'}`}
+                            itemProp="offers"
+                            itemScope
                             itemType="http://schema.org/Offer">
                         <span itemProp="price">{props.price}</span>
                     </strong>
                     <span className="list__item_cross">&times;</span>
                 </div>
-                <p className="list__item_info" itemProp="description">{description}</p>
+                <p className="list__item_info" itemProp="description">
+                    {description}
+                </p>
             </div>
         );
     };
@@ -59,13 +72,13 @@ export default class ItemsList extends React.Component {
      * @callback
      */
     onListClick = evt => {
-        let item = $(evt.target).closest('.list__item');
+        const item = $(evt.target).closest('.list__item');
 
         if (item) {
             if (item.hasClass('opened')) {
-                item.css({'max-height': '2rem'});
+                item.css({ 'max-height': '2rem' });
             } else {
-                item.css({'max-height': item[0].scrollHeight + 'px'});
+                item.css({ 'max-height': `${item[0].scrollHeight}px` });
             }
             item.toggleClass('opened');
         }
@@ -74,10 +87,10 @@ export default class ItemsList extends React.Component {
     render() {
         return (
             <div className="list container" itemScope itemType="http://schema.org/ItemList" onClick={this.onListClick}>
-                {listItems.map((item, i) =>
-                    <this.ListItem key={i} {...item}/>
-                )}
+                {listItems.map(item => (
+                    <this.ListItem key={Math.random()} {...item} />
+                ))}
             </div>
-        )
+        );
     }
 }

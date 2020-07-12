@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Body from "@elements/body";
+import Body from '@elements/body';
 
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
@@ -16,6 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         </Body>,
-        document.querySelector('#body')
+        document.querySelector('#body'),
     );
 });

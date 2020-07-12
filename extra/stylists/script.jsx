@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Body from "@elements/body";
-import Stylists from "./elements/stylists";
+import Body from '@elements/body';
+import Stylists from './elements/stylists';
 
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
         <Body>
-            <Stylists/>
+            <Stylists />
         </Body>,
-        document.querySelector('#body')
-    )
+        document.querySelector('#body'),
+    );
 });

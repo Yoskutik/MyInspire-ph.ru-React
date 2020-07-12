@@ -16,15 +16,13 @@ export default class Genres extends React.Component {
      * are stored in the genre description.
      * @component
      */
-    GenresContainer = (props) => (
+    GenresContainer = props => (
         <div className="genres__container container">
             <div className="genres__container_photo">
-                <img alt="" src={props.imgSrc}/>
+                <img alt="" src={props.imgSrc} />
             </div>
             <div className="genres__container_info">
-                {props.paragraphs.map((p, i) =>
-                    <p key={i}>{p}</p>
-                )}
+                {props.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
             </div>
         </div>
     );
@@ -32,9 +30,7 @@ export default class Genres extends React.Component {
     render() {
         return (
             <div className="genres">
-                {genres.map((genre, i) =>
-                    <this.GenresContainer key={i} {...genre}/>
-                )}
+                {genres.map((genre, i) => <this.GenresContainer key={i} {...genre} />)}
             </div>
         );
     }

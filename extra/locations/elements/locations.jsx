@@ -16,26 +16,40 @@ export default class Locations extends React.Component {
      * @param {Array<String>} props.photos - a list of photos names of this location.
      * @component
      */
-    Location = (props) => {
-        let address = props.address.href
-            ? <a href={`https://www.google.com/maps/${props.address.href}`} target="_blank">{props.address.location}</a>
+    Location = props => {
+        const address = props.address.href
+            ? (
+                <a href={`https://www.google.com/maps/${props.address.href}`}
+                   target="_blank"
+                   rel="noreferrer">
+                    {props.address.location}
+                </a>
+            )
             : props.address;
-        let smallPhotos = props.photos.map((photo, i) =>
-            <img className={`small-image ${i === 0 ? 'active' : ''}`} alt={props.title} src={`photos/${photo}.jpg`} key={i}/>
-        );
+        const smallPhotos = props.photos.map((photo, i) => (
+            <img className={`small-image ${i === 0 ? 'active' : ''}`}
+                 alt={props.title}
+                 src={`photos/${photo}.jpg`}
+                 key={Math.random()} />
+        ));
         return (
             <div className="locations__item" onClick={this.onSmallImageClick}>
                 <div className="locations__item_images">
-                    <img className="locations__item_main-image" alt={props.title} src={`photos/${props.photos[0]}.jpg`}/>
+                    <img className="locations__item_main-image"
+                         alt={props.title}
+                         src={`photos/${props.photos[0]}.jpg`} />
                     <div className="locations__item_extra-images">{smallPhotos}</div>
                 </div>
                 <div className="locations__item_info">
                     <h2 className="locations__item_title">{props.title}</h2>
-                    {props.description.map((p, i) => <p className="locations__item_description" key={i}>{p}</p>)}
-                    <p className="locations__item_address">Адрес: {address}</p>
+                    {props.description.map(p => <p className="locations__item_description" key={Math.random()}>{p}</p>)}
+                    <p className="locations__item_address">
+                        Адрес:
+                        {address}
+                    </p>
                 </div>
             </div>
-        )
+        );
     };
 
     /**
@@ -45,8 +59,8 @@ export default class Locations extends React.Component {
      * @callback
      */
     onSmallImageClick = evt => {
-        let el = evt.target;
-        let item = el.closest('.locations__item');
+        const el = evt.target;
+        const item = el.closest('.locations__item');
         if (el.classList.contains('small-image')) {
             item.querySelector('.active').classList.remove('active');
             el.classList.add('active');
@@ -58,9 +72,7 @@ export default class Locations extends React.Component {
         return (
             <div className="body">
                 <div className="locations container">
-                    {locations.map((location, i) =>
-                        <this.Location key={i} {...location}/>
-                    )}
+                    {locations.map(location => <this.Location key={Math.random()} {...location} />)}
                 </div>
             </div>
         );

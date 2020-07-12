@@ -1,15 +1,15 @@
+import $ from 'jquery';
 import React from 'react';
 import ReactDom from 'react-dom';
-import $ from 'jquery';
-import Body from "@elements/body";
-import Contacts from "./elements/contacts";
+import Body from '@elements/body';
+import Contacts from './elements/contacts';
 
 $(window).ready(() => {
     ReactDom.render(
         <Body>
-            <Contacts/>
+            <Contacts />
         </Body>,
-        $('#body')[0]
+        $('#body')[0],
     );
 
     $('.contacts__message').on('focus', '.contacts__message_input', evt => {
