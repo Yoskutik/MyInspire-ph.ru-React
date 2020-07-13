@@ -63,7 +63,7 @@ export default class Hall extends React.Component {
                 <span className="list__item_price">
                     {props.prices.map(price => (
                         <React.Fragment key={Math.random()}>
-                            {priceFormatter.format(price)}
+                            {priceFormatter.format(+price)}
                         </React.Fragment>
                       ))
                         .reduce((prev, curr) => [prev, ' / ', curr])}
@@ -137,9 +137,14 @@ Hall.propTypes = {
     studio: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
-    address: PropTypes.object.isRequired,
-    contacts: PropTypes.object.isRequired,
+    address: PropTypes.object,
+    contacts: PropTypes.object,
     photos: PropTypes.array.isRequired,
     prices: PropTypes.array.isRequired,
-    description: PropTypes.array.isRequired,
+    description: PropTypes.string.isRequired,
+};
+
+Hall.defaultProps = {
+    address: null,
+    contacts: null,
 };

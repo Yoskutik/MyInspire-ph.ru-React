@@ -1,4 +1,5 @@
 import React from 'react';
+import avatar from '@assets/ava.png';
 import { InstagramIcon, WhatsAppIcon, VKIcon } from '@elements/icons';
 import Genres from './genres';
 
@@ -54,7 +55,6 @@ export default class Home extends React.Component {
             <p>
                 Со всеми моими работами в высоком разрешении можно ознакомиться
                 по
-                {' '}
                 <a href="/portfolio">ссылке</a>
                 .
             </p>
@@ -70,7 +70,7 @@ export default class Home extends React.Component {
         <div className="info__card" itemScope itemType="http://schema.org/Organization">
             <link itemProp="url" href="https://myinspire-ph.ru/" />
             <div className="info__card_avatar">
-                <img itemProp="image" alt="Мельникова Татьяна" src="/assets/ava.png" />
+                <img itemProp="image" alt="Мельникова Татьяна" src={avatar} />
             </div>
             <div className="info__card_message">
                 <h2 itemProp="name" className="info__card_title">Мельникова Татьяна</h2>

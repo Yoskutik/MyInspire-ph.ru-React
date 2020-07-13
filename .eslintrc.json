@@ -27,6 +27,7 @@
         "react"
     ],
     "rules": {
+        "linebreak-style": ["error", "windows"],
         "no-plusplus": "off",
         "max-len": ["error", {"code":  120}],
         "indent": ["error", 4, {
@@ -36,11 +37,18 @@
         "func-names": "off",
         "no-return-assign": "off",
         "import/order": ["error", {
-            "pathGroups": [{
-                "pattern": "@elements/*",
-                "group": "parent",
-                "position": "before"
-            }],
+            "pathGroups": [
+                {
+                    "pattern": "@elements/*",
+                    "group": "parent",
+                    "position": "before"
+                },
+                {
+                    "pattern": "@assets/**",
+                    "group": "parent",
+                    "position": "before"
+                }
+            ],
             "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
             "alphabetize": {"order": "asc"}
         }],

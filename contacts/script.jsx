@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Body from '@elements/body';
 import Contacts from './elements/contacts';
+import './style.scss';
 
 $(window).ready(() => {
     ReactDom.render(

@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Body from '@elements/body';
 import Home from './elements/home';
+import './style.scss';
 
 $(window).ready(() => {
     ReactDom.render(

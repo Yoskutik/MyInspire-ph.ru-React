@@ -5,7 +5,7 @@ class HTML
     static private $folder = __DIR__;
 
     static public function render($template, $data = array(), $folder = false) {
-        if ($folder) self::$folder = __DIR__ . "/$folder";
+        if ($folder) self::$folder = __DIR__ . "/HTML.php";
         $content = file_get_contents(self::$folder."/{$template}");
         $content = self::design_render_text($content, $data);
         self::$folder = __DIR__;
