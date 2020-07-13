@@ -1,5 +1,5 @@
 import React from 'react';
-import avatar from '../../assets/ava.png';
+import avatar from '@assets/ava.png';
 import { InstagramIcon, WhatsAppIcon, VKIcon } from '@elements/icons';
 import Genres from './genres';
 

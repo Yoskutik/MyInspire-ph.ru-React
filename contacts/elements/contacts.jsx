@@ -1,5 +1,5 @@
 import React from 'react';
-import Toast from '../../assets/elements/toast';
+import Toast from '@elements/toast';
 import ContactsCard from './contactsCard';
 import Feedback from './feedback';
 

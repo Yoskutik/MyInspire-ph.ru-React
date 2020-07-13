@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {
     CopyIcon, InstagramIcon, PinterestIcon, VKIcon,
-} from '../../assets/elements/icons';
-import { copyToClipboard } from '../../assets/utils';
+} from '@elements/icons';
+import { copyToClipboard } from '@assets/utils';
 
 /**
  * A component that contains all the contacts. Assuming the using
