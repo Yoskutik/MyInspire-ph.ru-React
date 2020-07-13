@@ -8,38 +8,39 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const pages = require('./pages.json');
 
-const entries = {};
-const htmlPages = [];
-// eslint-disable-next-line no-restricted-syntax
-for (const [key, value] of Object.entries(pages)) {
-    if (!value.innerHTML && !value.innerText) {
-        entries[key] = `./${key}/script.jsx`;
-    }
-    htmlPages.push(
-        new HtmlWebpackPlugin({
-            filename: `${key === 'home' ? '' : `${key}/`}index.html`,
-            template: './template.ejs',
-            chunks: [key],
-            description: value.description,
-            title: value.title,
-            robots: value.robots,
-            innerHTML: value.innerHTML,
-            innerText: value.innerText,
-        }),
-    );
-}
-
 module.exports = env => {
     const isDev = env && env.MODE ? env.MODE === 'development' : true;
 
+    const entries = {};
+    const htmlPages = [];
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [key, value] of Object.entries(pages)) {
+        if (!value.innerHTML && !value.innerText) {
+            entries[key] = `./${key}/script.jsx`;
+        }
+        htmlPages.push(
+            new HtmlWebpackPlugin({
+                filename: `${key === 'home' ? '' : `${key}/`}index.html`,
+                template: './template.ejs',
+                chunks: [key],
+                description: value.description,
+                title: value.title,
+                robots: value.robots,
+                innerHTML: value.innerHTML,
+                innerText: value.innerText,
+                minify: !isDev,
+            }),
+        );
+    }
+
     return {
         mode: isDev ? 'development' : 'production',
-        devtool: 'source-map',
+        devtool: isDev ? 'source-map' : false,
         entry: entries,
         output: {
             path: path.resolve(os.homedir(), 'Projects', 'MyInspire-ph-react'),
             publicPath: '/',
-            filename: '[name]/index.bundle.js',
+            filename: `[name]/${isDev ? 'index.bundle' : '[hash]'}.js`,
             chunkFilename: './assets/chunks/[chunkhash].chunk.js',
         },
         devServer: {
@@ -70,18 +71,18 @@ module.exports = env => {
                         { loader: MiniCssExtractPlugin.loader },
                         {
                             loader: 'css-loader',
-                            options: { sourceMap: true },
+                            options: { sourceMap: isDev },
                         },
                         {
                             loader: 'postcss-loader',
                             options: {
                                 plugins: [autoprefixer()],
-                                sourceMap: true,
+                                sourceMap: isDev,
                             },
                         },
                         {
                             loader: 'sass-loader',
-                            options: { sourceMap: true },
+                            options: { sourceMap: isDev },
                         },
                     ],
                 },
@@ -119,7 +120,7 @@ module.exports = env => {
         plugins: [
             ...htmlPages,
             new MiniCssExtractPlugin({
-                filename: '[name]/style.css',
+                filename: `[name]/${isDev ? 'style' : '[hash]'}.css`,
             }),
             new CleanWebpackPlugin(),
             new CopyWebpackPlugin({
@@ -129,6 +130,7 @@ module.exports = env => {
                     { from: './robots.txt', to: '.' },
                     { from: './sitemap.xml', to: '.' },
                     { from: './api', to: './api' },
+                    { from: './assets/Gotham.otf', to: './assets/Gotham.otf' },
                     { from: './home/photos', to: './home/photos' },
                     { from: './portfolio/photos', to: './portfolio/photos' },
                     { from: './extra/locations/photos', to: './extra/locations/photos' },

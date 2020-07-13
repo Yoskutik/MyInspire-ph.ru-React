@@ -21,32 +21,26 @@
   },
   "extra": {
     "title": "Фотограф в Санкт-Петербурге | Мельникова Татьяна",
-    "description": "",
     "robots": false
   },
   "extra/locations": {
     "title": "Локации для фотосессии",
-    "description": "",
     "robots": false
   },
   "extra/poses": {
     "title": "Шпаргалка по позированию",
-    "description": "",
     "robots": false
   },
   "extra/studios": {
     "title": "Проверенные студии",
-    "description": "",
     "robots": false
   },
   "extra/stylists": {
     "title": "Стилисты и визажисты",
-    "description": "",
     "robots": false
   },
   "404": {
     "title": "Страница не найдена",
-    "description": "",
     "robots": false,
     "innerHTML": "<div class=\"container\" style=\"position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; flex-direction: column\"><h1>Упс!</h1><h3>Кажется, необходимый Вам файл отсутствует.</h3></div>"
   }
