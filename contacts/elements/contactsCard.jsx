@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {
     CopyIcon, InstagramIcon, PinterestIcon, VKIcon,
-} from '@elements/icons';
+} from '../../assets/elements/icons';
 import { copyToClipboard } from '../../assets/utils';
 
 /**

@@ -1,5 +1,5 @@
 import React from 'react';
-import Loader from '@elements/loader';
+import Loader from '../../assets/elements/loader';
 import thumbnails from './thumbnails.json';
 
 /**

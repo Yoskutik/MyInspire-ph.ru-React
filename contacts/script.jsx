@@ -1,8 +1,9 @@
 import $ from 'jquery';
 import React from 'react';
 import ReactDom from 'react-dom';
-import Body from '@elements/body';
+import Body from '../assets/elements/body';
 import Contacts from './elements/contacts';
+import './style.scss';
 
 $(window).ready(() => {
     ReactDom.render(

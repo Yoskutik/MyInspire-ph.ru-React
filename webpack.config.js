@@ -1,5 +1,33 @@
+const autoprefixer = require('autoprefixer');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const os = require('os');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const pages = require('./pages.json');
+
+const entries = {};
+const htmlPages = [];
+// eslint-disable-next-line no-restricted-syntax
+for (const [key, value] of Object.entries(pages)) {
+    if (!value.innerHTML && !value.innerText) {
+        entries[key] = `./${key}/script.jsx`;
+    }
+    htmlPages.push(
+        new HtmlWebpackPlugin({
+            filename: `${key === 'home' ? '' : `${key}/`}index.html`,
+            template: './template.ejs',
+            chunks: [key],
+            description: value.description,
+            title: value.title,
+            robots: value.robots,
+            innerHTML: value.innerHTML,
+            innerText: value.innerText,
+        }),
+    );
+}
 
 module.exports = env => {
     const isDev = env && env.MODE ? env.MODE === 'development' : true;
@@ -7,22 +35,16 @@ module.exports = env => {
     return {
         mode: isDev ? 'development' : 'production',
         devtool: 'source-map',
-        entry: {
-            './home/script': './home/script.jsx',
-            './prices/script': './prices/script.jsx',
-            './contacts/script': './contacts/script.jsx',
-            './portfolio/script': './portfolio/script.jsx',
-            './extra/script': './extra/script.jsx',
-            './extra/poses/script': './extra/poses/script.jsx',
-            './extra/studios/script': './extra/studios/script.jsx',
-            './extra/stylists/script': './extra/stylists/script.jsx',
-            './extra/locations/script': './extra/locations/script.jsx',
-        },
+        entry: entries,
         output: {
-            path: __dirname,
+            path: path.resolve(os.homedir(), 'Projects', 'MyInspire-ph-react'),
             publicPath: '/',
-            filename: '[name].bundle.js',
+            filename: '[name]/index.bundle.js',
             chunkFilename: './assets/chunks/[chunkhash].chunk.js',
+        },
+        devServer: {
+            port: 8089,
+            compress: true,
         },
         module: {
             rules: [
@@ -39,6 +61,36 @@ module.exports = env => {
                                 '@babel/plugin-transform-runtime',
                             ],
                         },
+                    },
+                },
+                {
+                    test: /\.scss$/i,
+                    exclude: /node_modules/,
+                    use: [
+                        { loader: MiniCssExtractPlugin.loader },
+                        {
+                            loader: 'css-loader',
+                            options: { sourceMap: true },
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: [autoprefixer()],
+                                sourceMap: true,
+                            },
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: { sourceMap: true },
+                        },
+                    ],
+                },
+                {
+                    test: /\.(png|otf)$/,
+                    loader: 'file-loader',
+                    options: {
+                        outputPath: 'assets',
+                        name: '[name].[ext]',
                     },
                 },
             ],
@@ -60,9 +112,30 @@ module.exports = env => {
         resolve: {
             extensions: ['.jsx', '.js'],
             alias: {
-                '@elements': path.resolve(__dirname, 'assets/elements'),
-                '@': __dirname,
+                '@elements': path.resolve(__dirname, 'assets', 'elements'),
+                '@assets': path.resolve(__dirname, 'assets'),
             },
         },
+        plugins: [
+            ...htmlPages,
+            new MiniCssExtractPlugin({
+                filename: '[name]/style.css',
+            }),
+            new CleanWebpackPlugin(),
+            new CopyWebpackPlugin({
+                patterns: [
+                    { from: './favicon.ico', to: '.' },
+                    { from: './.htaccess', to: '.' },
+                    { from: './robots.txt', to: '.' },
+                    { from: './sitemap.xml', to: '.' },
+                    { from: './api', to: './api' },
+                    { from: './home/photos', to: './home/photos' },
+                    { from: './portfolio/photos', to: './portfolio/photos' },
+                    { from: './extra/locations/photos', to: './extra/locations/photos' },
+                    { from: './extra/poses/photos', to: './extra/poses/photos' },
+                    { from: './extra/studios/photos', to: './extra/studios/photos' },
+                ],
+            }),
+        ],
     };
 };

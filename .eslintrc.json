@@ -36,11 +36,18 @@
         "func-names": "off",
         "no-return-assign": "off",
         "import/order": ["error", {
-            "pathGroups": [{
-                "pattern": "@elements/*",
-                "group": "parent",
-                "position": "before"
-            }],
+            "pathGroups": [
+                {
+                    "pattern": "@elements/*",
+                    "group": "parent",
+                    "position": "before"
+                },
+                {
+                    "pattern": "@/**",
+                    "group": "parent",
+                    "position": "before"
+                }
+            ],
             "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
             "alphabetize": {"order": "asc"}
         }],
