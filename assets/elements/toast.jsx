@@ -1,5 +1,7 @@
-import React from 'react';
 import $ from 'jquery';
+import PropTypes from 'prop-types';
+import React from 'react';
+import '@styles/toast.scss';
 
 /**
  * A component for a toast. To use toasts you should add
@@ -17,12 +19,28 @@ export default class Toast extends React.Component {
     }
 
     /**
+     * The toast must be visible for 3 seconds. After that
+     * it should be closed.
+     */
+    componentDidMount() {
+        setTimeout(() => {
+            const toast = $(this.ref.current);
+            toast.css({
+                opacity: '1',
+                transform: 'translate(0, 0)',
+            });
+
+            setTimeout(() => this.onCloseClick(), 3000);
+        });
+    }
+
+    /**
      * When toast is closed, it starts the animation of going
      * down and fading out. After that it is been removed.
      * @callback
-     */
+        */
     onCloseClick = () => {
-        let toast = $(this.ref.current);
+        const toast = $(this.ref.current);
         toast
             .css({
                 opacity: '0',
@@ -31,31 +49,20 @@ export default class Toast extends React.Component {
             .on('transitionend', () => toast.remove());
     };
 
-    /**
-     * The toast must be visible for 3 seconds. After that
-     * it should be closed.
-     */
-    componentDidMount() {
-        setTimeout(() => {
-            let toast = $(this.ref.current);
-            toast.css({
-                opacity: '1',
-                transform: 'translate(0, 0)',
-            });
-
-            setTimeout(() => this.onCloseClick(), 3000);
-        })
-    }
-
     render() {
         return (
             <div className="toast" ref={this.ref}>
                 <div className="toast__header">
                     <strong className="toast__title">{this.props.title}</strong>
-                    <button className="close" onClick={this.onCloseClick}>&times;</button>
+                    <button className="close" onClick={this.onCloseClick} type="button">&times;</button>
                 </div>
                 <div className="toast__body">{this.props.text}</div>
             </div>
         );
     }
 }
+
+Toast.propTypes = {
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+};

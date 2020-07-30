@@ -22,7 +22,7 @@ export default class Genres extends React.Component {
                 <img alt="" src={props.imgSrc} />
             </div>
             <div className="genres__container_info">
-                {props.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+                {props.paragraphs.map(p => <p key={Math.random()}>{p}</p>)}
             </div>
         </div>
     );
@@ -30,7 +30,7 @@ export default class Genres extends React.Component {
     render() {
         return (
             <div className="genres">
-                {genres.map((genre, i) => <this.GenresContainer key={i} {...genre} />)}
+                {genres.map(genre => <this.GenresContainer key={Math.random()} {...genre} />)}
             </div>
         );
     }

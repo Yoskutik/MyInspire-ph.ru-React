@@ -3,11 +3,6 @@
         "browser": true,
         "es2020": true
     },
-    "ecmaFeatures": {
-        "modules":true,
-        "arrowFunctions":true,
-        "classes":true
-    },
     "extends": [
         "plugin:react/recommended",
         "airbnb"
@@ -15,7 +10,10 @@
     "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
-            "jsx": true
+            "jsx": true,
+            "modules":true,
+            "arrowFunctions":true,
+            "classes":true
         },
         "ecmaVersion": 11,
         "sourceType": "module"
@@ -27,6 +25,9 @@
         "react"
     ],
     "rules": {
+        "no-console": ["error", {
+            "allow": ["timeEnd", "warn"]
+        }],
         "linebreak-style": ["error", "windows"],
         "no-plusplus": "off",
         "max-len": ["error", {"code":  120}],
@@ -40,6 +41,11 @@
             "pathGroups": [
                 {
                     "pattern": "@elements/*",
+                    "group": "parent",
+                    "position": "before"
+                },
+                {
+                    "pattern": "@styles/*",
                     "group": "parent",
                     "position": "before"
                 },

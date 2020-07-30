@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import Loader from "./loader";
-import Header from "./header";
-import Footer from "./footer";
+import Footer from './footer';
+import Header from './header';
+import Loader from './loader';
+import '@styles/Base.scss';
 
 /**
  *  Main component for all pages. Contains Loader, Header and Footer.
@@ -12,15 +14,22 @@ import Footer from "./footer";
  *      <div class="div"></div>
  *  </Body>
  */
-export default class Body extends React.Component {
-    render() {
-        return (
-            <>
-                <Loader/>
-                <Header/>
-                {this.props.children}
-                <Footer/>
-            </>
-        )
-    }
-}
+const Body = function (props) {
+    return (
+        <>
+            <Loader />
+            <Header />
+            {props.children}
+            <Footer />
+        </>
+    );
+};
+
+Body.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.arrayOf(PropTypes.element),
+    ]).isRequired,
+};
+
+export default Body;

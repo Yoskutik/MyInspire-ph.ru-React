@@ -1,0 +1,80 @@
+@use 'Variables';
+
+.footer {
+  background-color: Variables.$dark_color;
+  padding: 20px 15px 15px 15px;
+  border-top: 2px solid #CCC;
+  color: white;
+  margin-top: auto;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    padding-right: 11rem;
+  }
+
+  &__copyright {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.8rem;
+    color: Variables.$white_color;
+  }
+
+  &__block {
+    margin-right: 2.5rem;
+    color: Variables.$gray_color;
+    max-height: 0.9rem;
+    overflow: hidden;
+    transition-duration: 0.5s;
+
+    &.opened {
+      max-height: 100px;
+
+      .footer__block_triangle {
+        transform: rotate(90deg);
+      }
+    }
+
+    &_title {
+      margin: 0 0 5px 0;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    &_triangle {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 9px solid Variables.$gray_color;
+      margin: 0 4px;
+      position: relative;
+      top: -1px;
+      transition-duration: 0.5s;
+    }
+
+    &_body {
+      padding-left: 15px;
+      font-size: 0.75rem;
+
+      a {
+        color: Variables.$gray_color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .footer__block {
+    margin: 0 1.5rem 5px 0;
+  }
+}
+

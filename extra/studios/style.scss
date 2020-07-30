@@ -1,4 +1,4 @@
-@import '../../assets/base';
+@use '~@styles/Variables.scss';
 
 .body {
   width: 100%;
@@ -17,7 +17,7 @@
   &__cost {
     padding: 5px 10px;
     cursor: pointer;
-    border: 1px solid $border_color;
+    border: 1px solid Variables.$border_color;
     border-radius: 10px;
     margin-right: 20px;
     display: flex;
@@ -30,7 +30,7 @@
       width: 10px;
       height: 4px;
       margin-bottom: 4px;
-      background: darken($border_color, 10%);
+      background: darken(Variables.$border_color, 10%);
       border-radius: 5px;
 
       &:last-child {
@@ -57,11 +57,11 @@
     }
 
     &.active {
-      background: lighten($border_color, 5%);
+      background: lighten(Variables.$border_color, 5%);
     }
 
     &:hover {
-      background: lighten($border_color, 10%);
+      background: lighten(Variables.$border_color, 10%);
     }
   }
 
@@ -71,19 +71,19 @@
     span {
       padding: 5px 10px;
       cursor: pointer;
-      border: 1px solid $border_color;
+      border: 1px solid Variables.$border_color;
 
       &.active {
         text-decoration: underline;
-        background: lighten($border_color, 5%);
+        background: lighten(Variables.$border_color, 5%);
       }
 
       &:hover {
-        background: lighten($border_color, 10%);
+        background: lighten(Variables.$border_color, 10%);
       }
 
       &:active {
-        background: $border_color;
+        background: Variables.$border_color;
       }
 
       &:first-child {
@@ -101,7 +101,7 @@
 
 .list__item {
   padding: 1.5rem 0;
-  border-bottom: 1px solid $border_color;
+  border-bottom: 1px solid Variables.$border_color;
 
   &:last-child {
     border-bottom: none;
@@ -144,7 +144,7 @@
     cursor: pointer;
 
     &:hover, &.active {
-      border: 2px solid $border_color;
+      border: 2px solid Variables.$border_color;
       box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.1);
     }
   }
@@ -179,7 +179,7 @@ h2, h3 {
 }
 
 a {
-  color: $main_color;
+  color: Variables.$main_color;
   text-decoration: none;
 
   &:hover {

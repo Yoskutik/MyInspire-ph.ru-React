@@ -68,6 +68,7 @@ export default class Hall extends React.Component {
                       ))
                         .reduce((prev, curr) => [prev, ' / ', curr])}
                 </span>
+                {/* eslint-disable-next-line react/no-danger */}
                 <p className="list__item_description" dangerouslySetInnerHTML={{ __html: props.description }} />
                 <div className="list__item_contacts\">
                     <strong>Контакты:</strong>

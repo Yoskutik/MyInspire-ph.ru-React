@@ -1,6 +1,6 @@
 import React from 'react';
-import avatar from '@assets/ava.png';
 import { InstagramIcon, WhatsAppIcon, VKIcon } from '@elements/icons';
+import avatar from '@assets/ava.png';
 import Genres from './genres';
 
 /**
@@ -81,13 +81,13 @@ export default class Home extends React.Component {
                        href="https://www.instagram.com/myinspire_ph/"
                        target="_blank"
                        rel="noreferrer">
-                        <InstagramIcon height="38" width="38" />
+                        <InstagramIcon />
                     </a>
                     <a itemProp="sameAs" href="https://vk.com/inspiredbyspb/" target="_blank" rel="noreferrer">
-                        <VKIcon height="38" width="38" />
+                        <VKIcon />
                     </a>
                     <a itemProp="sameAs" href="https://wa.me/79995154217" target="_blank" rel="noreferrer">
-                        <WhatsAppIcon height="38" width="38" />
+                        <WhatsAppIcon />
                     </a>
                 </div>
             </div>

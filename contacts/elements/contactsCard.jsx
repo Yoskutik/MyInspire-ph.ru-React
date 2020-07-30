@@ -25,14 +25,14 @@ export default class ContactsCard extends React.Component {
                     tatiana.mix.1910@gmail.com
                 </a>
                 <button className="copy copy__mail" onClick={this.onCopyEmailClick.bind(this)} type="button">
-                    <CopyIcon width="16" height="16" />
+                    <CopyIcon />
                 </button>
             </p>
             <p className="contacts__contacts_item">
                 Телефон:
                 <a className="tel" href="tel:+7(999)515-42-17" itemProp="telephone">+7(999)515-42-17</a>
                 <button className="copy copy__tel" onClick={this.onCopyTelClick.bind(this)} type="button">
-                    <CopyIcon width="16" height="16" />
+                    <CopyIcon />
                 </button>
             </p>
             <p className="contacts__contacts_item">Для связи в WhatsApp, Telegram</p>
@@ -59,13 +59,13 @@ export default class ContactsCard extends React.Component {
             <h3 className="contacts__social_title">Социальные сети:</h3>
             <div className="contacts__social_links">
                 <a itemProp="sameAs" href="https://www.instagram.com/myinspire_ph/" target="_blank" rel="noreferrer">
-                    <InstagramIcon width="38" height="38" />
+                    <InstagramIcon />
                 </a>
                 <a itemProp="sameAs" href="https://vk.com/inspiredbyspb" target="_blank" rel="noreferrer">
-                    <VKIcon width="38" height="38" />
+                    <VKIcon />
                 </a>
                 <a itemProp="sameAs" href="https://www.pinterest.ru/tatianamix1910/" target="_blank" rel="noreferrer">
-                    <PinterestIcon width="38" height="38" />
+                    <PinterestIcon />
                 </a>
             </div>
         </div>

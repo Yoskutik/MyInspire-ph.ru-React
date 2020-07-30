@@ -1,0 +1,39 @@
+@use 'Variables';
+
+.alert {
+  font-size: 0.9rem;
+  padding: 12px 25px 12px 20px;
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+
+  &__close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+
+    &:hover {
+      text-shadow: 1px 1px 3px Variables.$dark_color;
+    }
+  }
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}

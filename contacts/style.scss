@@ -1,7 +1,6 @@
-@import '../assets/base';
+@use '~@styles/Variables.scss';
 
 $message_block_length: 300px;
-$toast_color: #343a40;
 
 input:focus, textarea {
   outline: none;
@@ -10,7 +9,7 @@ input:focus, textarea {
 .intro {
   margin: 2rem auto 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid $border_color;
+  border-bottom: 1px solid Variables.$border_color;
 
   &__title {
     margin: 10px 0;
@@ -170,10 +169,10 @@ input:focus, textarea {
     &_input {
       padding: 2px 5px;
       width: $message_block_length;
-      border: 1px solid $border_color;
+      border: 1px solid Variables.$border_color;
       box-sizing: border-box;
       font-size: 16px;
-      color: $main_color;
+      color: Variables.$main_color;
 
       &.danger {
         border-color: red;
@@ -187,9 +186,9 @@ input:focus, textarea {
     &_submit {
       background: white;
       width: $message_block_length;
-      border: 1px solid $border_color;
+      border: 1px solid Variables.$border_color;
       padding: 3px 6px;
-      color: $main_color;
+      color: Variables.$main_color;
       font-size: 16px;
       line-height: 1.5;
     }
@@ -200,46 +199,6 @@ input:focus, textarea {
     font-size: 0.9rem;
     margin: 0.5rem;
     display: none;
-  }
-}
-
-.toast {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  transition-duration: 1s;
-  opacity: 0;
-  transform: translate(0, 100px);
-  max-width: 350px;
-  font-size: 0.8rem;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  border-radius: 5px;
-  color: $white_color;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  line-height: 1.5;
-
-  &__header {
-    padding: 4px 12px;
-    background: lighten($toast_color, 5%);
-    border-bottom: 1px solid $border_color;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .close {
-      background: transparent;
-      border: none;
-      color: $white_color;
-      padding: 0;
-      font-size: 1rem;
-    }
-  }
-
-  &__body {
-    padding: 12px;
-    background: $toast_color;
   }
 }
 

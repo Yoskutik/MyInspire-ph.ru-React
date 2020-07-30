@@ -1,0 +1,141 @@
+@use 'Variables';
+
+.header {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1.2rem 0 1rem 0;
+  border-bottom: 1px solid Variables.$border_color;
+  background: #fff;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    height: 43px;
+  }
+
+  &__title {
+    margin: 0 0 0 auto;
+    padding: 8px;
+    font-size: 1rem;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    line-height: 1.5;
+  }
+
+  &__dropdown-btn {
+    display: none;
+    position: absolute;
+    top: 17px;
+    left: 50px;
+    padding: 9px 11px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 5px;
+
+    &:hover {
+      background: #e2e6ea;
+    }
+
+    &:active {
+      background: #dae0e5;
+    }
+
+    span {
+      display: block;
+      width: 25px;
+      height: 5px;
+      margin-bottom: 5px;
+      background: darkgray;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__link {
+    padding: 8px;
+    color: Variables.$main_color;
+    text-decoration: none;
+    box-sizing: border-box;
+
+    span:after {
+      display: block;
+      content: '';
+      width: 0;
+      border-top: 1px solid Variables.$lighten_color;
+      position: relative;
+      left: 50%;
+      transition-duration: 0.3s;
+    }
+
+    span {
+      display: inline-block;
+
+      &:hover {
+        color: Variables.$lighten_color;
+
+        &:after {
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .header {
+    &__dropdown-btn {
+      display: block;
+    }
+
+    & &__nav {
+      display: none;
+      position: absolute;
+      top: 62px;
+      left: 50px;
+      flex-direction: column;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 5px;
+      background: white;
+      padding: 6px 0;
+
+      &.visible {
+        display: flex;
+      }
+
+      .header__link {
+        padding: 0.5rem;
+      }
+    }
+
+    &__title {
+      padding-right: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .header {
+    &__title {
+      padding-right: 15px;
+    }
+
+    &__dropdown-btn {
+      left: 15px;
+      top: 14px;
+    }
+
+    & &__nav {
+      top: 60px;
+      left: 15px;
+    }
+  }
+}

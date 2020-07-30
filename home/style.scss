@@ -1,4 +1,4 @@
-@import '../assets/base';
+@use '~@styles/Variables.scss';
 
 .collage {
   max-width: 100%;
@@ -30,7 +30,7 @@
     display: flex;
     padding: 0 20px 1.5rem 20px;
     align-items: flex-start;
-    border-bottom: 1px solid $border_color;
+    border-bottom: 1px solid Variables.$border_color;
   }
 
   &__message {
@@ -53,12 +53,12 @@
 
   &__card {
     padding: 15px;
-    border: 1px solid $border_color;
+    border: 1px solid Variables.$border_color;
     border-radius: 5px;
 
     &_avatar {
       padding: 0.8rem 0.8rem 1.5rem 0.85rem;
-      border-bottom: 1px solid $border_color;
+      border-bottom: 1px solid Variables.$border_color;
       margin-bottom: 20px;
 
       img {
@@ -101,7 +101,7 @@
     display: grid;
     grid-template-columns: 0.8fr 1fr;
     grid-gap: 30px;
-    border-bottom: 1px solid $border_color;
+    border-bottom: 1px solid Variables.$border_color;
     padding: 1.5rem;
 
     &:nth-child(2n) {
@@ -174,7 +174,7 @@
 
       &_avatar {
         border-bottom: none;
-        border-right: 1px solid $border_color;
+        border-right: 1px solid Variables.$border_color;
         margin: 0 20px 0 0;
         padding: 10px 20px 10px 10px;
 

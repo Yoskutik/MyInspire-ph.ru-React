@@ -1,4 +1,4 @@
-@import '../../assets/base';
+@use '~@styles/Variables.scss';
 
 .intro {
   text-indent: 2em;
@@ -16,10 +16,10 @@
   &__item {
     display: flex;
     padding: 10px 20px;
-    border-bottom: 1px solid $border_color;
+    border-bottom: 1px solid Variables.$border_color;
 
     &:first-child {
-      border-top: 1px solid $border_color;
+      border-top: 1px solid Variables.$border_color;
     }
 
     &_column {

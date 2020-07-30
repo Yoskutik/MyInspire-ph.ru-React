@@ -1,4 +1,4 @@
-@import '../../assets/base';
+@use '~@styles/Variables.scss';
 
 .pose {
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
   max-width: 75%;
   margin: 20px auto;
-  border-bottom: 1px solid $border_color;
+  border-bottom: 1px solid Variables.$border_color;
 
   &:last-child {
     border-bottom: none;

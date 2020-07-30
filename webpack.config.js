@@ -71,7 +71,10 @@ module.exports = env => {
                         { loader: MiniCssExtractPlugin.loader },
                         {
                             loader: 'css-loader',
-                            options: { sourceMap: isDev },
+                            options: {
+                                sourceMap: isDev,
+                                url: true,
+                            },
                         },
                         {
                             loader: 'postcss-loader',
@@ -114,6 +117,7 @@ module.exports = env => {
             extensions: ['.jsx', '.js'],
             alias: {
                 '@elements': path.resolve(__dirname, 'assets', 'elements'),
+                '@styles': path.resolve(__dirname, 'assets', 'styles'),
                 '@assets': path.resolve(__dirname, 'assets'),
             },
         },
@@ -130,7 +134,7 @@ module.exports = env => {
                     { from: './robots.txt', to: '.' },
                     { from: './sitemap.xml', to: '.' },
                     { from: './api', to: './api' },
-                    { from: './assets/Gotham.otf', to: './assets/Gotham.otf' },
+                    // { from: './assets/Gotham.otf', to: './assets/Gotham.otf' },
                     { from: './home/photos', to: './home/photos' },
                     { from: './portfolio/photos', to: './portfolio/photos' },
                     { from: './extra/locations/photos', to: './extra/locations/photos' },

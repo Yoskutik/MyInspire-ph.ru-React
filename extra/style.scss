@@ -1,4 +1,4 @@
-@import "../assets/base";
+@use '~@styles/Variables.scss';
 
 .body {
   display: flex;
@@ -8,7 +8,7 @@
 }
 
 .block {
-  border: 1px solid $border_color;
+  border: 1px solid Variables.$border_color;
   border-radius: 5px;
   padding: 10px;
   position: relative;
@@ -23,7 +23,7 @@
     color: #777777;
     text-align: center;
     padding: 7px;
-    border: 1px solid #E0E0E0;
+    border: 1px solid Variables.$border_color;
     margin-bottom: 10px;
     font-size: 1.1rem;
 

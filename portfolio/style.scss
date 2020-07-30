@@ -1,5 +1,5 @@
-@import '../node_modules/react-image-gallery/styles/scss/image-gallery';
-@import '../assets/base';
+@use '~@styles/Variables.scss';
+@import '~react-image-gallery/styles/scss/image-gallery';
 
 .portfolio {
   max-width: 900px;
@@ -18,7 +18,7 @@
   z-index: 1;
 
   &__close {
-    color: $white_color;
+    color: Variables.$white_color;
     font-size: 1.5rem;
     position: absolute;
     right: 20px;
@@ -47,13 +47,13 @@
     background: black;
     opacity: 0;
     transition-duration: 1s;
-    color: $white_color;
+    color: Variables.$white_color;
     font-size: 1.2rem;
     font-weight: bold;
   }
 
   &__photo {
-    border: 1px solid #E0E0E0;
+    border: 1px solid Variables.$border_color;
     overflow: hidden;
     cursor: pointer;
     display: flex;

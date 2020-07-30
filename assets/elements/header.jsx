@@ -1,5 +1,6 @@
-import React from 'react';
 import $ from 'jquery';
+import React from 'react';
+import '@styles/header.scss';
 
 /**
  * A Header element. Contains a button (that opens dropdown list)
@@ -36,13 +37,13 @@ export default class Header extends React.Component {
      * @callback
      */
     onDropdownBtnClick = () => {
-        let nav = $('.header__nav');
+        const nav = $('.header__nav');
         if (nav.is(':visible')) {
             $(document).off('click', this.onMenuPopup);
             nav.hide();
         } else {
             setTimeout(() => $(document).on('click', this.onMenuPopup));
-            nav.css({display: 'flex'});
+            nav.css({ display: 'flex' });
         }
     };
 
@@ -51,17 +52,21 @@ export default class Header extends React.Component {
             <header className="header">
                 <div className="header__container container">
                     <button type="button" className="header__dropdown-btn" onClick={this.onDropdownBtnClick}>
-                        <span/><span/><span/>
+                        <span />
+                        <span />
+                        <span />
                     </button>
                     <div className="header__nav" itemScope itemType="http://schema.org/SiteNavigationElement">
-                        <this.HeaderLink title="Главная" href="/"/>
-                        <this.HeaderLink title="Портфолио" href="/portfolio/"/>
-                        <this.HeaderLink title="Цены" href="/prices/"/>
-                        <this.HeaderLink title="Контакты" href="/contacts/"/>
+                        <this.HeaderLink title="Главная" href="/" />
+                        <this.HeaderLink title="Портфолио" href="/portfolio/" />
+                        <this.HeaderLink title="Цены" href="/prices/" />
+                        <this.HeaderLink title="Контакты" href="/contacts/" />
                     </div>
-                    <h2 className="nav-link header__title" title="Фотограф в Санкт-Петербурге">MyInspire photographer</h2>
+                    <h2 className="nav-link header__title" title="Фотограф в Санкт-Петербурге">
+                        MyInspire photographer
+                    </h2>
                 </div>
             </header>
-        )
+        );
     }
 }

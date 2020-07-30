@@ -1,0 +1,62 @@
+@use 'Variables';
+
+$loader_size: 50px;
+$loader_border_width: 8px;
+
+.loader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.9s;
+  opacity: 1;
+
+  &__spinner {
+    border-radius: 50%;
+    width: $loader_size;
+    height: $loader_size;
+    border: $loader_border_width solid Variables.$lighten_color;
+    position: relative;
+    transition-duration: 1s;
+
+    &:before, &:after {
+      display: block;
+      content: '';
+      width: $loader_size / 2 + $loader_border_width + 5px;
+      height: $loader_size + $loader_border_width * 2 + 10px;
+      background: white;
+      top: -$loader_border_width - 5px;
+      left: -$loader_border_width - 5px;
+      position: absolute;
+      animation: spin 2s infinite ease 0.5s;
+      border-radius: 50% 0 0 50%;
+      transform-origin: ($loader_size / 2 + $loader_border_width + 5px) ($loader_size / 2 + $loader_border_width + 5px);
+    }
+
+    &:after {
+      animation: spin 2s infinite ease;
+      border-radius: 0 50% 50% 0;
+      right: -$loader_border_width - 5px;
+      left: initial;
+      transform-origin: 0 ($loader_size / 2 + $loader_border_width + 5px);
+    }
+  }
+
+  &.dark-loader {
+    background: darken(Variables.$dark_color, 5%);
+
+    .loader__spinner {
+      border-color: Variables.$white_color;
+
+      &:before, &:after {
+        background: darken(Variables.$dark_color, 5%);
+      }
+    }
+  }
+}
