@@ -22,12 +22,16 @@ class Loader extends React.Component {
      * Creates a callback, that removes loader after window is loaded.
      */
     componentDidMount() {
-        if (!this.props.isMain) return;
-        window.addEventListener('load', () => {
-            // eslint-disable-next-line no-console
-            console.timeEnd('Loaded');
-            this.ref.current.style.opacity = '0';
-        });
+        if (this.props.isMain) {
+            window.addEventListener('load', () => {
+                console.timeEnd('Loaded');
+                this.ref.current.style.opacity = '0';
+            });
+        } else {
+            setTimeout(() => {
+                this.ref.current.style.opacity = '0';
+            });
+        }
     }
 
     /**

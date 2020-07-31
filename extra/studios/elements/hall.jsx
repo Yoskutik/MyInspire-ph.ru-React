@@ -49,6 +49,7 @@ export default class Hall extends React.Component {
      * can vary from day to day. E.g. one price on weekdays, other on weekends.
      * @param {{location: String, href: String}} props.address - the title of the
      * location and the link from Google Maps.
+     * @param {Array<String>} props.description - a list of paragraphs for description.
      * @param {{phone: String}} props.contacts - information about contacts. For now
      * it only phone information.
      * @component
@@ -81,6 +82,7 @@ export default class Hall extends React.Component {
                             ? (
                                 <>
                                     Телефон:
+                                    {' '}
                                     <a href={`tel:${props.contacts.phone}`}>{props.contacts.phone}</a>
                                 </>
                             )

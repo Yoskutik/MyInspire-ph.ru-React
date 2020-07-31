@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { copyToClipboard } from '@assets/utils';
 import {
     CopyIcon, InstagramIcon, PinterestIcon, VKIcon,
 } from '@elements/icons';
-import { copyToClipboard } from '@assets/utils';
 
 /**
  * A component that contains all the contacts. Assuming the using
@@ -24,14 +24,14 @@ export default class ContactsCard extends React.Component {
                    href="mailto:tatiana.mix.1910@gmail.com">
                     tatiana.mix.1910@gmail.com
                 </a>
-                <button className="copy copy__mail" onClick={this.onCopyEmailClick.bind(this)} type="button">
+                <button className="copy copy__mail" onClick={this.onCopyEmailClick} type="button">
                     <CopyIcon />
                 </button>
             </p>
             <p className="contacts__contacts_item">
                 Телефон:
                 <a className="tel" href="tel:+7(999)515-42-17" itemProp="telephone">+7(999)515-42-17</a>
-                <button className="copy copy__tel" onClick={this.onCopyTelClick.bind(this)} type="button">
+                <button className="copy copy__tel" onClick={this.onCopyTelClick} type="button">
                     <CopyIcon />
                 </button>
             </p>

@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -10,12 +9,7 @@ import React from 'react';
 export default class Feedback extends React.Component {
     constructor() {
         super();
-        this.onSubmit = this.onSubmit.bind(this);
         this.lastSendAt = 0;
-        this.refName = React.createRef();
-        this.refEmail = React.createRef();
-        this.refSubject = React.createRef();
-        this.refBody = React.createRef();
     }
 
     /**
@@ -28,18 +22,14 @@ export default class Feedback extends React.Component {
         evt.preventDefault();
 
         let valid = true;
-        $('.contacts__message_input').each((i, el) => {
+        document.querySelectorAll('.contacts__message_input').forEach(el => {
             if (el.validity.valueMissing) {
-                $('.contacts__error-message.required').css({
-                    display: 'block',
-                });
+                document.querySelector('.contacts__error-message.required').style.display = 'block';
                 el.classList.add('danger');
                 valid = false;
             }
             if (el.validity.typeMismatch) {
-                $('.contacts__error-message.mail').css({
-                    display: 'block',
-                });
+                document.querySelector('.contacts__error-message.mail').style.display = 'block';
                 el.classList.add('danger');
                 valid = false;
             }
@@ -51,23 +41,19 @@ export default class Feedback extends React.Component {
             return;
         }
 
-        $.ajax({
-            url: '/api/sendMail.php',
-            type: 'post',
-            data: {
-                name: this.refName.current.value,
-                email: this.refEmail.current.value,
-                subject: this.refSubject.current.value,
-                body: this.refBody.current.value,
-            },
-            success: () => {
-                this.props.toast('Электронная почта', 'Сообщение успешно доставленно');
-                this.lastSendAt = Date.now();
-            },
-            error: () => {
-                this.props.toast('Электронная почта', 'При отправке сообщения возникли ошибки');
-            },
-        });
+        fetch('/api/sendMail.php', {
+            method: 'POST',
+            body: new FormData(document.querySelector('.contacts__message')),
+        })
+            .then(response => {
+                if (response.ok) {
+                    this.props.toast('Электронная почта', 'Сообщение успешно доставленно');
+                    this.lastSendAt = Date.now();
+                } else {
+                    this.props.toast('Электронная почта', 'При отправке сообщения возникли ошибки');
+                }
+            })
+            .catch(() => this.props.toast('Электронная почта', 'При отправке сообщения возникли ошибки'));
     };
 
     render() {
@@ -76,39 +62,43 @@ export default class Feedback extends React.Component {
                 <h3 className="contacts__column_title">Прямая связь</h3>
                 <form className="contacts__message" autoComplete="off">
                     <div className="contacts__message_field">
-                        <label className="contacts__message_label">
+                        <label className="contacts__message_label" htmlFor="name">
                             <input className="contacts__message_input"
                                    type="text"
                                    placeholder="Ваше имя:"
                                    required
-                                   ref={this.refName} />
+                                   id="name"
+                                   name="name" />
                         </label>
                     </div>
                     <div className="contacts__message_field">
-                        <label className="contacts__message_label">
+                        <label className="contacts__message_label" htmlFor="email">
                             <input className="contacts__message_input"
                                    type="email"
                                    placeholder="E-mail:"
                                    required
-                                   ref={this.refEmail} />
+                                   id="email"
+                                   name="email" />
                         </label>
                     </div>
                     <div className="contacts__message_field">
-                        <label className="contacts__message_label">
+                        <label className="contacts__message_label" htmlFor="subject">
                             <input className="contacts__message_input"
                                    type="text"
                                    placeholder="Тема:"
                                    required
-                                   ref={this.refSubject} />
+                                   id="subject"
+                                   name="subject" />
                         </label>
                     </div>
                     <div className="contacts__message_field">
-                        <label className="contacts__message_label">
+                        <label className="contacts__message_label" htmlFor="message">
                             <textarea className="contacts__message_input"
                                       rows="6"
                                       placeholder="Сообщение:"
                                       required
-                                      ref={this.refBody} />
+                                      id="message"
+                                      name="message" />
                         </label>
                     </div>
                     <input type="submit"

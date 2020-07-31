@@ -28,33 +28,20 @@
         "no-console": ["error", {
             "allow": ["timeEnd", "warn"]
         }],
+        "func-names": "off",
         "linebreak-style": ["error", "windows"],
         "no-plusplus": "off",
-        "max-len": ["error", {"code":  120}],
+        "max-len": ["error", {"code":  125}],
         "indent": ["error", 4, {
             "ignoredNodes": ["JSXElement *"]
         }],
         "arrow-parens": ["error", "as-needed"],
-        "func-names": "off",
-        "no-return-assign": "off",
         "import/order": ["error", {
-            "pathGroups": [
-                {
-                    "pattern": "@elements/*",
-                    "group": "parent",
-                    "position": "before"
-                },
-                {
-                    "pattern": "@styles/*",
-                    "group": "parent",
-                    "position": "before"
-                },
-                {
-                    "pattern": "@assets/**",
-                    "group": "parent",
-                    "position": "before"
-                }
-            ],
+            "pathGroups": [{
+                "pattern": "@*/**",
+                "group": "parent",
+                "position": "before"
+            }],
             "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
             "alphabetize": {"order": "asc"}
         }],
@@ -64,13 +51,11 @@
             "html": "ignore",
             "exceptions": ["Hall"]
         }],
-        "react/jsx-no-bind": "off",
         "react/jsx-closing-bracket-location": ["error", "after-props"],
         "react/jsx-first-prop-new-line": ["error", "never"],
         "react/forbid-prop-types": "off",
         "react/destructuring-assignment": "off",
         "jsx-a11y/no-static-element-interactions": "off",
-        "jsx-a11y/click-events-have-key-events": "off",
-        "jsx-a11y/label-has-associated-control": "off"
+        "jsx-a11y/click-events-have-key-events": "off"
     }
 }

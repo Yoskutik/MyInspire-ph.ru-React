@@ -30,6 +30,21 @@
       text-shadow: 1px 1px 3px #fff;
     }
   }
+
+  .image-gallery {
+    height: 100%;
+
+    &-content {
+      height: 100%;
+    }
+  }
+
+  .image-gallery-thumbnails-wrapper.bottom {
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    background: #000;
+  }
 }
 
 .item {
@@ -67,7 +82,7 @@
       transform: scale(1.1);
     }
 
-    &:hover {
+    &:hover, &.hover {
       .item__title {
         opacity: 0.5;
       }

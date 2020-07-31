@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import PropTypes from 'prop-types';
 import React from 'react';
 import '@styles/toast.scss';
@@ -15,7 +14,6 @@ export default class Toast extends React.Component {
     constructor(props) {
         super(props);
         this.ref = React.createRef();
-        this.onCloseClick = this.onCloseClick.bind(this);
     }
 
     /**
@@ -24,12 +22,9 @@ export default class Toast extends React.Component {
      */
     componentDidMount() {
         setTimeout(() => {
-            const toast = $(this.ref.current);
-            toast.css({
-                opacity: '1',
-                transform: 'translate(0, 0)',
-            });
-
+            const toast = this.ref.current;
+            toast.style.opacity = '1';
+            toast.style.transform = 'translate(0, 0)';
             setTimeout(() => this.onCloseClick(), 3000);
         });
     }
@@ -40,13 +35,10 @@ export default class Toast extends React.Component {
      * @callback
         */
     onCloseClick = () => {
-        const toast = $(this.ref.current);
-        toast
-            .css({
-                opacity: '0',
-                transform: 'translate(0, 100px)',
-            })
-            .on('transitionend', () => toast.remove());
+        const toast = this.ref.current;
+        toast.style.opacity = '0';
+        toast.style.transform = 'translate(0, 100px)';
+        toast.addEventListener('transitionend', () => toast.remove());
     };
 
     render() {

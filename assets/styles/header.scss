@@ -57,6 +57,7 @@
   &__nav {
     display: flex;
     flex-wrap: wrap;
+    z-index: 1;
   }
 
   &__link {

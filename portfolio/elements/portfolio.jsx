@@ -1,4 +1,5 @@
 import React from 'react';
+import { debounce, isMobileOrTablet } from '@assets/utils';
 import Loader from '@elements/loader';
 import thumbnails from './thumbnails.json';
 
@@ -10,23 +11,25 @@ import thumbnails from './thumbnails.json';
 export default class Portfolio extends React.Component {
     constructor(props) {
         super(props);
+        const isMobile = window.innerWidth < 900 && window.innerWidth < window.innerHeight;
         import('react-image-gallery').then(({ default: ImageGallery }) => {
             this.galleries = thumbnails.map(thumbnail => {
                 const items = [];
-                for (let i = 0; i < thumbnail.gallery.amount; i++) {
+                for (let i = 0; i < thumbnail.amount; i++) {
                     items.push({
-                        original: `${thumbnail.gallery.href}/${i}.png`,
-                        thumbnail: `${thumbnail.gallery.href}/${i}m.png`,
+                        original: `${thumbnail.src}/${i}.jpg`,
+                        thumbnail: `${thumbnail.src}/${i}m.jpg`,
                     });
                 }
                 return (
                     <div className="gallery">
                         <ImageGallery key={Math.random()}
                                       items={items}
-                                      thumbnailPosition="left"
+                                      thumbnailPosition={isMobile ? 'bottom' : 'left'}
                                       showPlayButton={false}
-                                      onImageLoad={this.onGalleryLoad.bind(this, thumbnail.gallery.amount)} />
-                        <button className="gallery__close" onClick={this.onCloseClick.bind(this)} type="button">
+                                      onImageLoad={this.onGalleryLoad}
+                                      showFullscreenButton={!isMobile} />
+                        <button className="gallery__close" onClick={this.onCloseClick} type="button">
                             &times;
                         </button>
                         <Loader isMain={false} isDark />
@@ -40,6 +43,27 @@ export default class Portfolio extends React.Component {
         this.imagesLoaded = 0;
     }
 
+    componentDidMount() {
+        if (!isMobileOrTablet()) return;
+        const checkElementVisibility = function (elm) {
+            const rect = elm.getBoundingClientRect();
+            const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+            return !(rect.bottom < 300 || rect.top - viewHeight >= -300);
+        };
+        window.addEventListener('scroll', debounce(() => {
+            document.querySelectorAll('.thumbnail')
+                .forEach(it => {
+                    const photo = it.querySelector('.item__photo');
+                    if (checkElementVisibility(it)) {
+                        photo.classList.add('hover');
+                    } else {
+                        photo.classList.remove('hover');
+                    }
+                });
+        }));
+        window.dispatchEvent(new Event('scroll'));
+    }
+
     /**
      * The thumbnail of photo session.
      * @param {Object} props
@@ -48,9 +72,9 @@ export default class Portfolio extends React.Component {
      * @component
      */
     Thumbnail = props => (
-        <div className="item" onClick={this.onThumbnailClick.bind(this, props.index)}>
+        <div className="item thumbnail" onClick={this.onThumbnailClick.bind(this, props.index)} role="button" tabIndex="0">
             <div className="item__photo">
-                <img alt={props.title} src={props.src} />
+                <img alt={props.title} src={`${props.src}.jpg`} />
                 <div className="item__title">{props.title}</div>
             </div>
         </div>

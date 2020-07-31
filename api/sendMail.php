@@ -72,7 +72,7 @@ try {
 
     $to = '<yoskutik@gmail.com>, <tatiana.mix.1910@gmail.com>, <da_afo_w@mail.ru>, <tatiana@myinspire-ph.ru>';
     $subject = $_POST['subject'];
-    $body = createEmail($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['body']);
+    $body = createEmail($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message']);
     $headers = "From: {$_POST['name']} <{$_POST['email']}>" . "\r\n" .
         "Reply-To: <{$_POST['email']}>" . "\r\n" .
         'Content-type: text/html; charset=UTF-8' . "\r\n" .

@@ -2,13 +2,32 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import '@styles/alert.scss';
 
+/**
+ * Bootstrap-like alert component.
+ * @component
+ * @example
+ * <Alert type={Alert.Types.SUCCESS} expiredAt={Alert.createExpiredAt(1, 12, 2021)}>
+ *     Content of alert.
+ * </Alert>
+ */
 class Alert extends React.Component {
+    /**
+     * Values of this dictionary are all possible types.
+     * @type {{SUCCESS: string, ERROR: string, INFO: string}}
+     */
     static Types = {
         SUCCESS: 'success',
         INFO: 'info',
         ERROR: 'error',
     };
 
+    /**
+     * Create new Date object of format "23:59:59 day.month.year"
+     * @param {Number} day
+     * @param {Number} month
+     * @param {Number} year
+     * @returns {Date}
+     */
     static createExpiredAt = function (day, month, year) {
         const date = new Date();
 

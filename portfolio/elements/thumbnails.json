@@ -1,42 +1,47 @@
 [
   {
-    "title": "Daria",
-    "src": "photos/0.png",
-    "gallery": {
-      "href": "photos/daria",
-      "amount": 15
-    }
-  },
-  {
-    "title": "Dasha",
-    "src": "photos/1.png",
-    "gallery": {
-      "href": "photos/dasha",
-      "amount": 11
-    }
-  },
-  {
-    "title": "Julia",
-    "src": "photos/2.png",
-    "gallery": {
-      "href": "photos/julia",
-      "amount": 10
-    }
-  },
-  {
-    "title": "Kristina",
-    "src": "photos/3.png",
-    "gallery": {
-      "href": "photos/kristina",
-      "amount": 6
-    }
-  },
-  {
     "title": "Mark",
-    "src": "photos/4.png",
-    "gallery": {
-      "href": "photos/mark",
-      "amount": 6
-    }
+    "src": "photos/mark",
+    "amount": 6
+  },
+  {
+    "title": "Alina",
+    "src": "photos/alina",
+    "amount": 9
+  },
+  {
+    "title": "Bozena",
+    "src": "photos/bozena",
+    "amount": 9
+  },
+  {
+    "title": "D&A",
+    "src": "photos/d-n-a",
+    "amount": 9
+  },
+  {
+    "title": "Dima",
+    "src": "photos/dima",
+    "amount": 9
+  },
+  {
+    "title": "Maxim",
+    "src": "photos/max",
+    "amount": 9
+  },
+  {
+    "title": "Alina",
+    "src": "photos/alina2",
+    "amount": 8
+  },
+  {
+    "title": "V&P",
+    "src": "photos/v-n-p",
+    "amount": 9
+  },
+  {
+    "title": "Yana",
+    "src": "photos/yana",
+    "amount": 9
   }
 ]

@@ -60,5 +60,7 @@ $(window).on('images-loaded', () => {
     let imagesSwitcherId = startSwitchingImages();
     $(window)
         .on('blur', () => clearInterval(imagesSwitcherId))
-        .on('focus', () => imagesSwitcherId = startSwitchingImages());
+        .on('focus', () => {
+            imagesSwitcherId = startSwitchingImages();
+        });
 });

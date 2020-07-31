@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import React from 'react';
 import '@styles/header.scss';
 
@@ -10,6 +9,11 @@ import '@styles/header.scss';
  * @component
  */
 export default class Header extends React.Component {
+    constructor() {
+        super();
+        this.nav = React.createRef();
+    }
+
     /**
      * Creates navigation links
      * @param {{title: String, href: String}} props
@@ -26,8 +30,8 @@ export default class Header extends React.Component {
      */
     onMenuPopup = evt => {
         if (!evt.target.closest('.header__nav')) {
-            $('.header__nav').hide();
-            $(document).off('click', this.onMenuPopup);
+            this.nav.current.style.display = 'none';
+            document.removeEventListener('click', this.onMenuPopup);
         }
     };
 
@@ -37,13 +41,13 @@ export default class Header extends React.Component {
      * @callback
      */
     onDropdownBtnClick = () => {
-        const nav = $('.header__nav');
-        if (nav.is(':visible')) {
-            $(document).off('click', this.onMenuPopup);
-            nav.hide();
+        const nav = this.nav.current;
+        if (nav.style.display === 'flex') {
+            document.removeEventListener('click', this.onMenuPopup);
+            this.nav.current.style.display = '';
         } else {
-            setTimeout(() => $(document).on('click', this.onMenuPopup));
-            nav.css({ display: 'flex' });
+            setTimeout(() => document.addEventListener('click', this.onMenuPopup));
+            nav.style.display = 'flex';
         }
     };
 
@@ -56,7 +60,7 @@ export default class Header extends React.Component {
                         <span />
                         <span />
                     </button>
-                    <div className="header__nav" itemScope itemType="http://schema.org/SiteNavigationElement">
+                    <div className="header__nav" itemScope itemType="http://schema.org/SiteNavigationElement" ref={this.nav}>
                         <this.HeaderLink title="Главная" href="/" />
                         <this.HeaderLink title="Портфолио" href="/portfolio/" />
                         <this.HeaderLink title="Цены" href="/prices/" />

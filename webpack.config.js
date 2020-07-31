@@ -134,7 +134,6 @@ module.exports = env => {
                     { from: './robots.txt', to: '.' },
                     { from: './sitemap.xml', to: '.' },
                     { from: './api', to: './api' },
-                    // { from: './assets/Gotham.otf', to: './assets/Gotham.otf' },
                     { from: './home/photos', to: './home/photos' },
                     { from: './portfolio/photos', to: './portfolio/photos' },
                     { from: './extra/locations/photos', to: './extra/locations/photos' },

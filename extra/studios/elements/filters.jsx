@@ -42,40 +42,39 @@ export default class Filters extends React.Component {
         }
     };
 
+    Filter = props => (
+        <span className={`filter ${props.active ? 'active' : ''}`}
+              onClick={props.onClick}
+              role="button"
+              tabIndex="0">
+            {props.children}
+        </span>
+    );
+
     render() {
         const { updateFilters } = this.props;
         return (
             <div className="filters">
                 <div className="filters__cost-n-darkness">
-                    <span className="filters__cost __asc"
+                    <span className="filters__cost __asc filter"
                           title="Сортировать по увеличению стоимости"
-                          onClick={this.onSortClick.bind(this)}>
+                          onClick={this.onSortClick}
+                          role="button"
+                          tabIndex="0">
                         <span />
                         <span />
                         <span />
                     </span>
                     <div className="filters__darkness filters__filter" onClick={this.onFilterClick}>
-                        <span className="filter active" onClick={() => updateFilters({ darkness: null })}>
-                            Все
-                        </span>
-                        <span className="filter" onClick={() => updateFilters({ darkness: true })}>
-                            Темные
-                        </span>
-                        <span className="filter" onClick={() => updateFilters({ darkness: false })}>
-                            Светлые
-                        </span>
+                        <this.Filter onClick={() => updateFilters({ darkness: null })} active>Все</this.Filter>
+                        <this.Filter onClick={() => updateFilters({ darkness: true })}>Тёмные</this.Filter>
+                        <this.Filter onClick={() => updateFilters({ darkness: false })}>Светлые</this.Filter>
                     </div>
                 </div>
                 <div className="filters__furniture filters__filter" onClick={this.onFilterClick}>
-                    <span className="filter active" onClick={() => updateFilters({ furniture: null })}>
-                        Все
-                    </span>
-                    <span className="filter" onClick={() => updateFilters({ furniture: true })}>
-                        Интерьерные
-                    </span>
-                    <span className="filter" onClick={() => updateFilters({ furniture: false })}>
-                        Неинтерьерные
-                    </span>
+                    <this.Filter onClick={() => updateFilters({ furniture: null })} active>Все</this.Filter>
+                    <this.Filter onClick={() => updateFilters({ furniture: true })}>Интерьерные</this.Filter>
+                    <this.Filter onClick={() => updateFilters({ furniture: false })}>Неинтерьерные</this.Filter>
                 </div>
             </div>
         );

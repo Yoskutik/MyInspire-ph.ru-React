@@ -45,6 +45,7 @@ export default class Locations extends React.Component {
                     {props.description.map(p => <p className="locations__item_description" key={Math.random()}>{p}</p>)}
                     <p className="locations__item_address">
                         Адрес:
+                        {' '}
                         {address}
                     </p>
                 </div>

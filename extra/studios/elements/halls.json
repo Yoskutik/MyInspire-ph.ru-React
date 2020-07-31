@@ -205,7 +205,7 @@
     "prices": [1400],
     "description": "Очень светлый просторный зал с различными текстурами и преметами интерьера.",
     "furniture": true,
-    "darkness": true,
+    "darkness": false,
     "photos": [
       "skypoint_lower_0.jpg",
       "skypoint_lower_1.jpg",
@@ -261,7 +261,7 @@
     "prices": [2000],
     "description": "Уютное светлое фотопространство",
     "furniture": true,
-    "darkness": true,
+    "darkness": false,
     "photos": [
       "kak_doma_0.jpg",
       "kak_doma_1.jpg",
