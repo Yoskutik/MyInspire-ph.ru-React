@@ -1,25 +1,29 @@
-import $ from 'jquery';
 import React from 'react';
 import ReactDom from 'react-dom';
+import { debounce } from '@assets/utils';
 import Body from '@elements/body';
 import Home from './elements/home';
 import './style.scss';
 
-$(window).ready(() => {
+document.addEventListener('DOMContentLoaded', () => {
     ReactDom.render(
         <Body>
             <Home />
         </Body>,
-        $('#body')[0],
+        document.querySelector('#body'),
     );
 
     const img = document.querySelector('.collage__img');
+    const collage = document.querySelector('.collage');
+    const header = document.querySelector('.header');
     img.addEventListener('load', () => {
-        const collage = document.querySelector('.collage');
-        const header = document.querySelector('.header');
         collage.style.height = `${img.clientHeight - header.clientHeight}px`;
         setTimeout(() => {
             collage.style.height = `${img.clientHeight - header.clientHeight}px`;
         });
     });
+
+    window.addEventListener('resize', debounce(() => {
+        collage.style.height = `${img.clientHeight - header.clientHeight}px`;
+    }));
 });
