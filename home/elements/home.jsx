@@ -1,7 +1,6 @@
 import React from 'react';
 import avatar from '@assets/ava.png';
 import { InstagramIcon, WhatsAppIcon, VKIcon } from '@elements/icons';
-import Genres from './genres';
 
 /**
  * A content of home page. Contains Collage and Info.
@@ -16,8 +15,7 @@ export default class Home extends React.Component {
      */
     Collage = () => (
         <div className="collage">
-            <img className="collage__img" alt="" src="" />
-            <img className="collage__img" alt="" src="" />
+            <img className="collage__img" alt="Девушка в ванной" src="/home/photos/1.jpg" />
         </div>
     );
 
@@ -53,8 +51,8 @@ export default class Home extends React.Component {
                 чтобы Вы стали его частью.
             </p>
             <p>
-                Со всеми моими работами в высоком разрешении можно ознакомиться
-                по
+                Со всеми моими работами в высоком разрешении можно ознакомиться по
+                {' '}
                 <a href="/portfolio">ссылке</a>
                 .
             </p>
@@ -105,8 +103,6 @@ export default class Home extends React.Component {
                         <this.InfoCard />
                     </div>
                 </div>
-
-                <Genres />
             </div>
         );
     }
