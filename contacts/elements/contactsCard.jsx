@@ -30,7 +30,7 @@ export default class ContactsCard extends React.Component {
             </p>
             <p className="contacts__contacts_item">
                 Телефон:
-                <a className="tel" href="tel:+7(999)515-42-17" itemProp="telephone">+7(999)515-42-17</a>
+                <a className="tel" href="tel:+7(999)515-42-17" itemProp="telephone">+7 (999) 515-42-17</a>
                 <button className="copy copy__tel" onClick={this.onCopyTelClick} type="button">
                     <CopyIcon />
                 </button>
