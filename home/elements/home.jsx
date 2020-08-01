@@ -13,11 +13,14 @@ export default class Home extends React.Component {
      * and create the illusion of a slide show.
      * @component
      */
-    Collage = () => (
-        <div className="collage">
-            <img className="collage__img" alt="Девушка в ванной" src="/home/photos/1.jpg" />
-        </div>
-    );
+    Collage = () => {
+        const isMobile = window.innerWidth < 650 && window.innerWidth < window.innerHeight;
+        return (
+            <div className="collage">
+                <img className="collage__img" alt="Девушка в ванной" src={`/home/photos/${isMobile ? '5' : '1'}.jpg`} />
+            </div>
+        );
+    };
 
     /**
      * A part of Info element. Contains photographer's description.

@@ -48,7 +48,7 @@ export default class Portfolio extends React.Component {
         const checkElementVisibility = function (elm) {
             const rect = elm.getBoundingClientRect();
             const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-            return !(rect.bottom < 300 || rect.top - viewHeight >= -300);
+            return !(rect.bottom < 150 || rect.top - viewHeight >= -150);
         };
         window.addEventListener('scroll', debounce(() => {
             document.querySelectorAll('.thumbnail')

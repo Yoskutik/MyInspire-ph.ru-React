@@ -1,5 +1,4 @@
 import React from 'react';
-import Alert from '@elements/alert';
 import ItemsList from './ItemsList';
 import conditions from './conditions.json';
 
@@ -28,13 +27,8 @@ export default class Prices extends React.Component {
     );
 
     render() {
-        const expiredAt = Alert.createExpiredAt(1, 8, 2020);
-
         return (
             <div className="body">
-                <Alert type={Alert.Types.INFO} expiredAt={expiredAt}>
-                    Цены действительны при бронировании любых летних дат до 1 августа.
-                </Alert>
                 <h1 className="super-hidden">Цены и услуги</h1>
                 <ItemsList />
                 {conditions.map(cond => <this.Conditions {...cond} key={Math.random()} />)}

@@ -40,7 +40,7 @@ module.exports = env => {
         output: {
             path: env.server
                 ? path.resolve(os.homedir(), 'public_html')
-                : path.resolve(os.homedir(), 'Projects', 'MyInspire-ph-react'),
+                : path.resolve(os.homedir(), 'Projects', 'MyInspire-ph.ru-React'),
             publicPath: '/',
             filename: `[name]/${isDev ? 'index.bundle' : '[hash]'}.js`,
             chunkFilename: './assets/chunks/[chunkhash].chunk.js',
