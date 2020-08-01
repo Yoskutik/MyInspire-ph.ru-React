@@ -38,7 +38,7 @@ module.exports = env => {
         devtool: isDev ? 'source-map' : false,
         entry: entries,
         output: {
-            path: env.hosting
+            path: (env && env.hosting)
                 ? path.resolve(os.homedir(), 'public_html')
                 : path.resolve(os.homedir(), 'Projects', 'MyInspire-ph.ru-React'),
             publicPath: '/',
