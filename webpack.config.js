@@ -38,7 +38,9 @@ module.exports = env => {
         devtool: isDev ? 'source-map' : false,
         entry: entries,
         output: {
-            path: path.resolve(os.homedir(), 'Projects', 'MyInspire-ph-react'),
+            path: env.server
+                ? path.resolve(os.homedir(), 'public_html')
+                : path.resolve(os.homedir(), 'Projects', 'MyInspire-ph-react'),
             publicPath: '/',
             filename: `[name]/${isDev ? 'index.bundle' : '[hash]'}.js`,
             chunkFilename: './assets/chunks/[chunkhash].chunk.js',

@@ -7,6 +7,7 @@
     "start": "webpack-dev-server --env.MODE=development --open --mode=development",
     "dev": "webpack --env.MODE=development --mode=development",
     "build": "webpack --env.MODE=production --mode=production",
+    "build-s": "webpack --env.MODE=production --env.server --mode=production",
     "test": "eslint **/*.jsx && eslint **/*.js",
     "fix": "eslint **/*.jsx --fix && eslint **/*.js --fix"
   },
