@@ -107,6 +107,7 @@ module.exports = env => {
                 new TerserPlugin({
                     test: /.js$/i,
                     extractComments: false,
+                    parallel: false,
                     terserOptions: {
                         output: {
                             comments: false,
