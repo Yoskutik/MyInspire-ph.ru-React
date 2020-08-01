@@ -5,10 +5,9 @@
   "description": "This is a repository of one very good photographer's [website](https://myinspire-ph.ru)",
   "scripts": {
     "start": "webpack-dev-server --env.MODE=development --open --mode=development",
-    "dev": "webpack --env.MODE=development --env.server --mode=development",
-    "dev-s": "webpack --env.MODE=development --mode=development",
-    "build": "webpack --env.MODE=production --mode=production",
-    "build-s": "webpack --env.MODE=production --env.server --mode=production",
+    "dev": "webpack --env.MODE=development --mode=development",
+    "build": "webpack --env.MODE=production --env.hosting --mode=production",
+    "build-home": "webpack --env.MODE=production --mode=production",
     "test": "eslint **/*.jsx && eslint **/*.js",
     "fix": "eslint **/*.jsx --fix && eslint **/*.js --fix"
   },
