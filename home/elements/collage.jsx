@@ -33,8 +33,8 @@ export default class Collage extends React.Component {
 
     componentDidMount() {
         if (!this.isMobile) return;
-
         setInterval(() => {
+            if (document.visibilityState === 'hidden') return;
             const DOMImages = document.querySelectorAll('.collage__img');
             DOMImages[DOMImages.length - 1].style.opacity = '0';
             const { images } = this.state;
