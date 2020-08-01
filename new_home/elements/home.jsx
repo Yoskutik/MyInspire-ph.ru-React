@@ -1,6 +1,7 @@
 import React from 'react';
-import avatar from '@assets/ava.png';
+import avatar from '@assets/ava.jpg';
 import { InstagramIcon, WhatsAppIcon, VKIcon } from '@elements/icons';
+import Collage from './collage';
 import Genres from './genres';
 
 /**
@@ -8,19 +9,6 @@ import Genres from './genres';
  * @component
  */
 export default class Home extends React.Component {
-    /**
-     * Creates a Collage component. Collages consists of
-     * 2 images. Images in this element must take turns
-     * and create the illusion of a slide show.
-     * @component
-     */
-    Collage = () => (
-        <div className="collage">
-            <img className="collage__img" alt="" src="" />
-            <img className="collage__img" alt="" src="" />
-        </div>
-    );
-
     /**
      * A part of Info element. Contains photographer's description.
      * @component
@@ -55,6 +43,7 @@ export default class Home extends React.Component {
             <p>
                 Со всеми моими работами в высоком разрешении можно ознакомиться
                 по
+                {' '}
                 <a href="/portfolio">ссылке</a>
                 .
             </p>
@@ -97,7 +86,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <div className="body">
-                <this.Collage />
+                <Collage />
 
                 <div className="info">
                     <div className="info__container container">

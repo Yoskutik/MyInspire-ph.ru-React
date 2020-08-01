@@ -1,66 +1,29 @@
-import $ from 'jquery';
 import React from 'react';
 import ReactDom from 'react-dom';
+import { debounce } from '@assets/utils';
 import Body from '@elements/body';
 import Home from './elements/home';
 import './style.scss';
 
-$(window).ready(() => {
+document.addEventListener('DOMContentLoaded', () => {
     ReactDom.render(
         <Body>
             <Home />
         </Body>,
-        $('#body')[0],
+        document.querySelector('#body'),
     );
 
-    const images = $('.collage__img');
-
-    let loadedImages = 0;
-    const onImageLoaded = function () {
-        this.removeEventListener('load', onImageLoaded);
-        if (++loadedImages === 2) {
-            $(window).trigger('images-loaded');
-        }
-    };
-    images.on('load', onImageLoaded);
-
-    if (window.innerWidth > window.innerHeight) {
-        images[0].src = '/home/photos/horizontal/2.png';
-        images[1].src = '/home/photos/horizontal/4.png';
-        $('.collage').addClass('horizontal');
-    } else {
-        images[0].src = '/home/photos/vertical/1.png';
-        images[1].src = '/home/photos/vertical/2.png';
-        $('.collage').addClass('vertical');
-    }
-});
-
-$(window).on('images-loaded', () => {
-    let currentImage = 0;
-    const images = $('.collage__img');
-
-    const startSwitchingImages = () => setInterval(
-        () => images.eq(++currentImage % 2).css({ opacity: 0 }),
-        6000,
-    );
-
-    images.on('transitionend', function () {
-        const el = $(this);
-        if (el.css('opacity') === '0') {
-            $('.collage').prepend(el);
-            el.css({
-                'transition-duration': '0s',
-                opacity: '1',
-            });
-            setTimeout(() => el.css('transition-duration', '3.5s'));
-        }
-    });
-    images.css({ opacity: 1 });
-
-    let imagesSwitcherId = startSwitchingImages();
-    $(window)
-        .on('blur', () => clearInterval(imagesSwitcherId))
-        .on('focus', () => {
-            imagesSwitcherId = startSwitchingImages();
+    const img = document.querySelector('.collage__img');
+    const collage = document.querySelector('.collage');
+    const header = document.querySelector('.header');
+    img.addEventListener('load', () => {
+        collage.style.height = `${img.clientHeight - header.clientHeight}px`;
+        setTimeout(() => {
+            collage.style.height = `${img.clientHeight - header.clientHeight}px`;
         });
+    });
+
+    window.addEventListener('resize', debounce(() => {
+        collage.style.height = `${img.clientHeight - header.clientHeight}px`;
+    }));
 });
