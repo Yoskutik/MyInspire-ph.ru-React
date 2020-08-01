@@ -20,6 +20,6 @@ Technologies stack:
 NodeJS Packet Manager commands:
   - `npm run start`: starts dev-server.
   - `npm run dev`: builds the site in development mode.
-  - `npm run build`: builds the site in production mode. For Windows.
-  - `npm run build-s`: builds the site in production mode. For hosting (linux).
+  - `npm run build`: builds the site in production mode. For hosting.
+  - `npm run build-home`: builds the site in production mode. For home.
   - `npm run test`: checks whether scripts meet the eslint criteria.
