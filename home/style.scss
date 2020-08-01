@@ -94,6 +94,45 @@
   }
 }
 
+.genres {
+  background: white;
+
+  &__container {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    grid-gap: 30px;
+    border-bottom: 1px solid Variables.$border_color;
+    padding: 1.5rem;
+
+    &:nth-child(2n) {
+      grid-template-columns: 1fr 0.8fr;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &_info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      p {
+        text-align: justify;
+        text-indent: 2rem;
+      }
+    }
+
+    &_photo {
+      padding: 0 30px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 980px) {
   .info {
     &__message {
@@ -105,7 +144,7 @@
     }
 
     &__container {
-      padding: 0;
+      padding: 0 0 20px 0;
     }
   }
 }
@@ -114,7 +153,7 @@
   .info {
     &__container {
       flex-wrap: wrap;
-      padding: 0 20px;
+      padding: 0 20px 20px;
     }
 
     &__message {
