@@ -1,6 +1,7 @@
 import React from 'react';
 import { debounce, isMobileOrTablet } from '@assets/utils';
 import Loader from '@elements/loader';
+import Picture from '@elements/picture';
 import thumbnails from './thumbnails.json';
 
 /**
@@ -80,7 +81,7 @@ export default class Portfolio extends React.Component {
     Thumbnail = props => (
         <div className="item thumbnail" onClick={this.onThumbnailClick.bind(this, props.index)} role="button" tabIndex="0">
             <div className="item__photo">
-                <img alt={props.title} src={`${props.src}.jpg`} />
+                <Picture alt={props.title} src={props.src} />
                 <div className="item__title">{props.title}</div>
             </div>
         </div>
@@ -137,6 +138,7 @@ export default class Portfolio extends React.Component {
      */
     onCloseClick = () => {
         this.setState({ gallery: null });
+        window.history.back();
     };
 
     render() {
