@@ -30,6 +30,7 @@ export default class Collage extends React.Component {
             const DOMImages = document.querySelectorAll('.collage__img');
             DOMImages[DOMImages.length - 1].style.opacity = '0';
             const { images } = this.state;
+            // eslint-disable-next-line max-len
             const src = `/home/photos/${this.isMobile ? `vertical/${this.verticalPhotosList[this.indexOfCurrent % this.verticalPhotosList.length]}` : 'horizontal/0'}`;
             images.unshift(
                 <Image src={src} key={Math.random()} />,

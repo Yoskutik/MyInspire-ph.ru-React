@@ -46,9 +46,8 @@ export default class Portfolio extends React.Component {
 
     componentDidMount() {
         window.addEventListener('hashchange', () => {
-            const closeBtn = document.querySelector('.gallery__close');
-            if (window.location.hash === '' && closeBtn) {
-                closeBtn.click();
+            if (window.location.hash === '') {
+                this.setState({ gallery: null });
             }
         });
         if (!isMobileOrTablet()) return;
