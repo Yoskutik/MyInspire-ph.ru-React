@@ -87,9 +87,13 @@
       margin: 0 0 10px 0;
     }
 
-    &_social a {
-      margin-right: 10px;
-      text-decoration: none;
+    &_social {
+      display: flex;
+
+      a {
+        margin-right: 10px;
+        text-decoration: none;
+      }
     }
   }
 }
@@ -192,9 +196,11 @@
 
 @media screen and (max-width: 480px) {
   .info {
+    padding-top: 0;
+
     &__container {
       flex-wrap: wrap;
-      padding: 0 20px;
+      padding: 0 20px 20px;
     }
 
     &__message {

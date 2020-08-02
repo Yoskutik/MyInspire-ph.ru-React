@@ -28,7 +28,22 @@ module.exports = env => {
                 robots: value.robots,
                 innerHTML: value.innerHTML,
                 innerText: value.innerText,
-                minify: !isDev,
+                minify: isDev ? false : {
+                    caseSensitive: false,
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    removeRedundantAttributes: true,
+                    useShortDoctype: false,
+                    removeEmptyAttributes: true,
+                    removeStyleLinkTypeAttributes: true,
+                    removeScriptTypeAttributes: true,
+                    keepClosingSlash: false,
+                    minifyJS: { compress: { conditionals: false } },
+                    minifyCSS: true,
+                    minifyURLs: true,
+                    sortAttributes: true,
+                    sortClassName: true,
+                },
             }),
         );
     }

@@ -44,6 +44,12 @@ export default class Portfolio extends React.Component {
     }
 
     componentDidMount() {
+        window.addEventListener('hashchange', () => {
+            const closeBtn = document.querySelector('.gallery__close');
+            if (window.location.hash === '' && closeBtn) {
+                closeBtn.click();
+            }
+        });
         if (!isMobileOrTablet()) return;
         const checkElementVisibility = function (elm) {
             const rect = elm.getBoundingClientRect();
@@ -122,6 +128,7 @@ export default class Portfolio extends React.Component {
             document.removeEventListener('keyup', onEscPressed);
         };
         document.addEventListener('keyup', onEscPressed);
+        window.location.hash = 'gallery';
     };
 
     /**

@@ -2,14 +2,18 @@ ErrorDocument 404 /404/
 
 RewriteEngine on
 
-# Getting rid of slashes
-RewriteCond %{REQUEST_URI} ^(.*?)(?:/){2,}$
-RewriteRule . $1/ [R=301,L]
-
 # Getting rid of index.php
 RewriteCond    %{THE_REQUEST} ^.*/index.php
 RewriteRule    ^(.*)$ / [R=301,L]
 
-# Getting rid of empty ?
-RewriteCond    %{THE_REQUEST} ^.*/?
+# Getting rid of index.html
+RewriteCond    %{THE_REQUEST} ^.*/index.html
 RewriteRule    ^(.*)$ / [R=301,L]
+
+# Getting rid of multiple slashes
+RewriteCond    %{THE_REQUEST} ^.*/{2,}
+RewriteRule    ^(.*)$ / [R=301,L]
+
+# Getting rid of trailing '?'
+RewriteCond %{THE_REQUEST} \?\ HTTP [NC]
+RewriteRule ^/?(index\.cfm)? /? [R=301,L]
