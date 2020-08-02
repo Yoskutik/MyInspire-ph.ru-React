@@ -24,6 +24,7 @@ module.exports = env => {
                 template: './template.ejs',
                 chunks: [key],
                 description: value.description,
+                keywords: value.keywords,
                 title: value.title,
                 robots: value.robots,
                 innerHTML: value.innerHTML,
