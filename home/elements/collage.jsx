@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from './image';
-import verticalPhotosList from './verticalPhotosList.json';
 
 /**
  * The Collage component. Consists of 2 images. Images in this element must take turns
@@ -10,12 +9,12 @@ import verticalPhotosList from './verticalPhotosList.json';
 export default class Collage extends React.Component {
     constructor() {
         super();
-        this.verticalPhotosList = verticalPhotosList.sort(() => Math.random() - 0.5);
+        this.verticalPhotosList = [...Array(26).keys()].sort(() => Math.random() - 0.5);
         this.isMobile = window.innerWidth < 700 && window.innerWidth < window.innerHeight;
 
         const images = [];
         for (let i = 0; i < 2; i++) {
-            const src = this.isMobile ? this.verticalPhotosList[i] : '/home/photos/0';
+            const src = `/home/photos/${this.isMobile ? `vertical/${this.verticalPhotosList[i]}` : 'horizontal/0'}`;
             images.push(
                 <Image src={src} key={Math.random()} />,
             );
@@ -31,9 +30,7 @@ export default class Collage extends React.Component {
             const DOMImages = document.querySelectorAll('.collage__img');
             DOMImages[DOMImages.length - 1].style.opacity = '0';
             const { images } = this.state;
-            const src = this.isMobile
-                ? this.verticalPhotosList[this.indexOfCurrent % this.verticalPhotosList.length]
-                : `/home/photos/${this.indexOfCurrent % this.totalHorizontalPhotos}`;
+            const src = `/home/photos/${this.isMobile ? `vertical/${this.verticalPhotosList[this.indexOfCurrent % this.verticalPhotosList.length]}` : 'horizontal/0'}`;
             images.unshift(
                 <Image src={src} key={Math.random()} />,
             );
