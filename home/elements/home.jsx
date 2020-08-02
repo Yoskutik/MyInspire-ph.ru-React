@@ -1,5 +1,6 @@
 import React from 'react';
-import avatar from '@assets/ava.jpg';
+import avatarJPG from '@assets/ava.jpg';
+import avatarWEBP from '@assets/ava.webp';
 import { InstagramIcon, WhatsAppIcon, VKIcon } from '@elements/icons';
 import Collage from './collage';
 
@@ -58,7 +59,10 @@ export default class Home extends React.Component {
         <div className="info__card" itemScope itemType="http://schema.org/Organization">
             <link itemProp="url" href="https://myinspire-ph.ru/" />
             <div className="info__card_avatar">
-                <img itemProp="image" alt="Мельникова Татьяна" src={avatar} />
+                <picture>
+                    <source srcSet={avatarWEBP} type="image/webp" />
+                    <img itemProp="image" alt="Мельникова Татьяна" src={avatarJPG} />
+                </picture>
             </div>
             <div className="info__card_message">
                 <h2 itemProp="name" className="info__card_title">Мельникова Татьяна</h2>

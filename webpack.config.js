@@ -107,7 +107,7 @@ module.exports = env => {
                     ],
                 },
                 {
-                    test: /\.(png|otf|jpg)$/,
+                    test: /\.(png|otf|jpg|webp)$/,
                     loader: 'file-loader',
                     options: {
                         outputPath: 'assets',
