@@ -27,8 +27,6 @@ module.exports = env => {
                 keywords: value.keywords,
                 title: value.title,
                 robots: value.robots,
-                innerHTML: value.innerHTML,
-                innerText: value.innerText,
                 minify: isDev ? false : {
                     caseSensitive: false,
                     removeComments: true,
@@ -153,6 +151,7 @@ module.exports = env => {
                     { from: './robots.txt', to: '.' },
                     { from: './sitemap.xml', to: '.' },
                     { from: './api', to: './api' },
+                    { from: './assets/photos', to: './assets/photos' },
                     { from: './home/photos', to: './home/photos' },
                     { from: './portfolio/photos', to: './portfolio/photos' },
                     { from: './extra/locations/photos', to: './extra/locations/photos' },

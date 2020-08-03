@@ -1,6 +1,6 @@
 import React from 'react';
-import avatarJPG from '@assets/ava.jpg';
-import avatarWEBP from '@assets/ava.webp';
+import avatarJPG from '@assets/photos/ava.jpg';
+import avatarWEBP from '@assets/photos/ava.webp';
 import { InstagramIcon, WhatsAppIcon, VKIcon } from '@elements/icons';
 import Collage from './collage';
 

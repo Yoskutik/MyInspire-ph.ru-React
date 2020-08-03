@@ -22,3 +22,25 @@ export const debounce = function (cb, ms = 100) {
 
 // eslint-disable-next-line max-len
 export const isMobileOrTablet = () => (typeof window.orientation !== 'undefined') || (navigator.userAgent.indexOf('IEMobile') !== -1);
+
+const KEYWORDS = [
+    'Фотограф Санкт-Петербург',
+    'Мельникова Татьяна',
+    'Фотограф СПб',
+    'Фотосессия СПб',
+    'Портрет',
+    'Love story',
+    'Съёмка в Санкт-Петербурге',
+];
+
+export const createKeywordGenerator = function* () {
+    let previousKeyword = '';
+    while (true) {
+        let keyword;
+        while (!keyword || keyword === previousKeyword) {
+            keyword = KEYWORDS[Math.floor(Math.random() * KEYWORDS.length)];
+        }
+        previousKeyword = keyword;
+        yield keyword;
+    }
+};

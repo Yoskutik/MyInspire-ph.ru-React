@@ -41,7 +41,7 @@ export default class Footer extends React.Component {
      * @component
      */
     FooterCopyright = () => (
-        <span className="footer__copyright">
+        <span className="footer__copyright" title="Мельникова Татьяна. Профессиональный фотограф">
             <meta itemProp="copyrightYear" content="2019" />
             <meta itemProp="copyrightHolder" content="Мельникова Татьяна" />
             &copy; 2019-

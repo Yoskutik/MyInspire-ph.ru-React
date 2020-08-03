@@ -1,4 +1,5 @@
 import React from 'react';
+import { createKeywordGenerator } from '@assets/utils';
 import Image from './image';
 
 /**
@@ -13,10 +14,11 @@ export default class Collage extends React.Component {
         this.isMobile = window.innerWidth < 700 && window.innerWidth < window.innerHeight;
 
         const images = [];
+        const altGenerator = createKeywordGenerator();
         for (let i = 0; i < 2; i++) {
             const src = `/home/photos/${this.isMobile ? `vertical/${this.verticalPhotosList[i]}` : 'horizontal/0'}`;
             images.push(
-                <Image src={src} key={Math.random()} />,
+                <Image src={src} key={Math.random()} alt={altGenerator.next().value} />,
             );
         }
         this.indexOfCurrent = 2;
@@ -25,6 +27,7 @@ export default class Collage extends React.Component {
 
     componentDidMount() {
         if (!this.isMobile) return;
+        const altGenerator = createKeywordGenerator();
         setInterval(() => {
             if (document.visibilityState === 'hidden') return;
             const DOMImages = document.querySelectorAll('.collage__img');
@@ -33,7 +36,7 @@ export default class Collage extends React.Component {
             // eslint-disable-next-line max-len
             const src = `/home/photos/${this.isMobile ? `vertical/${this.verticalPhotosList[this.indexOfCurrent % this.verticalPhotosList.length]}` : 'horizontal/0'}`;
             images.unshift(
-                <Image src={src} key={Math.random()} />,
+                <Image src={src} key={Math.random()} alt={altGenerator.next().value} />,
             );
             this.indexOfCurrent++;
             this.setState({ images });

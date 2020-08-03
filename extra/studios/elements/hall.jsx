@@ -20,7 +20,7 @@ export default class Hall extends React.Component {
             ? (
                 <div className="list__item_extra-images">
                     {props.photos.map((photo, i) => (
-                        <img alt="Фотография"
+                        <img alt="Фотография зала"
                              src={`photos/${photo}`}
                              key={Math.random()}
                              className={`list__item_small-image ${i === 0 ? 'active' : ''}`} />
@@ -30,7 +30,7 @@ export default class Hall extends React.Component {
             : null;
         return (
             <div className="list__item_images">
-                <img alt="Фотография"
+                <img alt="Фотография зала"
                      src={`photos/${props.photos[0]}`}
                      className={`list__item_main-image ${props.photos.length > 1 ? '' : 'single'}`} />
                 {extraImages}

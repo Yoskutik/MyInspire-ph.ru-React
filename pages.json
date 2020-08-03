@@ -2,7 +2,7 @@
   "home": {
     "title": "Фотограф в Санкт-Петербурге | Мельникова Татьяна",
     "description": "Атмосферные фото в Санкт-Петербурге от профессионального фотографа. Экспресс фотосессия от 3000 ₽. Студийные фотосессии и фотопроуглки.",
-    "keywords": "Фотограф Санкт-Петербург, Мельникова Татьяна, Фотограф СПб, Фотограф",
+    "keywords": "Фотограф Санкт-Петербург, Мельникова Татьяна, Фотограф СПб, Фотосессия СПб",
     "robots": true
   },
   "prices": {
@@ -45,7 +45,6 @@
   },
   "404": {
     "title": "Страница не найдена",
-    "robots": false,
-    "innerHTML": "<div class=\"container\" style=\"position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; flex-direction: column\"><h1>Упс!</h1><h3>Кажется, необходимый Вам файл отсутствует.</h3></div>"
+    "robots": false
   }
 }
