@@ -50,6 +50,11 @@ hr {
   display: none;
 }
 
+img.ym {
+  position:absolute;
+  left:-9999px;
+}
+
 @font-face {
   font-family: Gotham;
   font-display: fallback;
