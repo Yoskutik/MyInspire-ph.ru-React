@@ -10,35 +10,35 @@ import Feedback from './feedback';
  * @component
  */
 export default class Contacts extends React.Component {
-    constructor(props) {
-        super(props);
-        this.toastsList = [];
-        this.state = {
-            toastsList: this.toastsList,
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.toastsList = [];
+    this.state = {
+      toastsList: this.toastsList,
+    };
+  }
 
     /**
      * An intro of the page.
      * @constructor
      */
     Intro = () => (
-        <div className="intro container">
-            <div className="intro__container">
-                <h2 className="intro__title">Запись на съёмку</h2>
-                <div className="intro__text">
-                    <p>
-                        Если вы ознакомились со всеми ценами, прочли условия и осознали,
-                        что я - именно тот, кого Вы так давно искали, то скорее пишите мне
-                        в удобной Вам социальной сети и мы с Вами обсудим все детали.
-                    </p>
-                    <p>
-                        У меня не всегда бывает возможность моментально отвечать. Обычно
-                        ответ занимает не больше суток. Прошу отнестись к этому с пониманием.
-                    </p>
-                </div>
-            </div>
+      <div className="intro container">
+        <div className="intro__container">
+          <h2 className="intro__title">Запись на съёмку</h2>
+          <div className="intro__text">
+            <p>
+              Если вы ознакомились со всеми ценами, прочли условия и осознали,
+              что я - именно тот, кого Вы так давно искали, то скорее пишите мне
+              в удобной Вам социальной сети и мы с Вами обсудим все детали.
+            </p>
+            <p>
+              У меня не всегда бывает возможность моментально отвечать. Обычно
+              ответ занимает не больше суток. Прошу отнестись к этому с пониманием.
+            </p>
+          </div>
         </div>
+      </div>
     );
 
     /**
@@ -47,24 +47,24 @@ export default class Contacts extends React.Component {
      * @param text - the main body of the toast
      */
     toast = (title, text) => {
-        const tmp = this.toastsList.slice();
-        tmp.push(<Toast title={title} text={text} key={Math.random()} />);
-        this.toastsList = tmp;
-        this.setState({ toastsList: this.toastsList });
+      const tmp = this.toastsList.slice();
+      tmp.push(<Toast title={title} text={text} key={Math.random()} />);
+      this.toastsList = tmp;
+      this.setState({ toastsList: this.toastsList });
     };
 
     render() {
-        return (
-            <div className="body">
-                <this.Intro />
-                <div className="contacts container">
-                    <div className="contacts__container">
-                        <ContactsCard toast={this.toast} />
-                        <Feedback toast={this.toast} />
-                    </div>
-                </div>
-                {this.state.toastsList}
+      return (
+        <div className="body">
+          <this.Intro />
+          <div className="contacts container">
+            <div className="contacts__container">
+              <ContactsCard toast={this.toast} />
+              <Feedback toast={this.toast} />
             </div>
-        );
+          </div>
+          {this.state.toastsList}
+        </div>
+      );
     }
 }

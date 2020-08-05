@@ -5,10 +5,10 @@ import Locations from './elements/locations';
 import './style.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(
-        <Body>
-            <Locations />
-        </Body>,
-        document.querySelector('#body'),
-    );
+  ReactDOM.render(
+    <Body>
+      <Locations />
+    </Body>,
+    document.querySelector('#body'),
+  );
 });

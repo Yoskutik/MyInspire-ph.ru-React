@@ -5,10 +5,10 @@ import Portfolio from './elements/portfolio';
 import './style.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(
-        <Body>
-            <Portfolio />
-        </Body>,
-        document.querySelector('#body'),
-    );
+  ReactDOM.render(
+    <Body>
+      <Portfolio />
+    </Body>,
+    document.querySelector('#body'),
+  );
 });

@@ -1,26 +1,6 @@
 @use '~@styles/Variables.scss';
 
-.collage {
-  max-width: 100%;
 
-  &.horizontal {
-    height: calc(50vw - 51px - 2.2rem);
-  }
-
-  &.vertical {
-    height: calc(150vw - 68px - 2.2rem);
-  }
-
-  &__img {
-    width: 100%;
-    height: auto;
-    position: fixed;
-    top: 0;
-    z-index: -1;
-    transition-duration: 3.5s;
-    opacity: 1;
-  }
-}
 
 .info {
   background: white;
@@ -93,45 +73,6 @@
       a {
         margin-right: 10px;
         text-decoration: none;
-      }
-    }
-  }
-}
-
-.genres {
-  background: white;
-
-  &__container {
-    display: grid;
-    grid-template-columns: 0.8fr 1fr;
-    grid-gap: 30px;
-    border-bottom: 1px solid Variables.$border_color;
-    padding: 1.5rem;
-
-    &:nth-child(2n) {
-      grid-template-columns: 1fr 0.8fr;
-    }
-
-    &:last-child {
-      border-bottom: none;
-    }
-
-    &_info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      p {
-        text-align: justify;
-        text-indent: 2rem;
-      }
-    }
-
-    &_photo {
-      padding: 0 30px;
-
-      img {
-        max-width: 100%;
       }
     }
   }

@@ -8,26 +8,26 @@ import halls from './halls.json';
  * @component
  */
 export default class Studios extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            furniture: null,
-            darkness: null,
-            sort: false,
-            by: 'ASC',
-        };
-        this.hallsList = halls.map(hall => <Hall key={Math.random()} {...hall} />);
-    }
+  constructor() {
+    super();
+    this.state = {
+      furniture: null,
+      darkness: null,
+      sort: false,
+      by: 'ASC',
+    };
+    this.hallsList = halls.map(hall => <Hall key={Math.random()} {...hall} />);
+  }
 
     /**
      * By setting new state, the sorting is applying.
      * @param {Object} filters - see <Studios.Sort> props.
      */
     updateFilters = filters => {
-        const { state } = this;
-        this.setState(
-            { ...state, ...filters },
-        );
+      const { state } = this;
+      this.setState(
+        { ...state, ...filters },
+      );
     };
 
     /**
@@ -43,33 +43,33 @@ export default class Studios extends React.Component {
      * @component
      */
     Sort = props => {
-        let hallsList = this.hallsList.slice();
-        if (props.furniture !== null) {
-            hallsList = hallsList.filter(hall => hall.props.furniture === props.furniture);
+      let hallsList = this.hallsList.slice();
+      if (props.furniture !== null) {
+        hallsList = hallsList.filter(hall => hall.props.furniture === props.furniture);
+      }
+      if (props.darkness !== null) {
+        hallsList = hallsList.filter(hall => hall.props.darkness === props.darkness);
+      }
+      if (props.sort) {
+        if (props.by === 'ASC') {
+          hallsList = hallsList.sort((a, b) => a.props.prices[0] - b.props.prices[0]);
+        } else if (props.by === 'DESC') {
+          hallsList = hallsList.sort((a, b) => b.props.prices[0] - a.props.prices[0]);
         }
-        if (props.darkness !== null) {
-            hallsList = hallsList.filter(hall => hall.props.darkness === props.darkness);
-        }
-        if (props.sort) {
-            if (props.by === 'ASC') {
-                hallsList = hallsList.sort((a, b) => a.props.prices[0] - b.props.prices[0]);
-            } else if (props.by === 'DESC') {
-                hallsList = hallsList.sort((a, b) => b.props.prices[0] - a.props.prices[0]);
-            }
-        }
-        return hallsList;
+      }
+      return hallsList;
     };
 
     render() {
-        return (
-            <div className="body container">
-                <Filters updateFilters={this.updateFilters} />
-                <div className="list">
-                    <this.Sort {...this.state}>
-                        {this.state.hallsList}
-                    </this.Sort>
-                </div>
-            </div>
-        );
+      return (
+        <div className="body container">
+          <Filters updateFilters={this.updateFilters} />
+          <div className="list">
+            <this.Sort {...this.state}>
+              {this.state.hallsList}
+            </this.Sort>
+          </div>
+        </div>
+      );
     }
 }

@@ -5,10 +5,10 @@ import Studios from './elements/studios';
 import './style.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(
-        <Body>
-            <Studios />
-        </Body>,
-        document.querySelector('#body'),
-    );
+  ReactDOM.render(
+    <Body>
+      <Studios />
+    </Body>,
+    document.querySelector('#body'),
+  );
 });

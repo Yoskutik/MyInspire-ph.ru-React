@@ -8,31 +8,31 @@ import conditions from './conditions.json';
  * @component
  */
 export default class Prices extends React.Component {
-    /**
-     * A component for additional information block.
-     * @param {Object} props
-     * @param {String} props.title - A title of the block.
-     * @param {Array<String>} props.paragraphs - An array of paragraphs
-     * in the block.
-     */
-    Conditions = props => (
-        <div className="conditions container">
-            <h3 className="conditions__title">{props.title}</h3>
-            {props.paragraphs.map(p => (
-                <p className="conditions__text" key={Math.random()}>
-                    {p}
-                </p>
-            ))}
-        </div>
-    );
+  /**
+   * A component for additional information block.
+   * @param {Object} props
+   * @param {String} props.title - A title of the block.
+   * @param {Array<String>} props.paragraphs - An array of paragraphs
+   * in the block.
+   */
+  Conditions = props => (
+    <div className="conditions container">
+      <h3 className="conditions__title">{props.title}</h3>
+      {props.paragraphs.map(p => (
+        <p className="conditions__text" key={Math.random()}>
+          {p}
+        </p>
+          ))}
+    </div>
+  );
 
-    render() {
-        return (
-            <div className="body">
-                <h1 className="super-hidden">Цены и услуги</h1>
-                <ItemsList />
-                {conditions.map(cond => <this.Conditions {...cond} key={Math.random()} />)}
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="body">
+        <h1 className="super-hidden">Цены и услуги</h1>
+        <ItemsList />
+        {conditions.map(cond => <this.Conditions {...cond} key={Math.random()} />)}
+      </div>
+    );
+  }
 }

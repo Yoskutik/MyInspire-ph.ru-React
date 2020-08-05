@@ -31,8 +31,8 @@
         "func-names": "off",
         "linebreak-style": ["error", "windows"],
         "no-plusplus": "off",
-        "max-len": ["error", {"code":  125}],
-        "indent": ["error", 4, {
+        "max-len": ["error", {"code":  120}],
+        "indent": ["error", 2, {
             "ignoredNodes": ["JSXElement *"]
         }],
         "arrow-parens": ["error", "as-needed"],
@@ -45,7 +45,6 @@
             "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
             "alphabetize": {"order": "asc"}
         }],
-        "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", "first"],
         "react/jsx-props-no-spreading": ["error", {
             "html": "ignore",

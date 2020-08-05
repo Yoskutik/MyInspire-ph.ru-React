@@ -1,0 +1,21 @@
+.collage {
+  max-width: 100%;
+
+  &.horizontal {
+    height: calc(50vw - 51px - 2.2rem);
+  }
+
+  &.vertical {
+    height: calc(150vw - 68px - 2.2rem);
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    transition-duration: 3.5s;
+    opacity: 1;
+  }
+}

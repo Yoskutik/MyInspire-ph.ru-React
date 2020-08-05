@@ -5,10 +5,10 @@ import Stylists from './elements/stylists';
 import './style.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(
-        <Body>
-            <Stylists />
-        </Body>,
-        document.querySelector('#body'),
-    );
+  ReactDOM.render(
+    <Body>
+      <Stylists />
+    </Body>,
+    document.querySelector('#body'),
+  );
 });

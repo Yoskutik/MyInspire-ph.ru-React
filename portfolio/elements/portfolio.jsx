@@ -10,65 +10,65 @@ import thumbnails from './thumbnails.json';
  * @component
  */
 export default class Portfolio extends React.Component {
-    constructor(props) {
-        super(props);
-        const isMobile = window.innerWidth < 900 && window.innerWidth < window.innerHeight;
-        import('react-image-gallery').then(({ default: ImageGallery }) => {
-            this.galleries = thumbnails.map(thumbnail => {
-                const items = [];
-                for (let i = 0; i < thumbnail.amount; i++) {
-                    items.push({
-                        original: `${thumbnail.src}/${i}.jpg`,
-                        thumbnail: `${thumbnail.src}/${i}m.jpg`,
-                    });
-                }
-                return (
-                    <div className="gallery">
-                        <ImageGallery key={Math.random()}
-                                      items={items}
-                                      thumbnailPosition={isMobile ? 'bottom' : 'left'}
-                                      showPlayButton={false}
-                                      onImageLoad={this.onGalleryLoad}
-                                      showFullscreenButton={!isMobile} />
-                        <button className="gallery__close" onClick={this.onCloseClick} type="button">
-                            &times;
-                        </button>
-                        <Loader isMain={false} isDark />
-                    </div>
-                );
-            });
-        });
-        this.state = {
-            gallery: null,
-        };
-        this.imagesLoaded = 0;
-    }
+  constructor(props) {
+    super(props);
+    const isMobile = window.innerWidth < 900 && window.innerWidth < window.innerHeight;
+    import('react-image-gallery').then(({ default: ImageGallery }) => {
+      this.galleries = thumbnails.map(thumbnail => {
+        const items = [];
+        for (let i = 0; i < thumbnail.amount; i++) {
+          items.push({
+            original: `${thumbnail.src}/${i}.jpg`,
+            thumbnail: `${thumbnail.src}/${i}m.jpg`,
+          });
+        }
+        return (
+          <div className="gallery">
+            <ImageGallery key={Math.random()}
+                          items={items}
+                          thumbnailPosition={isMobile ? 'bottom' : 'left'}
+                          showPlayButton={false}
+                          onImageLoad={this.onGalleryLoad}
+                          showFullscreenButton={!isMobile} />
+            <button className="gallery__close" onClick={this.onCloseClick} type="button">
+              &times;
+            </button>
+            <Loader isMain={false} isDark />
+          </div>
+        );
+      });
+    });
+    this.state = {
+      gallery: null,
+    };
+    this.imagesLoaded = 0;
+  }
 
-    componentDidMount() {
-        window.addEventListener('hashchange', () => {
-            if (window.location.hash === '') {
-                this.setState({ gallery: null });
-            }
+  componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '') {
+        this.setState({ gallery: null });
+      }
+    });
+    if (!isMobileOrTablet()) return;
+    const checkElementVisibility = function (elm) {
+      const rect = elm.getBoundingClientRect();
+      const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+      return !(rect.bottom < 150 || rect.top - viewHeight >= -150);
+    };
+    window.addEventListener('scroll', debounce(() => {
+      document.querySelectorAll('.thumbnail')
+        .forEach(it => {
+          const photo = it.querySelector('.item__photo');
+          if (checkElementVisibility(it)) {
+            photo.classList.add('hover');
+          } else {
+            photo.classList.remove('hover');
+          }
         });
-        if (!isMobileOrTablet()) return;
-        const checkElementVisibility = function (elm) {
-            const rect = elm.getBoundingClientRect();
-            const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-            return !(rect.bottom < 150 || rect.top - viewHeight >= -150);
-        };
-        window.addEventListener('scroll', debounce(() => {
-            document.querySelectorAll('.thumbnail')
-                .forEach(it => {
-                    const photo = it.querySelector('.item__photo');
-                    if (checkElementVisibility(it)) {
-                        photo.classList.add('hover');
-                    } else {
-                        photo.classList.remove('hover');
-                    }
-                });
-        }));
-        window.dispatchEvent(new Event('scroll'));
-    }
+    }));
+    window.dispatchEvent(new Event('scroll'));
+  }
 
     /**
      * The thumbnail of photo session.
@@ -77,13 +77,13 @@ export default class Portfolio extends React.Component {
      * @param {String} props.src - a source of photo session's image.
      * @component
      */
-    Thumbnail = props => (
-        <div className="item thumbnail" onClick={this.onThumbnailClick.bind(this, props.index)} role="button" tabIndex="0">
-            <div className="item__photo">
-                <Picture alt={props.title} src={props.src} />
-                <div className="item__title">{props.title}</div>
-            </div>
+    Thumbnail = ({ title, src, index }) => (
+      <div className="item thumbnail" onClick={this.onThumbnailClick.bind(this, index)} role="button" tabIndex="0">
+        <div className="item__photo">
+          <Picture alt={title} src={src} />
+          <div className="item__title">{title}</div>
         </div>
+      </div>
     );
 
     /**
@@ -93,11 +93,11 @@ export default class Portfolio extends React.Component {
      * @component
      */
     CurrentGallery = () => {
-        if (this.state === null) {
-            return null;
-        }
-        const { gallery } = this.state;
-        return gallery;
+      if (this.state === null) {
+        return null;
+      }
+      const { gallery } = this.state;
+      return gallery;
     };
 
     /**
@@ -106,10 +106,10 @@ export default class Portfolio extends React.Component {
      * @callback
      */
     onGalleryLoad = amount => {
-        if (++this.imagesLoaded === amount) {
-            document.querySelector('.loader').style.opacity = '0';
-            this.imagesLoaded = 0;
-        }
+      if (++this.imagesLoaded === amount) {
+        document.querySelector('.loader').style.opacity = '0';
+        this.imagesLoaded = 0;
+      }
     };
 
     /**
@@ -121,14 +121,14 @@ export default class Portfolio extends React.Component {
      * @callback
      */
     onThumbnailClick = index => {
-        this.setState({ gallery: this.galleries[index] });
-        const onEscPressed = evt => {
-            if (evt.key !== 'Escape') return;
-            this.onCloseClick();
-            document.removeEventListener('keyup', onEscPressed);
-        };
-        document.addEventListener('keyup', onEscPressed);
-        window.location.hash = 'gallery';
+      this.setState({ gallery: this.galleries[index] });
+      const onEscPressed = evt => {
+        if (evt.key !== 'Escape') return;
+        this.onCloseClick();
+        document.removeEventListener('keyup', onEscPressed);
+      };
+      document.addEventListener('keyup', onEscPressed);
+      window.location.hash = 'gallery';
     };
 
     /**
@@ -136,20 +136,20 @@ export default class Portfolio extends React.Component {
      * @callback
      */
     onCloseClick = () => {
-        this.setState({ gallery: null });
-        window.history.back();
+      this.setState({ gallery: null });
+      window.history.back();
     };
 
     render() {
-        return (
-            <div className="body container">
-                <div className="portfolio">
-                    {thumbnails.map((thumbnail, i) => (
-                        <this.Thumbnail key={Math.random()} {...thumbnail} index={i} />
+      return (
+        <div className="body container">
+          <div className="portfolio">
+            {thumbnails.map((thumbnail, i) => (
+              <this.Thumbnail key={Math.random()} {...thumbnail} index={i} />
                     ))}
-                </div>
-                <this.CurrentGallery />
-            </div>
-        );
+          </div>
+          <this.CurrentGallery />
+        </div>
+      );
     }
 }

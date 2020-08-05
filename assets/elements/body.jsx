@@ -15,21 +15,21 @@ import '@styles/Base.scss';
  *  </Body>
  */
 const Body = function (props) {
-    return (
-        <>
-            <Loader />
-            <Header />
-            {props.children}
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <Loader />
+      <Header />
+      {props.children}
+      <Footer />
+    </>
+  );
 };
 
 Body.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.arrayOf(PropTypes.element),
-    ]).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]).isRequired,
 };
 
 export default Body;

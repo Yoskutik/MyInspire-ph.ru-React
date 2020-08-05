@@ -51,7 +51,7 @@ for file in $(find . -name *.jpg -not -path "./node_modules/*" -not -path "./ext
   fi
 done
 
-user_interract(){
+user_interact(){
   input=""
   while [[ $input != 's' ]] && [[ $input != 'a' ]] && [[ $input != 'e' ]]; do
     read -r -p " >> What do you want? Show the list [s] / Pass them all [a] / Exit [e]: " -e input < /dev/tty
@@ -60,7 +60,7 @@ user_interract(){
     for file in "${bad_photos[@]}"; do
       echo " >> ${YELLOW}${file}${NORMAL}"
     done
-    user_interract
+    user_interact
   elif [ "$input" = 'a' ]; then
     echo " >> ${GREEN}Adding ${count} photos to the allow list. ${NORMAL}"
     for file in "${bad_photos[@]}"; do
@@ -75,7 +75,7 @@ user_interract(){
 if [ $count -gt 0 ]; then
   printf '\b\b\b: '
   echo "${YELLOW}You have ${count} photos without .webp format${NORMAL}"
-  user_interract
+  user_interact
 else
   printf '\b\b\b: '
   echo "${GREEN}Succeed${NORMAL}"

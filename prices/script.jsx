@@ -5,10 +5,10 @@ import Prices from './elements/Prices';
 import './style.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
-    ReactDom.render(
-        <Body>
-            <Prices />
-        </Body>,
-        document.querySelector('#body'),
-    );
+  ReactDom.render(
+    <Body>
+      <Prices />
+    </Body>,
+    document.querySelector('#body'),
+  );
 });

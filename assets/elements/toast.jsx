@@ -11,23 +11,23 @@ import '@styles/toast.scss';
  * @component
  */
 export default class Toast extends React.Component {
-    constructor(props) {
-        super(props);
-        this.ref = React.createRef();
-    }
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef();
+  }
 
-    /**
+  /**
      * The toast must be visible for 3 seconds. After that
      * it should be closed.
      */
-    componentDidMount() {
-        setTimeout(() => {
-            const toast = this.ref.current;
-            toast.style.opacity = '1';
-            toast.style.transform = 'translate(0, 0)';
-            setTimeout(() => this.onCloseClick(), 3000);
-        });
-    }
+  componentDidMount() {
+    setTimeout(() => {
+      const toast = this.ref.current;
+      toast.style.opacity = '1';
+      toast.style.transform = 'translate(0, 0)';
+      setTimeout(() => this.onCloseClick(), 3000);
+    });
+  }
 
     /**
      * When toast is closed, it starts the animation of going
@@ -35,26 +35,26 @@ export default class Toast extends React.Component {
      * @callback
         */
     onCloseClick = () => {
-        const toast = this.ref.current;
-        toast.style.opacity = '0';
-        toast.style.transform = 'translate(0, 100px)';
-        toast.addEventListener('transitionend', () => toast.remove());
+      const toast = this.ref.current;
+      toast.style.opacity = '0';
+      toast.style.transform = 'translate(0, 100px)';
+      toast.addEventListener('transitionend', () => toast.remove());
     };
 
     render() {
-        return (
-            <div className="toast" ref={this.ref}>
-                <div className="toast__header">
-                    <strong className="toast__title">{this.props.title}</strong>
-                    <button className="close" onClick={this.onCloseClick} type="button">&times;</button>
-                </div>
-                <div className="toast__body">{this.props.text}</div>
-            </div>
-        );
+      return (
+        <div className="toast" ref={this.ref}>
+          <div className="toast__header">
+            <strong className="toast__title">{this.props.title}</strong>
+            <button className="close" onClick={this.onCloseClick} type="button">&times;</button>
+          </div>
+          <div className="toast__body">{this.props.text}</div>
+        </div>
+      );
     }
 }
 
 Toast.propTypes = {
-    title: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };

@@ -13,26 +13,26 @@ import '@styles/loader.scss';
  * dark theme be used.
  */
 class Loader extends React.Component {
-    constructor(props) {
-        super(props);
-        this.ref = React.createRef();
-    }
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef();
+  }
 
-    /**
+  /**
      * Creates a callback, that removes loader after window is loaded.
      */
-    componentDidMount() {
-        if (this.props.isMain) {
-            window.addEventListener('load', () => {
-                console.timeEnd('Loaded');
-                this.ref.current.style.opacity = '0';
-            });
-        } else {
-            setTimeout(() => {
-                this.ref.current.style.opacity = '0';
-            });
-        }
+  componentDidMount() {
+    if (this.props.isMain) {
+      window.addEventListener('load', () => {
+        console.timeEnd('Loaded');
+        this.ref.current.style.opacity = '0';
+      });
+    } else {
+      setTimeout(() => {
+        this.ref.current.style.opacity = '0';
+      });
     }
+  }
 
     /**
      * A transition end handler. Needed for Loader.hideLoader().
@@ -40,28 +40,28 @@ class Loader extends React.Component {
      * @callback
         */
     onTransitionEnd = () => {
-        this.ref.current.remove();
+      this.ref.current.remove();
     };
 
     render() {
-        return (
-            <div className={`loader ${this.props.isDark ? 'dark-loader' : ''}`}
-                 onTransitionEnd={this.onTransitionEnd}
-                 ref={this.ref}>
-                <div className="loader__spinner" role="status" />
-            </div>
-        );
+      return (
+        <div className={`loader ${this.props.isDark ? 'dark-loader' : ''}`}
+             onTransitionEnd={this.onTransitionEnd}
+             ref={this.ref}>
+          <div className="loader__spinner" role="status" />
+        </div>
+      );
     }
 }
 
 Loader.propTypes = {
-    isMain: PropTypes.bool,
-    isDark: PropTypes.bool,
+  isMain: PropTypes.bool,
+  isDark: PropTypes.bool,
 };
 
 Loader.defaultProps = {
-    isMain: true,
-    isDark: false,
+  isMain: true,
+  isDark: false,
 };
 
 export default Loader;
