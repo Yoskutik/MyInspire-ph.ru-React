@@ -1,11 +1,11 @@
 import React from 'react';
-import listItems from './pricelist.json';
+import listItems from './priceList.json';
 
 /**
  * A list of services. Contains several items.
  * @component
  */
-export default class ItemsList extends React.Component {
+export default class PriceList extends React.Component {
   /**
    * Represents an item in the services' list. Each item has its name,
    * description (or additional information), and a price.

@@ -1,8 +1,8 @@
 import React from 'react';
-import Collage from './collage';
-import InfoCard from './infoCard';
-import InfoMessage from './infoMessage';
+import Collage from './collage/collage';
 import '../styles/info.scss';
+
+const Info = React.lazy(() => import('./info/info'));
 
 /**
  * A content of home page. Contains Collage and Info.
@@ -12,12 +12,9 @@ const Home = () => (
   <div className="body">
     <Collage />
 
-    <div className="info">
-      <div className="info__container container">
-        <InfoMessage />
-        <InfoCard />
-      </div>
-    </div>
+    <React.Suspense fallback={null}>
+      <Info />
+    </React.Suspense>
 
     {/* <Genres /> */}
   </div>

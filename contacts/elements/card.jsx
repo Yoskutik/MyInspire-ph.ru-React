@@ -10,7 +10,7 @@ import {
  * of toasts by calling parent's function.
  * @component
  */
-export default class ContactsCard extends React.Component {
+export default class Card extends React.Component {
     /**
      * The information about contacts.
      * @component
@@ -105,6 +105,6 @@ export default class ContactsCard extends React.Component {
     }
 }
 
-ContactsCard.propTypes = {
+Card.propTypes = {
   toast: PropTypes.func.isRequired,
 };

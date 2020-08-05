@@ -1,6 +1,6 @@
 import React from 'react';
 import genres from './genres.json';
-import '../styles/genres.scss';
+import '../../styles/genres.scss';
 
 /**
  * A section of home page which goes after Collage. Contains information

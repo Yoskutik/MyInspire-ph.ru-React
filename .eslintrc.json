@@ -46,10 +46,7 @@
             "alphabetize": {"order": "asc"}
         }],
         "react/jsx-indent-props": ["error", "first"],
-        "react/jsx-props-no-spreading": ["error", {
-            "html": "ignore",
-            "exceptions": ["Hall"]
-        }],
+        "react/jsx-props-no-spreading": "off",
         "react/jsx-closing-bracket-location": ["error", "after-props"],
         "react/jsx-first-prop-new-line": ["error", "never"],
         "react/forbid-prop-types": "off",

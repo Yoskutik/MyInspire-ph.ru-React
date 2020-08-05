@@ -31,6 +31,13 @@ NodeJS Packet Manager commands:
   - `npm run build-home`: Builds the site in production mode. I ran it to look how compiled
   files look like.
   - `npm run test`: Checks whether scripts meet the eslint criteria.
+  
+---
+
+Also I'd created a Git pre-commit Hook:
+  - All script must be valid for _Eslint_.
+  - JPEG photos must have their WEBP copy. If you sure some photos shouldn't have WEBP you
+  can add it to the _allow list_ using this hook.
 
 If you want to use my Git Hooks, just type
 ```

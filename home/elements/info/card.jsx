@@ -8,7 +8,7 @@ import { InstagramIcon, VKIcon, WhatsAppIcon } from '@elements/icons';
  * name, and contacts.
  * @component
  */
-const InfoCard = () => (
+const Card = () => (
   <div className="info__card" itemScope itemType="http://schema.org/Organization">
     <link itemProp="url" href="https://myinspire-ph.ru/" />
     <div className="info__card_avatar">
@@ -39,4 +39,4 @@ const InfoCard = () => (
   </div>
 );
 
-export default InfoCard;
+export default Card;

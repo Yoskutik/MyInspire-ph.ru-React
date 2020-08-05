@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import FilterBtn from './filterBtn';
+import FilterCostBtn from './filterCostBtn';
 
 /**
  * @param {Object} props
@@ -42,39 +44,22 @@ export default class Filters extends React.Component {
     }
   };
 
-  Filter = props => (
-    <span className={`filter ${props.active ? 'active' : ''}`}
-          onClick={props.onClick}
-          role="button"
-          tabIndex="0">
-      {props.children}
-    </span>
-  );
-
   render() {
     const { updateFilters } = this.props;
     return (
       <div className="filters">
         <div className="filters__cost-n-darkness">
-          <span className="filters__cost __asc filter"
-                title="Сортировать по увеличению стоимости"
-                onClick={this.onSortClick}
-                role="button"
-                tabIndex="0">
-            <span />
-            <span />
-            <span />
-          </span>
+          <FilterCostBtn onSortClick={this.onSortClick} />
           <div className="filters__darkness filters__filter" onClick={this.onFilterClick}>
-            <this.Filter onClick={() => updateFilters({ darkness: null })} active>Все</this.Filter>
-            <this.Filter onClick={() => updateFilters({ darkness: true })}>Тёмные</this.Filter>
-            <this.Filter onClick={() => updateFilters({ darkness: false })}>Светлые</this.Filter>
+            <FilterBtn onClick={() => updateFilters({ darkness: null })} active>Все</FilterBtn>
+            <FilterBtn onClick={() => updateFilters({ darkness: true })}>Тёмные</FilterBtn>
+            <FilterBtn onClick={() => updateFilters({ darkness: false })}>Светлые</FilterBtn>
           </div>
         </div>
         <div className="filters__furniture filters__filter" onClick={this.onFilterClick}>
-          <this.Filter onClick={() => updateFilters({ furniture: null })} active>Все</this.Filter>
-          <this.Filter onClick={() => updateFilters({ furniture: true })}>Интерьерные</this.Filter>
-          <this.Filter onClick={() => updateFilters({ furniture: false })}>Неинтерьерные</this.Filter>
+          <FilterBtn onClick={() => updateFilters({ furniture: null })} active>Все</FilterBtn>
+          <FilterBtn onClick={() => updateFilters({ furniture: true })}>Интерьерные</FilterBtn>
+          <FilterBtn onClick={() => updateFilters({ furniture: false })}>Неинтерьерные</FilterBtn>
         </div>
       </div>
     );

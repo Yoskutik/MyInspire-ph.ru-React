@@ -4,7 +4,7 @@ import React from 'react';
  * A part of Info element. Contains photographer's description.
  * @component
  */
-const InfoMessage = () => (
+const Message = () => (
   <div className="info__message">
     <h3 className="info__message_title">Обо мне</h3>
     <p>
@@ -41,4 +41,4 @@ const InfoMessage = () => (
   </div>
 );
 
-export default InfoMessage;
+export default Message;
