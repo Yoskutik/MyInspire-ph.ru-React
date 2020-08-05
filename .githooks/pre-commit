@@ -1,0 +1,90 @@
+#!/bin/sh
+
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+NORMAL=$(tput sgr0)
+
+echo " >> Staring pre-commit testing..."
+
+# # ============================== # #
+# # Scripts check up using eslint  # #
+# # ============================== # #
+
+printf " >> JSX and JavaScript test..."
+
+if node_modules/.bin/eslint --ext .js,.jsx --color ./; then
+  printf "\b\b\b: "
+  echo "${GREEN}Succeed${NORMAL}"
+else
+  printf " >> JSX script test %sfailed%s\n" "${RED}" "${NORMAL}"
+  exit 1
+fi
+
+# # ============================== # #
+# # End of script check up         # #
+# # ============================== # #
+
+# ====================================
+
+# # ============================== # #
+# # Photos check up                # #
+# # ============================== # #
+
+exec 1>&2
+exec < /dev/tty
+
+printf " >> Photos format check..."
+count=0
+bad_photos=()
+allow_list="./.githooks/photo-allow-list.txt"
+touch $allow_list
+IFS=$'\n' read -d '' -r -a lines < $allow_list
+
+for file in $(find . -name *.jpg -not -path "./node_modules/*" -not -path "./extra/*"); do
+  path="${file%.jpg*}"
+  if [ ! -f "$path.webp" ]; then
+    if [[ ! "${lines[@]}" =~ $file ]]; then
+      count=$((count + 1))
+      bad_photos+=($file)
+    fi
+  fi
+done
+
+user_interract(){
+  input=""
+  while [[ $input != 's' ]] && [[ $input != 'a' ]] && [[ $input != 'e' ]]; do
+    read -r -p " >> What do you want? Show the list [s] / Pass them all [a] / Exit [e]: " -e input < /dev/tty
+  done
+  if [ "$input" = 's' ]; then
+    for file in "${bad_photos[@]}"; do
+      echo " >> ${YELLOW}${file}${NORMAL}"
+    done
+    user_interract
+  elif [ "$input" = 'a' ]; then
+    echo " >> ${GREEN}Adding ${count} photos to the allow list. ${NORMAL}"
+    for file in "${bad_photos[@]}"; do
+      echo "$file" >> $allow_list
+    done
+    git add $allow_list
+  elif [ "$input" = 'e' ]; then
+    exit 1
+  fi
+}
+
+if [ $count -gt 0 ]; then
+  printf '\b\b\b: '
+  echo "${YELLOW}You have ${count} photos without .webp format${NORMAL}"
+  user_interract
+else
+  printf '\b\b\b: '
+  echo "${GREEN}Succeed${NORMAL}"
+fi
+
+# # ============================== # #
+# # End of photos check up         # #
+# # ============================== # #
+
+echo " >> ${GREEN}All tests passed${NORMAL}"
+
+exit 0

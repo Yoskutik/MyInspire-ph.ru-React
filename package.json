@@ -8,7 +8,7 @@
     "dev": "webpack --env.MODE=development --mode=development",
     "build": "webpack --env.MODE=production --env.hosting --mode=production",
     "build-home": "webpack --env.MODE=production --mode=production",
-    "test": "eslint **/*.jsx && eslint **/*.js",
+    "test": "eslint --ext .js,.jsx ./",
     "fix": "eslint **/*.jsx --fix && eslint **/*.js --fix"
   },
   "author": "Yoskutik <yoskutik@gmail.com>",
