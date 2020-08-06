@@ -19,7 +19,7 @@ const Card = () => (
     </div>
     <div className="info__card_message">
       <h2 itemProp="name" className="info__card_title">Мельникова Татьяна</h2>
-      <h1 itemProp="jobTitle" className="info__card_subtitle">Фотограф в Санкт-Петербурге</h1>
+      <h1 itemProp="jobTitle" className="info__card_subtitle">Профессиональный фотограф в Санкт-Петербурге</h1>
       <p className="info__card_extra">Индивидуальные фотосессии и love-story.</p>
       <div className="info__card_social">
         <a itemProp="sameAs"

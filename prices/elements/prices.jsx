@@ -9,7 +9,7 @@ import PriceList from './priceList/priceList';
  */
 const Prices = () => (
   <div className="body">
-    <h1 className="super-hidden">Цены и услуги</h1>
+    <h1 className="super-hidden">Цены</h1>
     <PriceList />
     <Conditions />
   </div>

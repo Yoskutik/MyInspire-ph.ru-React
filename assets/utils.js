@@ -44,3 +44,12 @@ export const createKeywordGenerator = function* () {
     yield keyword;
   }
 };
+
+export const checkElementVisibility = function (elm, useOnlyCenter = false) {
+  const rect = elm.getBoundingClientRect();
+  const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+  if (useOnlyCenter) {
+    return !(rect.bottom < 150 || rect.top - viewHeight >= -150);
+  }
+  return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+};

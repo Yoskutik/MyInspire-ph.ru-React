@@ -8,8 +8,8 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const pages = require('./pages.json');
 
-module.exports = env => {
-  const isDev = env && env.MODE ? env.MODE === 'development' : true;
+module.exports = (env = {}) => {
+  const isDev = env.MODE ? env.MODE === 'development' : true;
 
   const entries = {};
   const htmlPages = [];
@@ -52,12 +52,12 @@ module.exports = env => {
     devtool: isDev ? 'source-map' : false,
     entry: entries,
     output: {
-      path: (env && env.hosting)
+      path: env.hosting
         ? path.resolve(os.homedir(), 'public_html')
         : path.resolve(os.homedir(), 'Projects', 'MyInspire-ph.ru-React'),
       publicPath: '/',
       filename: `[name]/${isDev ? 'index.bundle' : '[hash]'}.js`,
-      chunkFilename: './assets/chunks/[chunkhash].chunk.js',
+      chunkFilename: `./assets/chunks/${isDev ? '[id]' : '[hash]'}.chunk.js`,
     },
     devServer: {
       port: 8089,

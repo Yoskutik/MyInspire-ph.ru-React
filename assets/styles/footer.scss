@@ -30,7 +30,7 @@
     transition-duration: 0.5s;
 
     &.opened {
-      max-height: 100px;
+      max-height: 200px;
 
       .footer__block_triangle {
         transform: rotate(90deg);

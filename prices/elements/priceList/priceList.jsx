@@ -34,9 +34,9 @@ export default class PriceList extends React.Component {
       );
     }
     return (
-      <div className="list__item" itemProp="itemListElement" itemScope itemType="http://schema.org/Product">
+      <div className="list__item">
         <div className="list__item_header">
-          <h2 className="list__item_title" itemProp="name">
+          <h2 className="list__item_title">
             {props.title}
           </h2>
 
@@ -44,11 +44,8 @@ export default class PriceList extends React.Component {
         <p className="list__item_info" itemProp="description">
           {description}
         </p>
-        <strong className="list__item_price"
-                itemProp="offers"
-                itemScope
-                itemType="http://schema.org/Offer">
-          <span itemProp="price">{props.price}</span>
+        <strong className="list__item_price">
+          <span>{props.price}</span>
         </strong>
       </div>
     );
@@ -56,7 +53,7 @@ export default class PriceList extends React.Component {
 
   render() {
     return (
-      <div className="list container" itemScope itemType="http://schema.org/ItemList">
+      <div className="list container">
         {listItems.map(item => (
           <this.ListItem key={Math.random()} {...item} />
         ))}

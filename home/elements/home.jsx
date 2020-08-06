@@ -1,8 +1,8 @@
 import React from 'react';
 import Collage from './collage/collage';
-import '../styles/info.scss';
 
 const Info = React.lazy(() => import('./info/info'));
+const Genres = React.lazy(() => import('./genres/genres'));
 
 /**
  * A content of home page. Contains Collage and Info.
@@ -16,7 +16,9 @@ const Home = () => (
       <Info />
     </React.Suspense>
 
-    {/* <Genres /> */}
+    <React.Suspense fallback={null}>
+      <Genres />
+    </React.Suspense>
   </div>
 );
 

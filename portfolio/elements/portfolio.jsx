@@ -1,5 +1,5 @@
 import React from 'react';
-import { debounce, isMobileOrTablet } from '@assets/utils';
+import { checkElementVisibility, debounce, isMobileOrTablet } from '@assets/utils';
 import Loader from '@elements/loader';
 import Picture from '@elements/picture';
 import thumbnails from './thumbnails.json';
@@ -51,16 +51,11 @@ export default class Portfolio extends React.Component {
       }
     });
     if (!isMobileOrTablet()) return;
-    const checkElementVisibility = function (elm) {
-      const rect = elm.getBoundingClientRect();
-      const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-      return !(rect.bottom < 150 || rect.top - viewHeight >= -150);
-    };
     window.addEventListener('scroll', debounce(() => {
       document.querySelectorAll('.thumbnail')
         .forEach(it => {
           const photo = it.querySelector('.item__photo');
-          if (checkElementVisibility(it)) {
+          if (checkElementVisibility(it, true)) {
             photo.classList.add('hover');
           } else {
             photo.classList.remove('hover');
@@ -143,10 +138,13 @@ export default class Portfolio extends React.Component {
     render() {
       return (
         <div className="body container">
+          <h1 className="super-hidden">
+            Портфолио
+          </h1>
           <div className="portfolio">
             {thumbnails.map((thumbnail, i) => (
               <this.Thumbnail key={Math.random()} {...thumbnail} index={i} />
-                    ))}
+            ))}
           </div>
           <this.CurrentGallery />
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './card';
 import Message from './message';
+import '../../styles/info.scss';
 
 const Info = () => (
   <div className="info">

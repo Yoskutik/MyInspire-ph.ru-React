@@ -11,10 +11,13 @@ import '../../styles/collage.scss';
 export default class Collage extends React.Component {
   constructor() {
     super();
-    this.vertList = [...Array(26).keys()].sort(() => Math.random() - 0.5);
+    this.vertList = require.context('../../photos/vertical/', false, /.jpg$/)
+      .keys()
+      .map(it => `/home/photos/vertical/${it.replace('.jpg', '')}`)
+      .sort(() => Math.random() - 0.5);
     this.isMobile = window.innerWidth < 700 && window.innerWidth < window.innerHeight;
 
-    const src = `/home/photos/${this.isMobile ? `vertical/${this.vertList[0]}` : 'horizontal/0'}`;
+    const src = this.isMobile ? this.vertList[0] : '/home/photos/horizontal/0';
     const altGenerator = createKeywordGenerator();
     const images = [
       <Image src={src} key={Math.random()} alt={altGenerator.next().value} onLoad={this.onFirstImageLoaded} />,
@@ -26,7 +29,7 @@ export default class Collage extends React.Component {
   onFirstImageLoaded = () => {
     setTimeout(() => {
       const { images } = this.state;
-      const src = `/home/photos/${this.isMobile ? `vertical/${this.vertList[this.index++]}` : 'horizontal/0'}`;
+      const src = this.isMobile ? this.vertList[this.index++ % this.vertList.length] : '/home/photos/horizontal/0';
       const altGenerator = createKeywordGenerator();
       images.unshift(
         <Image src={src} key={Math.random()} alt={altGenerator.next().value} />,
@@ -44,8 +47,7 @@ export default class Collage extends React.Component {
       const DOMImages = document.querySelectorAll('.collage__img');
       DOMImages[DOMImages.length - 1].style.opacity = '0';
       const { images } = this.state;
-      // eslint-disable-next-line max-len
-      const src = `/home/photos/${this.isMobile ? `vertical/${this.vertList[this.index % this.vertList.length]}` : 'horizontal/0'}`;
+      const src = this.isMobile ? this.vertList[this.index++ % this.vertList.length] : '/home/photos/horizontal/0';
       images.unshift(
         <Image src={src} key={Math.random()} alt={altGenerator.next().value} />,
       );

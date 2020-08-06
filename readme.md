@@ -7,7 +7,7 @@ maybe trying to learn something, or maybe you want to become a new developer of 
 
 I used this stack of technologies:
   - _Vanilla JavaScript_. There're no frameworks except _React.js_ because there's no need. 
-  The more frameworks you use, the bigger bundles file you will get.
+  The more frameworks you use, the bigger bundle files you will get.
   - _React.js_. Yes it is. I don't know why. Just wanted to do it with _React.js_. Also, I 
   didn't use _React Native_ or _React Redux_. Only _React.js_.
   - _Webpack_. The thing that compile you JavaScript modules into bundles.
@@ -58,7 +58,8 @@ Used SEO optimization tricks:
    - Getting rid of optional frameworks. If you need only `document.querySelector` alias, __do 
    not__ import _jQuery_.
    - Also `font-display: fallback` helps just a little bit.
- - Formed a semantic core.
+ - ~~Formed a semantic core.~~ Or actually, just did my best.
+ - Create fast links for Yandex.
  - Created optimization for mobile and desktop devices.
  - Switched from HTTP to HTTPS (this was on hosting website).
  - Switched from HTTP/1.1 to HTTP/2 (this was on hosting website).

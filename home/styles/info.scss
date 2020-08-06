@@ -1,14 +1,12 @@
 @use '~@styles/Variables.scss';
 
-
-
 .info {
   background: white;
   padding: 20px 0 0;
 
   &__container {
     display: flex;
-    padding: 0 20px 1.5rem 20px;
+    padding: 0 20px 2.3rem 20px;
     align-items: flex-start;
     border-bottom: 1px solid Variables.$border_color;
   }
@@ -89,12 +87,12 @@
     }
 
     &__container {
-      padding: 0 0 20px 0;
+      padding: 0 0 2rem 0;
     }
   }
 }
 
-@media screen and (max-width: 740px) and (min-width: 480px) {
+@media screen and (max-width: 760px) and (min-width: 500px) {
   .info {
     padding-top: 0;
 
@@ -109,6 +107,7 @@
 
     &__card {
       display: flex;
+      width: 100%;
 
       &_message {
         display: flex;
@@ -137,7 +136,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
   .info {
     padding-top: 0;
 

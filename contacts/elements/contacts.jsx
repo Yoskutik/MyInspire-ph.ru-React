@@ -34,6 +34,9 @@ export default class Contacts extends React.Component {
   render() {
     return (
       <div className="body">
+        <h1 className="super-hidden">
+          Контакты
+        </h1>
         <Intro />
         <div className="contacts container">
           <div className="contacts__container">
