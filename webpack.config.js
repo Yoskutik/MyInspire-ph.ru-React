@@ -57,7 +57,7 @@ module.exports = (env = {}) => {
         : path.resolve(os.homedir(), 'Projects', 'MyInspire-ph.ru-React'),
       publicPath: '/',
       filename: `[name]/${isDev ? 'index.bundle' : '[hash]'}.js`,
-      chunkFilename: `./assets/chunks/${isDev ? '[id]' : '[hash]'}.chunk.js`,
+      chunkFilename: `./assets/chunks/${isDev ? '[id]' : '[id].[hash]'}.chunk.js`,
     },
     devServer: {
       port: 8089,
