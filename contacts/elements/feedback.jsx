@@ -41,14 +41,16 @@ export default class Feedback extends React.Component {
         return;
       }
 
+      const form = document.querySelector('.contacts__message');
       fetch('/api/sendMail.php', {
         method: 'POST',
-        body: new FormData(document.querySelector('.contacts__message')),
+        body: new FormData(form),
       })
         .then(response => {
           if (response.ok) {
             this.props.toast('Электронная почта', 'Сообщение успешно доставленно');
             this.lastSendAt = Date.now();
+            form.reset();
           } else {
             this.props.toast('Электронная почта', 'При отправке сообщения возникли ошибки');
           }

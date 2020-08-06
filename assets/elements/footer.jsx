@@ -83,15 +83,13 @@ export default class Footer extends React.Component {
                       { title: 'StackOverflow', href: 'https://stackoverflow.com/users/11589183/yoskutik' },
                       { title: 'Habr', href: 'https://habr.com/ru/users/yoskutik/' },
                   ]} />
-          <noindex>
-            <this.FooterBlock title="Icons"
-                              links={[
+          <this.FooterBlock title="Icons"
+                            links={[
                       { title: 'By Freepik', href: 'https://www.freepik.com/' },
                       { title: 'From www.flaticon.com', href: 'https://www.flaticon.com/' },
                       { title: 'Licensed by CC 3.0 BY', href: 'http://creativecommons.org/licenses/by/3.0/' },
-                    ]} />
-            <this.FooterCopyright />
-          </noindex>
+                  ]} />
+          <this.FooterCopyright />
         </div>
       </footer>
     );

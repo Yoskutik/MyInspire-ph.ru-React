@@ -27,6 +27,7 @@ module.exports = (env = {}) => {
         keywords: value.keywords,
         title: value.title,
         robots: value.robots,
+        isDev,
         minify: isDev ? false : {
           caseSensitive: false,
           removeComments: true,
@@ -57,10 +58,10 @@ module.exports = (env = {}) => {
         : path.resolve(os.homedir(), 'Projects', 'MyInspire-ph.ru-React'),
       publicPath: '/',
       filename: `[name]/${isDev ? 'index.bundle' : '[hash]'}.js`,
-      chunkFilename: `./assets/chunks/${isDev ? '[id]' : '[id].[hash]'}.chunk.js`,
+      chunkFilename: `./assets/chunks/${isDev ? '[id]' : '[contenthash]'}.chunk.js`,
     },
     devServer: {
-      port: 8089,
+      port: 80,
       compress: true,
     },
     module: {
@@ -106,7 +107,7 @@ module.exports = (env = {}) => {
           ],
         },
         {
-          test: /\.(png|otf|jpg|webp)$/,
+          test: /\.(otf|jpg|webp)$/,
           loader: 'file-loader',
           options: {
             outputPath: 'assets',
