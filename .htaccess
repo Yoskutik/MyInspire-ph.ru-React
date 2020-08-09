@@ -2,6 +2,8 @@ ErrorDocument 404 /404/
 
 RewriteEngine on
 
+Redirect 301 /pricelist/ https://myinspire-ph.ru/prices/
+
 # Getting rid of index.php
 RewriteCond    %{THE_REQUEST} ^.*/index.php
 RewriteRule    ^(.*)$ / [R=301,L]
@@ -20,17 +22,17 @@ RewriteRule ^/?(index\.cfm)? /? [R=301,L]
 
 <IfModule mod_expires.c>
     ExpiresActive On
-    ExpiresDefault "access plus 1 month"
+    ExpiresDefault "access plus 10 days"
 
-    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 10 days"
 
-    ExpiresByType image/gif "access plus 1 month"
-    ExpiresByType image/png "access plus 1 month"
-    ExpiresByType image/jpg "access plus 1 month"
-    ExpiresByType image/jpeg "access plus 1 month"
-    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/gif "access plus 10 days"
+    ExpiresByType image/png "access plus 10 days"
+    ExpiresByType image/jpg "access plus 10 days"
+    ExpiresByType image/jpeg "access plus 10 days"
+    ExpiresByType image/webp "access plus 10 days"
 
-    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/css "access plus 10 days"
 
-    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/javascript "access plus 10 days"
 </IfModule>

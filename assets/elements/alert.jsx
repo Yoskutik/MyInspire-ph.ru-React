@@ -11,10 +11,6 @@ import '@styles/alert.scss';
  * </Alert>
  */
 class Alert extends React.Component {
-  /**
-   * Values of this dictionary are all possible types.
-   * @type {{SUCCESS: string, ERROR: string, INFO: string}}
-   */
   static Types = {
     SUCCESS: 'success',
     INFO: 'info',
@@ -46,25 +42,35 @@ class Alert extends React.Component {
     this.ref = React.createRef();
   }
 
+  onClose = () => {
+    this.ref.current.remove();
+    if (this.props.onClose) this.props.onClose();
+  };
+
   render() {
-    if (new Date() >= this.props.expiredAt) return null;
+    if (this.props.expiredAt && new Date() >= this.props.expiredAt) return null;
     return (
-      <div className={`alert alert-${this.props.type} container`} ref={this.ref}>
+      <div className={`alert alert-${this.props.type} container ${this.props.className}`} ref={this.ref}>
         {this.props.children}
-        <button type="button" className="alert__close" onClick={() => this.ref.current.remove()}>×</button>
+        <button type="button" className="alert__close" onClick={this.onClose}>×</button>
       </div>
     );
   }
 }
 
 Alert.propTypes = {
-  expiredAt: PropTypes.instanceOf(Date).isRequired,
+  expiredAt: PropTypes.instanceOf(Date),
   children: PropTypes.string.isRequired,
   type: PropTypes.oneOf(Object.values(Alert.Types)),
+  className: PropTypes.string,
+  onClose: PropTypes.func,
 };
 
 Alert.defaultProps = {
   type: Alert.Types.INFO,
+  className: '',
+  expiredAt: null,
+  onClose: null,
 };
 
 export default Alert;

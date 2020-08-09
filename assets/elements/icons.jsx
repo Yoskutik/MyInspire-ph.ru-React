@@ -10,10 +10,6 @@ const defaultProps = {
   size: '38',
 };
 
-/**
- * An SVG icon of VK.com
- * @component
- */
 export const VKIcon = props => (
   <svg viewBox="0 0 112.196 112.196" width={props.size} height={props.size}>
     <g>
@@ -27,10 +23,6 @@ export const VKIcon = props => (
 VKIcon.propTypes = propTypes;
 VKIcon.defaultProps = defaultProps;
 
-/**
- * An SVG icon of Pinterest.com
- * @component
- */
 export const PinterestIcon = props => (
   <svg viewBox="0 0 112.198 112.198" width={props.size} height={props.size}>
     <g>
@@ -44,10 +36,6 @@ export const PinterestIcon = props => (
 PinterestIcon.propTypes = propTypes;
 PinterestIcon.defaultProps = defaultProps;
 
-/**
- * An SVG icon of Whats App
- * @component
- */
 export const WhatsAppIcon = props => (
   <svg viewBox="-1 0 512 512" width={props.size} height={props.size}>
     <path d="m10.894531 512c-2.875 0-5.671875-1.136719-7.746093-3.234375-2.734376-2.765625-3.789063-6.78125-2.761719-10.535156l33.285156-121.546875c-20.722656-37.472656-31.648437-79.863282-31.632813-122.894532.058594-139.941406 113.941407-253.789062 253.871094-253.789062 67.871094.0273438 131.644532 26.464844 179.578125 74.433594 47.925781 47.972656 74.308594 111.742187 74.289063 179.558594-.0625 139.945312-113.945313 253.800781-253.867188 253.800781 0 0-.105468 0-.109375 0-40.871093-.015625-81.390625-9.976563-117.46875-28.84375l-124.675781 32.695312c-.914062.238281-1.84375.355469-2.761719.355469zm0 0" fill="#e5e5e5" />
@@ -62,12 +50,8 @@ export const WhatsAppIcon = props => (
 WhatsAppIcon.propTypes = propTypes;
 WhatsAppIcon.defaultProps = defaultProps;
 
-/**
- * An SVG icon of Instagram.com
- * @component
- */
 export const InstagramIcon = props => (
-  <svg viewBox="0 0 24 24" enableBackground="new 0 0 24 24" width={props.size} height={props.size}>
+  <svg viewBox="0 0 24 24" enableBackground="0 0 24 24" width={props.size} height={props.size}>
     <linearGradient id="instagram__gradient" gradientTransform="matrix(0 -1.982 -1.844 0 -132.522 -51.077)" gradientUnits="userSpaceOnUse" x1="-37.106" x2="-26.555" y1="-72.705" y2="-84.047">
       <stop offset="0%" stopColor="#fd5" />
       <stop offset="50%" stopColor="#ff543e" />
@@ -80,10 +64,6 @@ export const InstagramIcon = props => (
 InstagramIcon.propTypes = propTypes;
 InstagramIcon.defaultProps = defaultProps;
 
-/**
- * An SVG icon of Copy
- * @component
- */
 export const CopyIcon = props => (
   <svg viewBox="-40 0 512 512" width={props.size} height={props.size}>
     <path d="m271 512h-191c-44.113281 0-80-35.886719-80-80v-271c0-44.113281 35.886719-80 80-80h191c44.113281 0 80 35.886719 80 80v271c0 44.113281-35.886719 80-80 80zm-191-391c-22.054688 0-40 17.945312-40 40v271c0 22.054688 17.945312 40 40 40h191c22.054688 0 40-17.945312 40-40v-271c0-22.054688-17.945312-40-40-40zm351 261v-302c0-44.113281-35.886719-80-80-80h-222c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h222c22.054688 0 40 17.945312 40 40v302c0 11.046875 8.953125 20 20 20s20-8.953125 20-20zm0 0" />
@@ -92,4 +72,26 @@ export const CopyIcon = props => (
 CopyIcon.propTypes = propTypes;
 CopyIcon.defaultProps = {
   size: '16',
+};
+
+export const ArrowIcon = props => (
+  <svg viewBox="0 0 256 256" enableBackground="0 0 256 256" className={props.className} width={props.size} height={props.size}>
+    <defs>
+      <filter id="f1" x="0" y="0">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+      </filter>
+    </defs>
+    <polygon fill="#000" filter="url(#f1)" points="225.813,48.907 128,146.72 30.187,48.907 0,79.093 128,207.093 256,79.093" />
+    <polygon fill={props.fill} points="225.813,48.907 128,146.72 30.187,48.907 0,79.093 128,207.093 256,79.093" />
+  </svg>
+);
+ArrowIcon.propTypes = {
+  size: PropTypes.string,
+  fill: PropTypes.string,
+  className: PropTypes.string,
+};
+ArrowIcon.defaultProps = {
+  size: '16',
+  fill: '#fafafa',
+  className: '',
 };

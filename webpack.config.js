@@ -1,15 +1,19 @@
 const autoprefixer = require('autoprefixer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const os = require('os');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const pages = require('./pages.json');
 
+/**
+ * @param {String} env.mode - development/production. Default is development.
+ * @param {Boolean} env.hosting - is webpack running on hosting server. Default is false.
+ */
 module.exports = (env = {}) => {
-  const isDev = env.MODE ? env.MODE === 'development' : true;
+  const isDev = env.mode ? env.mode === 'development' : true;
 
   const entries = {};
   const htmlPages = [];
@@ -19,7 +23,7 @@ module.exports = (env = {}) => {
       entries[key] = `./${key}/script.jsx`;
     }
     htmlPages.push(
-      new HtmlWebpackPlugin({
+      new HtmlPlugin({
         filename: `${key === 'home' ? '' : `${key}/`}index.html`,
         template: './template.ejs',
         chunks: [key],
@@ -110,8 +114,7 @@ module.exports = (env = {}) => {
           test: /\.(otf|jpg|webp)$/,
           loader: 'file-loader',
           options: {
-            outputPath: 'assets',
-            name: '[name].[ext]',
+            name: '[path][name].[ext]',
           },
         },
       ],
@@ -145,18 +148,14 @@ module.exports = (env = {}) => {
         filename: `[name]/${isDev ? 'style' : '[hash]'}.css`,
       }),
       new CleanWebpackPlugin(),
-      new CopyWebpackPlugin({
+      new CopyPlugin({
         patterns: [
-          { from: './favicon.ico', to: '.' },
-          { from: './.htaccess', to: '.' },
-          { from: './robots.txt', to: '.' },
-          { from: './sitemap.xml', to: '.' },
+          'favicon.ico',
+          '.htaccess',
+          'robots.txt',
+          'sitemap.xml',
           { from: './api', to: './api' },
-          { from: './assets/photos', to: './assets/photos' },
-          { from: './home/photos', to: './home/photos' },
-          { from: './portfolio/photos', to: './portfolio/photos' },
-          { from: './extra/locations/photos', to: './extra/locations/photos' },
-          { from: './extra/poses/photos', to: './extra/poses/photos' },
+          { from: './assets/photos/ava-500x500.jpg', to: './assets/photos' },
           { from: './extra/studios/photos', to: './extra/studios/photos' },
         ],
       }),

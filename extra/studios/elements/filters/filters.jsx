@@ -48,6 +48,9 @@ export default class Filters extends React.Component {
     const { updateFilters } = this.props;
     return (
       <div className="filters">
+        <h3 className="filters__title">
+          Фильтры:
+        </h3>
         <div className="filters__cost-n-darkness">
           <FilterCostBtn onSortClick={this.onSortClick} />
           <div className="filters__darkness filters__filter" onClick={this.onFilterClick}>

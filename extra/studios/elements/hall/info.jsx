@@ -5,7 +5,6 @@ import React from 'react';
  * An information component. Contains information about price, hall's title and its
  * studio title as links to their website, description, and address (the title and
  * the link from Google Maps).
- * @param {Object} props
  * @param {String} props.title - the title of the hall.
  * @param {String} props.href - a link of the hall's website.
  * @param {Array<String>} props.prices - a list of prices of the hall. The price
@@ -22,7 +21,7 @@ const Info = props => {
   return (
     <div className="list__item_info">
       <h3 className="list__item_hall">
-        <a href={props.href} target="_blank" rel="noreferrer">{props.title}</a>
+        <a href={props.href} target="_blank" rel="noreferrer">{`Зал ${props.title}`}</a>
       </h3>
       <span className="list__item_price">
         {props.prices.map(price => (
@@ -37,6 +36,8 @@ const Info = props => {
       <div className="list__item_contacts\">
         <strong>Контакты:</strong>
         <p>
+          Адрес:
+          {' '}
           <a href={`https://www.google.com/maps/${props.address.href}`} target="_blank" rel="noreferrer">
             {props.address.location}
           </a>

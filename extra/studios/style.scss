@@ -6,12 +6,18 @@
 
 .filters {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
   margin-top: 2rem;
+
+  &__title {
+    font-size: 1.3rem;
+    margin: 0 1rem 0 0;
+  }
 
   &__cost-n-darkness {
     display: flex;
     margin-right: 20px;
+    margin-left: auto;
   }
 
   &__cost {
@@ -192,6 +198,22 @@ a {
 }
 
 @media screen and (max-width: 980px) {
+  .filters {
+    flex-wrap: wrap;
+    padding: 0 20px;
+
+    &__title {
+      margin-bottom: 0.8rem;
+    }
+
+    &__cost-n-darkness {
+      margin: 0 0 0.8rem auto;
+    }
+
+    &__furniture {
+      margin-left: auto;
+    }
+  }
   .list__item {
     &_title {
       padding: 0 20px;
@@ -218,13 +240,9 @@ a {
   }
 
   .filters {
-    flex-wrap: wrap;
-    padding: 0 20px;
     margin-top: 1rem;
 
     &__cost-n-darkness {
-      margin: 0 0 0.8rem 0;
-      width: 100%;
       justify-content: flex-end;
     }
 
@@ -245,6 +263,10 @@ a {
 
     &_main-image {
       width: 81%;
+
+      &.single {
+        width: 100%;
+      }
     }
 
     &_extra-images {

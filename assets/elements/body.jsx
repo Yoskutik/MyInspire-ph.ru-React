@@ -14,16 +14,30 @@ import '@styles/Base.scss';
  *      <div class="div"></div>
  *  </Body>
  */
-const Body = function (props) {
-  return (
-    <>
-      <Loader />
-      <Header />
-      {props.children}
-      <Footer />
-    </>
-  );
-};
+class Body extends React.Component {
+  componentDidMount() {
+    // eslint-disable-next-line no-console
+    console.log(`
+    # ======================================================= #
+    || Hello, wanderer!                                      ||
+    || I don't know why are you here. But if you think this  ||
+    || site can be improved somehow, you can write to me     ||
+    || (developer) - yoskutik@gmail.com.                     ||
+    # ======================================================= #
+    `);
+  }
+
+  render() {
+    return (
+      <>
+        <Loader />
+        <Header />
+        {this.props.children}
+        <Footer />
+      </>
+    );
+  }
+}
 
 Body.propTypes = {
   children: PropTypes.oneOfType([

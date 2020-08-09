@@ -4,15 +4,23 @@
     "type": "Макияж",
     "price": "от 1000",
     "username": "g_hassliebe"
-  }, {
+  },
+  {
     "name": "Аня",
     "type": "Макияж + прическа",
     "price": "полный образ от 3500",
     "username": "annsemenenko_makeup"
-  }, {
+  },
+  {
     "name": "Настя",
     "type": "Макияж + прическа",
-    "price": "полный образ от 2500",
+    "price": "полный образ от 3500",
     "username": "ru.ururu"
+  },
+  {
+    "name": "Аня",
+    "type": "Макияж + прическа",
+    "price": "полный образ - 4000",
+    "username": "anya_stylist_spb"
   }
 ]

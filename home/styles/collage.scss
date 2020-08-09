@@ -18,4 +18,22 @@
     transition-duration: 3.5s;
     opacity: 1;
   }
+
+  &__arrow {
+    position: absolute;
+    visibility: hidden;
+    animation: up-down 1.5s infinite linear;
+  }
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

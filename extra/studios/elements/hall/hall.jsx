@@ -34,13 +34,14 @@ export default class Hall extends React.Component {
     }
     const address = this.props.address || studio.address;
     const contacts = this.props.contacts || studio.contacts;
+    const photos = this.props.photosList.map(ph => `${this.props.photos_dir}/${ph}`);
     return (
       <div className="list__item" onClick={this.onSmallImageClick}>
         <h2 className="list__item_title">
           <a href={studio.href} target="_blank" rel="noreferrer">{this.props.studio}</a>
         </h2>
         <div className="list__item_extra">
-          <Preview photos={this.props.photos} />
+          <Preview photos={photos} />
           <Info title={this.props.title}
                 prices={this.props.prices}
                 address={address}
@@ -59,9 +60,10 @@ Hall.propTypes = {
   href: PropTypes.string.isRequired,
   address: PropTypes.object,
   contacts: PropTypes.object,
-  photos: PropTypes.array.isRequired,
   prices: PropTypes.array.isRequired,
   description: PropTypes.string.isRequired,
+  photosList: PropTypes.arrayOf(String).isRequired,
+  photos_dir: PropTypes.string.isRequired,
 };
 
 Hall.defaultProps = {

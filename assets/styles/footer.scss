@@ -24,6 +24,7 @@
 
   &__block {
     margin-right: 2.5rem;
+    margin-bottom: 5px;
     color: Variables.$gray_color;
     max-height: 0.9rem;
     overflow: hidden;
@@ -39,7 +40,7 @@
 
     &_title {
       margin: 0 0 5px 0;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       cursor: pointer;
     }
 
@@ -47,12 +48,10 @@
       display: inline-block;
       width: 0;
       height: 0;
-      border-top: 5px solid transparent;
-      border-bottom: 5px solid transparent;
-      border-left: 9px solid Variables.$gray_color;
-      margin: 0 4px;
-      position: relative;
-      top: -1px;
+      border-top: 0.3rem solid transparent;
+      border-bottom: 0.3rem solid transparent;
+      border-left: 0.5rem solid Variables.$gray_color;
+      margin: 0 6px 0 4px;
       transition-duration: 0.5s;
     }
 

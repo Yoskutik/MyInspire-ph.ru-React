@@ -16,7 +16,18 @@ export default class Studios extends React.Component {
       sort: false,
       by: 'ASC',
     };
-    this.hallsList = halls.map(hall => <Hall key={Math.random()} {...hall} />);
+    const photos = {};
+    require.context('../photos', true)
+      .keys()
+      .forEach(ph => {
+        const pathPieces = ph.replace(/^\.\//, '').split('/');
+        const title = pathPieces.slice(0, pathPieces.length - 1).join('/');
+        if (!Object.keys(photos).includes(title)) {
+          photos[title] = [];
+        }
+        photos[title].push(pathPieces[pathPieces.length - 1]);
+      });
+    this.hallsList = halls.map(hall => <Hall key={Math.random()} {...hall} photosList={photos[hall.photos_dir]} />);
   }
 
   /**

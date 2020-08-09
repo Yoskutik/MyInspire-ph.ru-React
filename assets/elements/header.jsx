@@ -22,12 +22,6 @@ export default class Header extends React.Component {
       <a itemProp="url" className="header__link" href={props.href}><span>{props.title}</span></a>
     );
 
-    /**
-     * A dropdown menu popup handler. Each time user clicks
-     * somewhere except dropdown menu, it become hidden.
-     * @param {Event} evt
-     * @callback
-     */
     onMenuPopup = evt => {
       if (!evt.target.closest('.header__nav')) {
         this.nav.current.style.display = 'none';
@@ -35,11 +29,6 @@ export default class Header extends React.Component {
       }
     };
 
-    /**
-     * A dropdown menu click handler. Opens or closes a
-     * dropdown menu.
-     * @callback
-     */
     onDropdownBtnClick = () => {
       const nav = this.nav.current;
       if (nav.style.display === 'flex') {

@@ -1,15 +1,10 @@
 import React from 'react';
 import listItems from './priceList.json';
 
-/**
- * A list of services. Contains several items.
- * @component
- */
 export default class PriceList extends React.Component {
   /**
    * Represents an item in the services' list. Each item has its name,
    * description (or additional information), and a price.
-   * @param {Object} props
    * @param {String} props.title - a name of service.
    * @param {Number} props.price - a price.
    * @param {Array<String>} props.description - a list of descriptive

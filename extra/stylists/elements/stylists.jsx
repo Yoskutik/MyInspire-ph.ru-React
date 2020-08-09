@@ -37,10 +37,12 @@ export default class Stylists extends React.Component {
       <div className="stylists__item_column">
         <span>
           Цена:
+          {' '}
           <span className="stylists__item_price">{props.price}</span>
         </span>
         <span>
           Контакты:
+          {' '}
           <a className="stylists__item_instagram"
              href={`https://www.instagram.com/${props.username}/`}
              target="_blank"

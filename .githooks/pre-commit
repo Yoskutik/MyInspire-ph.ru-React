@@ -87,4 +87,41 @@ fi
 
 echo " >> ${GREEN}All tests passed${NORMAL}"
 
+# # ============================== # #
+# # Updating sitemap.xml           # #
+# # ============================== # #
+
+printf " >> Updating sitemap.xml..."
+
+field=lastmod
+timestamp="$(date --iso-8601=seconds)"
+sitemap=""
+
+IFS=$'\r\n'
+for line in $(cat ./sitemap.xml)
+do
+  case $line in
+    *"<$field>"*"</$field>"* )
+    pre=${line#*"<$field>"}
+    suf=${line%"</$field>"*}
+    line="${line%$pre}${timestamp}${line#$suf}"
+    ;;
+  esac
+  sitemap=$sitemap$line$'\r\n'
+done
+
+echo "$sitemap" > sitemap.xml
+
+git add ./sitemap.xml
+git commit --amend -C HEAD --no-verify
+
+printf "\b\b\b:"
+echo "${SUCCESS}Done${NORMAL}"
+
+# # ============================== # #
+# # End of updating sitemap.xml    # #
+# # ============================== # #
+
+echo " >> Pre-commit is done"
+
 exit 0

@@ -1,16 +1,8 @@
 import React from 'react';
 import '@styles/footer.scss';
 
-/**
- *  A footer element. Props are not required.
- *  @component
- */
 export default class Footer extends React.Component {
   /**
-   * Creates a block of footer, that contains a block's title and a
-   * list of links.
-   * @component
-   * @param {Object} props
    * @param {string} props.title - A title of block
    * @param {Array.<{title: String, href: String}>} props.links - An array of links.
    * Each sample of links array contains link's title and address.
@@ -36,10 +28,6 @@ export default class Footer extends React.Component {
     );
   };
 
-  /**
-   * Creates a copyright section of Footer.
-   * @component
-   */
   FooterCopyright = () => (
     <span className="footer__copyright" title="Мельникова Татьяна. Профессиональный фотограф">
       <meta itemProp="copyrightYear" content="2019" />
@@ -51,11 +39,6 @@ export default class Footer extends React.Component {
     </span>
   );
 
-  /**
-   * A footer click handler. Opens or closes footer blocks' links lists.
-   * @param {Event} evt
-   * @callback
-   */
   onFooterClick = evt => {
     const element = evt.target.closest('.footer__block_title');
     if (element) {
