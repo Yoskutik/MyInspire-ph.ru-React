@@ -61,7 +61,7 @@ module.exports = (env = {}) => {
         ? path.resolve(os.homedir(), 'public_html')
         : path.resolve(os.homedir(), 'Projects', 'MyInspire-ph.ru-React'),
       publicPath: '/',
-      filename: `[name]/${isDev ? 'index.bundle' : '[hash]'}.js`,
+      filename: `[name]/${isDev ? 'index.bundle' : '[contenthash]'}.js`,
       chunkFilename: `./assets/chunks/${isDev ? '[id]' : '[contenthash]'}.chunk.js`,
     },
     devServer: {
@@ -156,7 +156,6 @@ module.exports = (env = {}) => {
           'sitemap.xml',
           { from: './api', to: './api' },
           { from: './assets/photos/ava-500x500.jpg', to: './assets/photos' },
-          { from: './extra/studios/photos', to: './extra/studios/photos' },
         ],
       }),
     ],
