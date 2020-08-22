@@ -112,7 +112,7 @@ done
 
 echo "$sitemap" > sitemap.xml
 
-git add ./sitemap.xml > /dev/null
+git add ./sitemap.xml &> /dev/null
 
 printf "\b\b\b:"
 echo "${GREEN}Done${NORMAL}"
