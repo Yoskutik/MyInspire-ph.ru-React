@@ -113,7 +113,6 @@ done
 echo "$sitemap" > sitemap.xml
 
 git add ./sitemap.xml
-git commit --amend -C HEAD --no-verify
 
 printf "\b\b\b:"
 echo "${SUCCESS}Done${NORMAL}"
