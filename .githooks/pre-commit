@@ -112,10 +112,10 @@ done
 
 echo "$sitemap" > sitemap.xml
 
-git add ./sitemap.xml
+git add ./sitemap.xml --quiet
 
 printf "\b\b\b:"
-echo "${SUCCESS}Done${NORMAL}"
+echo "${GREEN}Done${NORMAL}"
 
 # # ============================== # #
 # # End of updating sitemap.xml    # #
