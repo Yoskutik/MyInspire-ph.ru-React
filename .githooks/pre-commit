@@ -114,7 +114,7 @@ echo "$sitemap" > sitemap.xml
 
 git add ./sitemap.xml &> /dev/null
 
-printf "\b\b\b:"
+printf "\b\b\b: "
 echo "${GREEN}Done${NORMAL}"
 
 # # ============================== # #
