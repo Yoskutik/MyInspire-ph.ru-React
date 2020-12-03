@@ -37,7 +37,7 @@ const ListItem = ({title, lastPrice, price, description}) => {
 document.addEventListener('DOMContentLoaded', () => {
   ReactDom.render(
     <Body>
-      <div className="tmp containerg">
+      <div className="tmp container">
         <ListItem title="27 декабря - фотодень: Only you" description={[
           'Часовая съёмка',
           '50 кадров в обработке',
