@@ -15,7 +15,7 @@ const Prices = () => (
     <Alert expiredAt={Alert.createExpiredAt(27, 12, 2020)} type={Alert.Types.INFO}>
       27 декабря - фотодень: only you
       <br />
-      <a href="/prices/coffee-in-bed" className="tmp">Подробнее</a>
+      <a href="/prices/only-you" className="tmp">Подробнее</a>
     </Alert>
     <PriceList />
     <Conditions />
