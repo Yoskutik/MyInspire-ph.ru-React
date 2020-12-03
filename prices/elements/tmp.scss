@@ -1,0 +1,10 @@
+.tmp {
+  color: #5c5c65;
+  text-decoration: none;
+  margin-top: 5px;
+  display: block;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
